@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="alrhal_almky.AlharamController">
+   <children>
+      <ImageView fitHeight="740.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@مكونات%20المرحلة%20الاولى/╪«┘ä┘ü┘è╪⌐-╪º┘ä┘à╪▒╪¡┘ä╪⌐-╪º┘ä╪º┘ö┘ê┘ä┘ë.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="39.0" fitWidth="21.0" layoutX="66.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪º┘ä┘â╪╣╪¿╪⌐.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="43.0" fitWidth="50.0" layoutX="11.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪º┘ä┘à┘é╪º┘à.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
