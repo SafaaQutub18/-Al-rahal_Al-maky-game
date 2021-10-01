@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.GameـmapController">
+   <children>
+      <ImageView fitHeight="675.0" fitWidth="900.0" layoutX="1.0">
+         <image>
+            <Image url="@الصور/خريطة-اللعبة.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="98.0" fitWidth="95.0" layoutX="485.0" layoutY="366.0">
+         <image>
+            <Image url="@الصور/الخريطة_منى.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="103.0" fitWidth="98.0" layoutX="351.0" layoutY="279.0">
+         <image>
+            <Image url="@الصور/الخريطة_الحرم.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="160.0" fitWidth="152.0" layoutX="410.0" layoutY="130.0">
+         <image>
+            <Image url="@الصور/الخريطة_الجبال.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
