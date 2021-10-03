@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.GameـmapController">
    <children>
-      <ImageView fitHeight="675.0" fitWidth="900.0" layoutX="1.0">
+      <ImageView fitHeight="675.0" fitWidth="900.0">
          <image>
             <Image url="@الصور/خريطة-اللعبة.png" />
          </image>
@@ -26,5 +30,19 @@
             <Image url="@الصور/الخريطة_الجبال.png" />
          </image>
       </ImageView>
+      <Button fx:id="alharamButton" layoutX="364.0" layoutY="284.0" mnemonicParsing="false" onAction="#handleAlharamButton" opacity="0.0" prefHeight="91.0" prefWidth="71.0" text="الحرم">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="497.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleMenaButton" opacity="0.0" prefHeight="60.0" prefWidth="71.0" text="منى">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Text fx:id="WarningText" fill="#ff4444" layoutX="144.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

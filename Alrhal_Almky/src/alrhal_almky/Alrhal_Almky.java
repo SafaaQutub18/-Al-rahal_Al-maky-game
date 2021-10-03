@@ -19,7 +19,7 @@ public class Alrhal_Almky extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Alharam.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("start.fxml"));
         
         Scene scene = new Scene(root);
         

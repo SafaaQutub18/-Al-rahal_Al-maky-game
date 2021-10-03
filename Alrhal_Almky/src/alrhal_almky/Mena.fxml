@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="alrhal_almky.MenaController">
+<AnchorPane id="AnchorPane" prefHeight="638.0" prefWidth="899.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.MenaController">
   <children>
-    <ImageView fitHeight="671.0" fitWidth="959.0" layoutX="2.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="680.0" fitWidth="901.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
       <image>
         <Image url="@الصور/مكونات%20المرحلة%20الثانية/╪«┘ä┘ü┘è╪⌐-╪º┘ä┘à╪▒╪¡┘ä╪⌐-╪º┘ä╪½╪º┘å┘è╪⌐.png" />
       </image>
@@ -99,5 +99,68 @@
         <Image url="@الصور/مكونات%20المرحلة%20الثانية/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪½╪º┘å┘è╪⌐_┘ü┘ê┘é%20╪º┘ä╪¼┘à╪▒╪⌐%20╪º┘ä┘â╪¿╪▒┘ë.png" />
       </image>
     </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="7.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-01.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="797.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-06.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="698.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-05.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="153.0" layoutY="-26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-02.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="813.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleMaptButton" opacity="0.0" prefHeight="65.0" prefWidth="65.0" text="الخريطة">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <HBox layoutX="378.0" layoutY="25.0" prefHeight="40.0" prefWidth="147.0" spacing="11.0">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-04.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-04.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-04.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="378.0" layoutY="25.0" prefHeight="40.0" prefWidth="147.0" spacing="11.0">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-03.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-03.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-03.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
   </children>
 </AnchorPane>
