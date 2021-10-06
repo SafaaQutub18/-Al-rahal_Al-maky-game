@@ -43,21 +43,25 @@ public class GameـmapController implements Initializable {
         root = FXMLLoader.load(getClass().getResource("Alharam.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        AlharamController alharam = new AlharamController();
+        alharam.setScene(scene);
         stage.setScene(scene);
         stage.show();
     }
     
     @FXML
     private void handleMenaButton(ActionEvent event) throws IOException {
-        if(userLevel.equalsIgnoreCase("0")){
-        WarningText.setText("عذرًا يجب عليك اولًا الانتهاء من مرحلة الحرم المكي حتى تستطيع إكمال الطريق إلى منى");
-        } else {
+        //if(userLevel.equalsIgnoreCase("0")){
+        //WarningText.setText("عذرًا يجب عليك اولًا الانتهاء من مرحلة الحرم المكي حتى تستطيع إكمال الطريق إلى منى");
+        //} else {
         root = FXMLLoader.load(getClass().getResource("Mena.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        MenaController mena = new MenaController();
+        mena.setScene(scene);
         stage.setScene(scene);
         stage.show();
-        }
+       // }
     }
 
     /**

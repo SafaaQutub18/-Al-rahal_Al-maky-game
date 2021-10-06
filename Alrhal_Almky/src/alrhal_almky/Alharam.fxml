@@ -7,39 +7,39 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.AlharamController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.AlharamController">
    <children>
       <ImageView fitHeight="678.0" fitWidth="907.0" layoutX="-3.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/مكونات%20المرحلة%20الاولى/╪«┘ä┘ü┘è╪⌐-╪º┘ä┘à╪▒╪¡┘ä╪⌐-╪º┘ä╪º┘ö┘ê┘ä┘ë.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="75.0" layoutX="657.0" layoutY="568.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="kaaba_1" fitHeight="74.0" fitWidth="75.0" layoutX="657.0" layoutY="568.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪º┘ä┘â╪╣╪¿╪⌐.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="83.0" fitWidth="90.0" layoutX="556.0" layoutY="559.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="makam_1" fitHeight="83.0" fitWidth="90.0" layoutX="556.0" layoutY="559.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪º┘ä┘à┘é╪º┘à.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="102.0" fitWidth="102.0" layoutX="452.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="sahn_1" fitHeight="102.0" fitWidth="102.0" layoutX="452.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪¡╪¼╪▒%20╪º╪│┘à╪º╪╣┘è┘ä.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="91.0" fitWidth="87.0" layoutX="367.0" layoutY="558.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="zamzam_1" fitHeight="91.0" fitWidth="87.0" layoutX="367.0" layoutY="558.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪¿┘è┘ö╪▒%20╪▓┘à╪▓┘à.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="85.0" fitWidth="76.0" layoutX="277.0" layoutY="561.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="methna_1" fitHeight="85.0" fitWidth="76.0" layoutX="277.0" layoutY="561.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪º┘ä┘à┘è┘ö╪░┘å╪⌐.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="88.0" fitWidth="85.0" layoutX="179.0" layoutY="565.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="taef_1" fitHeight="88.0" fitWidth="85.0" layoutX="179.0" layoutY="565.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪º┘ä╪▒╪¼╪º┘ä.png" />
          </image>
@@ -64,32 +64,32 @@
             <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪¡╪▒┘à╪⌐┘í.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="250.0" fitWidth="226.0" layoutX="333.0" layoutY="269.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="kaaba_2" fitHeight="250.0" fitWidth="226.0" layoutX="333.0" layoutY="269.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪╕┘ä%20╪º┘ä┘â╪╣╪¿╪⌐.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="225.0" fitWidth="270.0" layoutX="374.0" layoutY="366.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="sahn_2" fitHeight="225.0" fitWidth="270.0" layoutX="374.0" layoutY="366.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪╕┘ä%20╪¡╪¼╪▒%20╪º╪│┘à╪º╪╣┘è┘ä.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="139.0" fitWidth="126.0" layoutX="731.0" layoutY="358.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="zamzam_2" fitHeight="139.0" fitWidth="126.0" layoutX="731.0" layoutY="358.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪╕┘ä%20╪¿┘è┘ö╪▒%20╪▓┘à╪▓┘à.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="193.0" layoutY="371.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="makam_2" fitHeight="150.0" fitWidth="200.0" layoutX="193.0" layoutY="371.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪╕┘ä%20╪º┘ä┘à┘é╪º┘à.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="86.0" fitWidth="83.0" layoutX="303.0" layoutY="392.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="taef_2" fitHeight="86.0" fitWidth="83.0" layoutX="303.0" layoutY="392.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪╕┘ä%20╪º┘ä╪▒╪¼╪º┘ä.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="519.0" layoutY="152.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="methna_2" fitHeight="150.0" fitWidth="200.0" layoutX="519.0" layoutY="152.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪╕┘ä%20╪º┘ä┘à┘è┘ö╪░┘å╪⌐.png" />
          </image>
