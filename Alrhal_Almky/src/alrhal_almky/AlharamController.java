@@ -10,6 +10,9 @@ import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +23,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -32,6 +36,17 @@ public class AlharamController implements Initializable {
     private Scene scene;
     private Stage stage;
     private Scene alharamScene;
+    
+    ///////////////////////////////////
+    @FXML
+    private ImageView normal_boy;
+        @FXML
+    private ImageView bird1;
+
+    @FXML
+    private ImageView bird2;
+    
+    ///////////////////////////////////
 
     @FXML
     private void handleMaptButton(ActionEvent event) throws IOException {
@@ -50,7 +65,41 @@ public class AlharamController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
+        Timer timer = new Timer();
         
+        TimerTask boytask = new TimerTask() {
+            @Override
+            public void run() {
+
+                TranslateTransition Transition_science = new TranslateTransition();
+                Transition_science.setNode(normal_boy);
+                Transition_science.setDuration(Duration.seconds(1.2));
+                Transition_science.setToY(610);
+                Transition_science.play();
+            }
+        };
+        timer.schedule(boytask, 1000l);
+        
+        TimerTask birdtask = new TimerTask() {
+            @Override
+            public void run() {
+                //bird 1
+                TranslateTransition Transition_bird = new TranslateTransition();
+                Transition_bird.setNode(bird1);
+                Transition_bird.setDuration(Duration.seconds(1.2));
+                Transition_bird.setToX(610);
+                Transition_bird.play();
+                
+                //bird2
+                TranslateTransition Transition_bird2 = new TranslateTransition();
+                Transition_bird2.setNode(bird2);
+                Transition_bird2.setDuration(Duration.seconds(1.2));
+                Transition_bird2.setToX(610);
+                Transition_bird2.play();
+                
+            }
+        };
+        timer.schedule(birdtask, 1001l);
         
         
     }

@@ -2,16 +2,16 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.AlharamController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.AlharamController">
    <children>
       <ImageView fitHeight="678.0" fitWidth="907.0" layoutX="-3.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@الصور/مكونات%20المرحلة%20الاولى/╪«┘ä┘ü┘è╪⌐-╪º┘ä┘à╪▒╪¡┘ä╪⌐-╪º┘ä╪º┘ö┘ê┘ä┘ë.png" />
+            <Image url="@الصور/خلفية-الحرم.png" />
          </image>
       </ImageView>
       <ImageView id="kaaba_1" fitHeight="74.0" fitWidth="75.0" layoutX="657.0" layoutY="568.0" pickOnBounds="true" preserveRatio="true">
@@ -94,44 +94,6 @@
             <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪╕┘ä%20╪º┘ä┘à┘è┘ö╪░┘å╪⌐.png" />
          </image>
       </ImageView>
-      <HBox layoutX="368.0" layoutY="15.0" prefHeight="40.0" prefWidth="147.0" spacing="11.0">
-         <children>
-            <ImageView fitHeight="50.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-04.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-04.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-04.png" />
-               </image>
-            </ImageView>
-         </children>
-      </HBox>
-      <HBox layoutX="368.0" layoutY="15.0" prefHeight="40.0" prefWidth="147.0" spacing="11.0">
-         <children>
-            <ImageView fitHeight="50.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-03.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-03.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-03.png" />
-               </image>
-            </ImageView>
-         </children>
-      </HBox>
       <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="796.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-06.png" />
@@ -157,5 +119,23 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <ImageView fx:id="normal_boy" fitHeight="339.0" fitWidth="206.0" layoutX="11.0" layoutY="-358.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@الصور/boy1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bird1" fitHeight="135.0" fitWidth="116.0" layoutX="-158.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@الصور/مكونات%20المرحلة%20الاولى/flyingBird.gif" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bird2" fitHeight="169.0" fitWidth="154.0" layoutX="-135.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@الصور/مكونات%20المرحلة%20الاولى/bird-wings.gif" />
+         </image>
+         <effect>
+            <ColorAdjust contrast="-0.05" hue="-0.14" saturation="0.1" />
+         </effect>
+      </ImageView>
    </children>
 </AnchorPane>
