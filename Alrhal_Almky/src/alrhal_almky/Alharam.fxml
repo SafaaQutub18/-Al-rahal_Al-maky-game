@@ -131,7 +131,7 @@
       </ImageView>
       <ImageView fx:id="bird2" fitHeight="169.0" fitWidth="154.0" layoutX="-135.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@الصور/مكونات%20المرحلة%20الاولى/bird-wings.gif" />
+            <Image url="@الصور/مكونات%20المرحلة%20الاولى/flyingBird.gif" />
          </image>
          <effect>
             <ColorAdjust contrast="-0.05" hue="-0.14" saturation="0.1" />
