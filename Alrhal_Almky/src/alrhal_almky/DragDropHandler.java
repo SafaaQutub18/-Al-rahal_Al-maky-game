@@ -47,7 +47,6 @@ public class DragDropHandler {
             ClipboardContent content = new ClipboardContent();
             content.putImage(source.getImage());
             db.setContent(content);
-
             event.consume();
         }
 
@@ -58,8 +57,8 @@ public class DragDropHandler {
           final EventHandler<MouseEvent> myHandlerDragged = new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent event) {
+            System.out.println("img 2 dragged");
             event.setDragDetect(true);
-
         }
     };
         
@@ -68,14 +67,13 @@ public class DragDropHandler {
         @Override
         public void handle(DragEvent event) {
             target = (ImageView) event.getSource();
-             System.out.println("img1 drag over");
+             //System.out.println("img1 drag over");
    
             
             System.out.println("img2.setOnDragOver");
-                if (event.getGestureSource() != target && event.getDragboard().hasString()) {
-                    event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+                if (event.getGestureSource() != target) {
+                    event.acceptTransferModes(TransferMode.ANY);
                 }
-
                 event.consume();
 
         }
@@ -86,13 +84,14 @@ public class DragDropHandler {
         
         @Override
         public void handle(DragEvent event) {
+            System.out.println("In drag dropped, before if");
             
             String source_id = source.getId().split("_")[0];
             
             String target_id = target.getId().split("_")[0];
             
             Dragboard db = event.getDragboard();
-            if (db.hasString() && source_id.equalsIgnoreCase(target_id)) {
+            if (source_id.equalsIgnoreCase(target_id)) {
                 System.out.println("Dropped: " + db.getString());
                 event.setDropCompleted(true);
                 target.setImage(source.getImage());
