@@ -87,19 +87,20 @@ public class AlharamController implements Initializable {
                 TranslateTransition Transition_bird = new TranslateTransition();
                 Transition_bird.setNode(bird1);
                 Transition_bird.setDuration(Duration.seconds(7.2));
-                Transition_bird.setToX(1010);
+                Transition_bird.setToX(1090);
                 Transition_bird.play();
                 
                 //bird2
                 TranslateTransition Transition_bird2 = new TranslateTransition();
                 Transition_bird2.setNode(bird2);
                 Transition_bird2.setDuration(Duration.seconds(5.2));
-                Transition_bird2.setToX(1010);
+                Transition_bird2.setToX(1090);
                 Transition_bird2.play();
                 
             }
         };
         timer.schedule(birdtask, 10490);
+       
      
     }
     

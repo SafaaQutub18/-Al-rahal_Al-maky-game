@@ -6,6 +6,7 @@
 package alrhal_almky;
 
 import javafx.event.EventHandler;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DragEvent;
@@ -44,7 +45,7 @@ public class DragDropHandler {
             Dragboard db = source.startDragAndDrop(TransferMode.ANY);
 
             ClipboardContent content = new ClipboardContent();
-            content.putString("img1 source text");
+            content.putImage(source.getImage());
             db.setContent(content);
 
             event.consume();
@@ -98,8 +99,16 @@ public class DragDropHandler {
                 target.setOpacity(1);
                 source.setImage(null);
                 
+                //counter ++
+                
             } else {
                 event.setDropCompleted(false);
+                //
+                // heart.isheddin == false
+                
+                // if heart == 0 
+                // call loss interface(interface name)
+                
             }
             event.consume();
         }
@@ -135,5 +144,8 @@ public class DragDropHandler {
             ((ImageView)(t.getSource())).setTranslateY(newTranslateY);
         }
     };
-        
+   
+    public void won(){
+        //hgyjfyhfv
+    }
 }
