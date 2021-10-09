@@ -5,6 +5,11 @@
  */
 package alrhal_almky;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
@@ -22,6 +27,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -36,18 +42,37 @@ public class AlharamController implements Initializable {
     private Scene scene;
     private Stage stage;
     private Scene alharamScene;
-    
+
     ///////////////////////////////////
     @FXML
     private ImageView normal_boy;
-        @FXML
+    @FXML
     private ImageView bird1;
 
     @FXML
     private ImageView bird2;
-    
-    ///////////////////////////////////
 
+    @FXML
+    private ImageView heart3;
+
+    @FXML
+    private ImageView heart2;
+
+    @FXML
+    private ImageView heart1;
+
+    @FXML
+    private Text points;
+    @FXML
+    private ImageView sad_boy;
+    @FXML
+    private ImageView sad_boy2;
+
+    public static int hearts = 0;
+
+    private static int userPoints = 0;
+
+    ///////////////////////////////////
     @FXML
     private void handleMaptButton(ActionEvent event) throws IOException {
 
@@ -58,15 +83,43 @@ public class AlharamController implements Initializable {
         stage.show();
     }
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        
+        userPoints = 0;
+        hearts = 0;
+
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("UserPoints.txt"))) {
+            String line = bufferedReader.readLine();
+            while (line != null) {
+                userPoints = Integer.parseInt(line);
+                line = bufferedReader.readLine();
+            }
+        } catch (FileNotFoundException e) {
+            // Exception handling
+        } catch (IOException e) {
+            // Exception handling
+        }
+        Timer timer2 = new Timer();
+        timer2.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                points.setText(String.valueOf(userPoints));
+                if (hearts == 1) {
+                    heart1.setVisible(false);
+                } else if (hearts == 2) {
+                    normal_boy.setVisible(false);
+                    sad_boy2.setVisible(true);
+                    heart2.setVisible(false);
+                } else if (hearts == 3) {
+                    heart3.setVisible(false);
+                    sad_boy2.setVisible(false);
+                    sad_boy.setVisible(true);
+                }
+            }
+        }, 0, 1000);
+
         Timer timer = new Timer();
-        
+
         TimerTask boytask = new TimerTask() {
             @Override
             public void run() {
@@ -79,7 +132,7 @@ public class AlharamController implements Initializable {
             }
         };
         timer.schedule(boytask, 1000l);
-        
+
         TimerTask birdtask = new TimerTask() {
             @Override
             public void run() {
@@ -89,66 +142,52 @@ public class AlharamController implements Initializable {
                 Transition_bird.setDuration(Duration.seconds(7.2));
                 Transition_bird.setToX(1090);
                 Transition_bird.play();
-                
+
                 //bird2
                 TranslateTransition Transition_bird2 = new TranslateTransition();
                 Transition_bird2.setNode(bird2);
                 Transition_bird2.setDuration(Duration.seconds(5.2));
                 Transition_bird2.setToX(1090);
                 Transition_bird2.play();
-                
+
             }
         };
         timer.schedule(birdtask, 10490);
-       
-     
+
     }
-    
-    
+
     public void setScene(Scene scene) {
-        
+
         this.alharamScene = scene;
 
-                
         //ArrayList<ImageView> imgs = new ArrayList<>();
         String[] imgs = {"#kaaba_1", "#makam_1", "#sahn_1", "#zamzam_1", "#methna_1", "#taef_1"};
         //String[] imgs_target = {"kaaba_2"};
-        
+
         DragDropHandler dragDropHandler = new DragDropHandler();
-        
-        
-        for(String i : imgs) {
-          ImageView img1 = (ImageView) scene.lookup(i);
-          img1.setCursor(Cursor.HAND);
-          img1.setOnDragDetected(dragDropHandler.myHandlerDetected);
-          //img1.setOnMousePressed(dragDropHandler.circleOnMousePressedEventHandler);
-          //img1.setOnMouseDragged(dragDropHandler.circleOnMouseDraggedEventHandler);
-          
-          ImageView img2 = (ImageView) scene.lookup(i.replace("_1", "_2"));
-          img2.setOnMouseDragged(dragDropHandler.myHandlerDragged);
-          img2.setOnDragOver(dragDropHandler.myHandlerOver);
-          img2.setOnDragDropped(dragDropHandler.myHandlerDropped);
+
+        for (String i : imgs) {
+            ImageView img1 = (ImageView) scene.lookup(i);
+            img1.setCursor(Cursor.HAND);
+            img1.setOnDragDetected(dragDropHandler.myHandlerDetected);
+            //img1.setOnMousePressed(dragDropHandler.circleOnMousePressedEventHandler);
+            //img1.setOnMouseDragged(dragDropHandler.circleOnMouseDraggedEventHandler);
+
+            ImageView img2 = (ImageView) scene.lookup(i.replace("_1", "_2"));
+            img2.setOnMouseDragged(dragDropHandler.myHandlerDragged);
+            img2.setOnDragOver(dragDropHandler.myHandlerOver);
+            img2.setOnDragDropped(dragDropHandler.myHandlerDropped);
         }
-        
+
         //ImageView img1 = (ImageView) scene.lookup("#kaaba_1");
-        
         //ImageView img2 = (ImageView) scene.lookup("#kaaba_2");
-        
-        
         //img1.setCursor(Cursor.HAND);
-        
         //img1.setOnDragDetected(dragDropHandler.myHandlerDetected);
-        
         //img2.setOnMouseDragged(dragDropHandler.myHandlerDragged);
-        
         //img2.setOnDragOver(dragDropHandler.myHandlerOver);
-        
         //img2.setOnDragDropped(dragDropHandler.myHandlerDropped);
-        
         //img1.setOnMousePressed(dragDropHandler.circleOnMousePressedEventHandler);
-        
         //img1.setOnMouseDragged(dragDropHandler.circleOnMouseDraggedEventHandler);
-        
         /*ImageView img3 = (ImageView) scene.lookup("#makam_1");
         
         ImageView img4 = (ImageView) scene.lookup("#makam_2");
@@ -167,6 +206,21 @@ public class AlharamController implements Initializable {
         img3.setOnMousePressed(dragDropHandler.circleOnMousePressedEventHandler);
         
         img3.setOnMouseDragged(dragDropHandler.circleOnMouseDraggedEventHandler);*/
+    }
+
+    void pointsUpdater(int newPoints) {
+
+        userPoints += newPoints;
+        if (userPoints < 0) {
+            userPoints = 0;
+        }
+
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("UserPoints.txt"))) {
+            bufferedWriter.write(String.valueOf(userPoints));
+        } catch (IOException e) {
+            // Exception handling
+        }
+
     }
 
 }
