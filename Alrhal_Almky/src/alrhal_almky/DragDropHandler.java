@@ -71,7 +71,7 @@ public class DragDropHandler {
    
             
             System.out.println("img2.setOnDragOver");
-                if (event.getGestureSource() != target) {
+                if (event.getGestureSource() != target && event.getDragboard().hasImage()) {
                     event.acceptTransferModes(TransferMode.ANY);
                 }
                 event.consume();

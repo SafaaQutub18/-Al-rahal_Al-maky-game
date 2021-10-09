@@ -6,14 +6,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.StartController">
+<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="900.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.StartController">
    <children>
       <ImageView fitHeight="675.0" fitWidth="1232.0" layoutX="-164.0">
          <image>
             <Image url="@الصور/mars-landscape-red-alien-planet-background-desert-surface-with-mountains-rocks-deep-cleft-stars-shine-green-sky-martian-extraterrestrial-computer-game-backdrop-carto.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="352.0" fitWidth="380.0" layoutX="330.0" layoutY="317.0">
+      <ImageView fx:id="startButton" fitHeight="352.0" fitWidth="380.0" layoutX="330.0" layoutY="317.0">
          <image>
             <Image url="@الصور/زر-ابدأ.png" />
          </image>
