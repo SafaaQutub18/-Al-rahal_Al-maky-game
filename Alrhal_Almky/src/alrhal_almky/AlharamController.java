@@ -127,7 +127,7 @@ public class AlharamController implements Initializable {
                 TranslateTransition Transition_science = new TranslateTransition();
                 Transition_science.setNode(normal_boy);
                 Transition_science.setDuration(Duration.seconds(1.2));
-                Transition_science.setToY(610);
+                Transition_science.setToY(680);
                 Transition_science.play();
             }
         };

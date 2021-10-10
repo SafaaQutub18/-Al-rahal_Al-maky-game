@@ -56,49 +56,34 @@
         <Image url="@الصور/مكونات%20المرحلة%20الثانية/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪½╪º┘å┘è╪⌐_╪╕┘ä%20╪º┘ä╪«┘è┘à╪⌐.png" />
       </image>
     </ImageView>
-    <ImageView id="hajar_2" fitHeight="34.0" fitWidth="34.0" layoutX="321.0" layoutY="385.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+    <ImageView id="hajar_2" fitHeight="34.0" fitWidth="34.0" layoutX="380.0" layoutY="382.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
       <image>
         <Image url="@الصور/مكونات%20المرحلة%20الثانية/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪½╪º┘å┘è╪⌐_╪╕┘ä%20╪º┘ä╪¡╪╡┘ë.png" />
       </image>
     </ImageView>
-    <ImageView id="soghra_2" fitHeight="165.0" fitWidth="165.0" layoutX="144.0" layoutY="325.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+    <ImageView id="soghra_2" fitHeight="165.0" fitWidth="165.0" layoutX="134.0" layoutY="320.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
       <image>
         <Image url="@الصور/مكونات%20المرحلة%20الثانية/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪½╪º┘å┘è╪⌐_╪╕┘ä%20╪º┘ä╪¼┘à╪▒╪⌐.png" />
       </image>
     </ImageView>
-    <ImageView id="haj_2" fitHeight="92.0" fitWidth="92.0" layoutX="655.0" layoutY="451.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+    <ImageView id="haj_2" fitHeight="92.0" fitWidth="92.0" layoutX="724.0" layoutY="444.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
       <image>
         <Image url="@الصور/مكونات%20المرحلة%20الثانية/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪½╪º┘å┘è╪⌐_╪╕┘ä%20╪º┘ä╪▒╪¼╪º┘ä.png" />
       </image>
     </ImageView>
-    <ImageView id="kobra_2" fitHeight="216.0" fitWidth="216.0" layoutX="425.0" layoutY="270.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+    <ImageView id="kobra_2" fitHeight="216.0" fitWidth="216.0" layoutX="410.0" layoutY="277.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
       <image>
         <Image url="@الصور/مكونات%20المرحلة%20الثانية/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪½╪º┘å┘è╪⌐_╪╕┘ä%20╪º┘ä╪¼┘à╪▒╪⌐.png" />
       </image>
     </ImageView>
-    <ImageView fitHeight="198.0" fitWidth="198.0" layoutX="142.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-        <Image url="@الصور/مكونات%20المرحلة%20الثانية/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪½╪º┘å┘è╪⌐_┘ü┘ê┘é%20╪º┘ä╪¼┘à╪▒╪⌐%20╪º┘ä╪╡╪║╪▒┘ë.png" />
-      </image>
-    </ImageView>
-    <ImageView id="rami_2" fitHeight="119.0" fitWidth="119.0" layoutX="173.0" layoutY="389.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+    <ImageView id="rami_2" fitHeight="119.0" fitWidth="119.0" layoutX="506.0" layoutY="416.0" nodeOrientation="RIGHT_TO_LEFT" opacity="0.5" pickOnBounds="true" preserveRatio="true">
       <image>
         <Image url="@الصور/مكونات%20المرحلة%20الثانية/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪½╪º┘å┘è╪⌐_╪╕┘ä%20╪º┘ä╪¡╪▒┘à╪⌐.png" />
       </image>
     </ImageView>
-    <ImageView id="wosta_2" fitHeight="198.0" fitWidth="198.0" layoutX="280.0" layoutY="325.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+    <ImageView id="wosta_2" fitHeight="198.0" fitWidth="198.0" layoutX="255.0" layoutY="336.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
       <image>
         <Image url="@الصور/مكونات%20المرحلة%20الثانية/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪½╪º┘å┘è╪⌐_╪╕┘ä%20╪º┘ä╪¼┘à╪▒╪⌐.png" />
-      </image>
-    </ImageView>
-    <ImageView fitHeight="216.9998779296875" fitWidth="216.9998779296875" layoutX="267.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-        <Image url="@الصور/مكونات%20المرحلة%20الثانية/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪½╪º┘å┘è╪⌐_┘ü┘ê┘é%20╪º┘ä╪¼┘à╪▒╪⌐%20╪º┘ä┘ê╪│╪╖┘ë.png" />
-      </image>
-    </ImageView>
-    <ImageView fitHeight="205.0" fitWidth="205.0" layoutX="435.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-        <Image url="@الصور/مكونات%20المرحلة%20الثانية/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪½╪º┘å┘è╪⌐_┘ü┘ê┘é%20╪º┘ä╪¼┘à╪▒╪⌐%20╪º┘ä┘â╪¿╪▒┘ë.png" />
       </image>
     </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="7.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
@@ -184,9 +169,14 @@
             <Image url="@الصور/boy-bad2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="normal_boy" fitHeight="339.0" fitWidth="206.0" layoutX="21.0" layoutY="-348.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="normal_boy" fitHeight="339.0" fitWidth="206.0" layoutX="-21.0" layoutY="-348.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/boy1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="shootingStar" fitHeight="52.0" fitWidth="92.0" layoutX="632.0" layoutY="159.0" visible="false">
+         <image>
+            <Image url="@الصور/مكونات%20المرحلة%20الثانية/shooting-star.png" />
          </image>
       </ImageView>
   </children>

@@ -16,6 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
+import javafx.animation.PathTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,6 +27,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.LineTo;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -42,6 +46,8 @@ public class MenaController implements Initializable {
     private Stage stage;
     private Scene menaScene;
     
+    @FXML
+    private ImageView shootingStar;
         @FXML
     private ImageView normal_boy;
         @FXML
@@ -121,13 +127,44 @@ public class MenaController implements Initializable {
                 TranslateTransition Transition_science = new TranslateTransition();
                 Transition_science.setNode(normal_boy);
                 Transition_science.setDuration(Duration.seconds(1.2));
-                Transition_science.setToY(610);
+                Transition_science.setToY(680);
                 Transition_science.play();
             }
         };
         timer.schedule(boytask, 1000l);
+        // حركة الشهاب
+         TimerTask shotingStarTask = new TimerTask() {
+            @Override
+        public void run() {
+         shootingStar.setVisible(true);
+               
+        Path path = new Path();
+        MoveTo moveTo = new MoveTo(100,10);
+       // LineTo line1 = new LineTo(490, 791);
+         LineTo line1 = new LineTo(-490, 200);
+        // path.setRotate( 30);
+        path.getElements().add(moveTo);
+        path.getElements().addAll( line1);
+        PathTransition pathTransition = new PathTransition();
+        pathTransition.setDuration(Duration.millis(1000));
+        pathTransition.setNode(shootingStar);
+        pathTransition.setPath(path);
+        pathTransition.setOrientation(PathTransition.OrientationType.NONE);
+        pathTransition.setCycleCount(1);
+        pathTransition.setAutoReverse(false);
+        pathTransition.play();
+            }
+        };
+        timer.schedule(shotingStarTask, 10011);
 
-        
+        // اختفاء الشهاب
+         TimerTask shotingStarHidden = new TimerTask() {
+            @Override
+        public void run() {
+         shootingStar.setVisible(false);
+            }
+        };
+        timer.schedule(shotingStarHidden, 11001);
     }
 
     
