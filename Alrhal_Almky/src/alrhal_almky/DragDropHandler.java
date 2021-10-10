@@ -5,6 +5,9 @@
  */
 package alrhal_almky;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -30,6 +33,9 @@ public class DragDropHandler {
     private double anchorY;
     private double mouseOffsetFromNodeZeroX;
     private double mouseOffsetFromNodeZeroY;
+    
+    AlharamController ac = new AlharamController();
+    MenaController mc = new MenaController();
     
     
         final EventHandler<MouseEvent> myHandlerDetected = new EventHandler<MouseEvent>() {
@@ -98,11 +104,18 @@ public class DragDropHandler {
                 target.setOpacity(1);
                 source.setImage(null);
                 
+                ac.pointsUpdater(5);
+                mc.pointsUpdater(5);
                 //counter ++
                 
             } else {
                 event.setDropCompleted(false);
-                //
+                
+                ac.pointsUpdater(-5);
+                ac.hearts += 1; 
+                
+                mc.pointsUpdater(-5);
+                mc.hearts += 1; 
                 // heart.isheddin == false
                 
                 // if heart == 0 

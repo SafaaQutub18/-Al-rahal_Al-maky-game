@@ -6,6 +6,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.AlharamController">
    <children>
@@ -135,6 +138,64 @@
       <ImageView id="taef_1" fitHeight="88.0" fitWidth="85.0" layoutX="179.0" layoutY="565.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪º┘ä╪▒╪¼╪º┘ä.png" />
+         </image>
+      </ImageView>
+      <HBox layoutX="387.0" layoutY="14.0" prefHeight="37.0" prefWidth="126.0">
+         <children>
+            <ImageView fitHeight="45.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-04.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="45.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-04.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="45.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-04.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="387.0" layoutY="14.0" prefHeight="37.0" prefWidth="126.0">
+         <children>
+            <ImageView fx:id="heart3" fitHeight="45.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-03.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="heart2" fitHeight="45.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-03.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="heart1" fitHeight="45.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-03.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Text fx:id="points" fill="WHITE" layoutX="76.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="sad_boy" fitHeight="339.0" fitWidth="206.0" layoutX="21.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@الصور/boy-sad.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="level" fill="WHITE" layoutX="740.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="sad_boy2" fitHeight="339.0" fitWidth="206.0" layoutX="12.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@الصور/boy-bad2.png" />
          </image>
       </ImageView>
    </children>
