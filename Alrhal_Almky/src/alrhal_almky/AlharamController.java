@@ -17,18 +17,25 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Logger;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.AccessibleAction;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 /**
@@ -42,6 +49,7 @@ public class AlharamController implements Initializable {
     private Scene scene;
     private Stage stage;
     private Scene alharamScene;
+    int test; 
 
     ///////////////////////////////////
     @FXML
@@ -73,6 +81,8 @@ public class AlharamController implements Initializable {
     public static int hearts = 0;
 
     private static int userPoints = 0;
+    
+    
 
     ///////////////////////////////////
     @FXML
@@ -113,11 +123,18 @@ public class AlharamController implements Initializable {
                     sad_boy2.setVisible(true);
                     heart2.setVisible(false);
                 } else if (hearts == 3) {
+                    test= 1;
                     heart3.setVisible(false);
                     sad_boy2.setVisible(false);
                     sad_boy.setVisible(true);
                     // الدمعة
                     tears.setVisible(true);
+                    
+                    
+                    
+                  
+                    
+                    
                 TranslateTransition Transition_tears = new TranslateTransition();
                 Transition_tears.setNode(tears);
                 Transition_tears.setDuration(Duration.seconds(1.5));
@@ -126,11 +143,21 @@ public class AlharamController implements Initializable {
                 Transition_tears.setCycleCount(-1);
                //Transition_tears.setAutoReverse(true);
                 Transition_tears.play();
+                //System.out.println("Loss Interface");         
+                
                     
                     
                 }
+                
+                
             }
-        }, 0, 1000);
+        }, 0, 1000); System.out.println("Loss Interface"); 
+        
+ 
+        
+        
+        
+        
 
         Timer timer = new Timer();
 
@@ -167,8 +194,15 @@ public class AlharamController implements Initializable {
             }
         };
         timer.schedule(birdtask, 10490);
+        
+        
+        }
 
-    }
+    
+    
+    
+    
+
 
     public void setScene(Scene scene) {
 
@@ -191,6 +225,8 @@ public class AlharamController implements Initializable {
             img2.setOnMouseDragged(dragDropHandler.myHandlerDragged);
             img2.setOnDragOver(dragDropHandler.myHandlerOver);
             img2.setOnDragDropped(dragDropHandler.myHandlerDropped);
+            
+            // System.out.println("Hello there,.,.,.");
         }
 
         //ImageView img1 = (ImageView) scene.lookup("#kaaba_1");
@@ -236,5 +272,9 @@ public class AlharamController implements Initializable {
         }
 
     }
+    
+    
+     
+  
 
 }

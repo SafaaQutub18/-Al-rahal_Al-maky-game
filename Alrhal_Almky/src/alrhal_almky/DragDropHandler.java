@@ -8,7 +8,12 @@ package alrhal_almky;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.logging.Logger;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ClipboardContent;
@@ -16,6 +21,10 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
+import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -118,11 +127,49 @@ public class DragDropHandler {
                 mc.hearts += 1; 
                 // heart.isheddin == false
                 
-                // if heart == 0 
+
                 // call loss interface(interface name)
-                
             }
+           // }
             event.consume();
+            
+             if(ac.hearts == 3){ 
+             //  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+              // stage.close();
+                System.out.println("Call loss function");
+                
+                System.out.println("You loss :(!");
+            
+            Stage lossStage = null; 
+            Parent lossRoot = null;
+            Scene sceneLoss = null;
+               try {
+            lossStage = new Stage();
+            FXMLLoader lossLoader = new FXMLLoader();
+            lossLoader.setLocation(getClass().getResource("Loss_interface.fxml"));
+            lossRoot = lossLoader.load();
+            sceneLoss = new Scene(lossRoot);
+            sceneLoss.setFill(Color.TRANSPARENT);
+            
+            lossStage.setScene(sceneLoss);
+            lossStage.initStyle(StageStyle.UNDECORATED);
+            lossStage.initStyle(StageStyle.TRANSPARENT);
+            lossStage.initModality(Modality.APPLICATION_MODAL);
+            lossStage.setResizable(false);
+            lossStage.showAndWait();
+            
+            
+           //Stage stage = (Stage) .getScene().getWindow();
+            //stage.initStyle(StageStyle.DECORATED);
+            //stage.close();
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+               stage.close();
+            
+               } catch (IOException ex) {
+                   Logger.getLogger(Loss_interfaceController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+               }
+                 
+                 }
         }
 
     };
