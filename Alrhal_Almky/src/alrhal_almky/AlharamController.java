@@ -67,6 +67,8 @@ public class AlharamController implements Initializable {
     private ImageView sad_boy;
     @FXML
     private ImageView sad_boy2;
+    @FXML
+    private ImageView tears;
 
     public static int hearts = 0;
 
@@ -114,6 +116,18 @@ public class AlharamController implements Initializable {
                     heart3.setVisible(false);
                     sad_boy2.setVisible(false);
                     sad_boy.setVisible(true);
+                    // الدمعة
+                    tears.setVisible(true);
+                TranslateTransition Transition_tears = new TranslateTransition();
+                Transition_tears.setNode(tears);
+                Transition_tears.setDuration(Duration.seconds(1.5));
+                Transition_tears.setToY(200);
+                Transition_tears.setToX(0);
+                Transition_tears.setCycleCount(-1);
+               //Transition_tears.setAutoReverse(true);
+                Transition_tears.play();
+                    
+                    
                 }
             }
         }, 0, 1000);
