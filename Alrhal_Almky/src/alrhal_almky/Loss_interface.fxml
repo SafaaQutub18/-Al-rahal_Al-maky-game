@@ -25,7 +25,7 @@
         <Image url="@الصور/الفوز%20و%20الخسارة/الفوز%20و%20الخسارة-03.png" />
       </image>
     </ImageView>
-    <Label layoutX="202.0" layoutY="232.0" prefHeight="30.0" prefWidth="39.0" text="" textFill="WHITE">
+    <Label fx:id="loss_point" layoutX="202.0" layoutY="232.0" prefHeight="30.0" prefWidth="39.0" text="" textFill="WHITE">
       <font>
         <Font name="jdiconfontD" size="20.0" />
       </font>

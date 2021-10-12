@@ -8,6 +8,7 @@ package alrhal_almky;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -94,7 +95,7 @@ public class DragDropHandler {
         }
     };
     
-    
+    ArrayList<String> arr = new ArrayList<String>();
          final EventHandler<DragEvent> myHandlerDropped = new EventHandler<DragEvent>() {
         
         @Override
@@ -118,6 +119,50 @@ public class DragDropHandler {
                 //counter ++
                 ac.helpHashMap.replace(source.getId(), true);
                 mc.helpHashMap.replace(source.getId(), true);
+                
+                System.out.println("Win interface" +source_id);
+                
+               
+                arr.add(source_id);
+               
+                System.out.println(arr.size());
+                
+                if(arr.size()>=6){
+                    System.out.println("CAAAAAAL Win interface");
+                    System.out.println("You win :D!");
+            
+            Stage WinStage = null; 
+            Parent WinRoot = null;
+            Scene sceneLoss = null;
+               try {
+            WinStage = new Stage();
+            FXMLLoader Winloader = new FXMLLoader();
+            Winloader.setLocation(getClass().getResource("Win_interface.fxml"));
+            WinRoot = Winloader.load();
+            sceneLoss = new Scene(WinRoot);
+            sceneLoss.setFill(Color.TRANSPARENT);
+            
+            WinStage.setScene(sceneLoss);
+            WinStage.initStyle(StageStyle.UNDECORATED);
+            WinStage.initStyle(StageStyle.TRANSPARENT);
+            WinStage.initModality(Modality.APPLICATION_MODAL);
+            WinStage.setResizable(false);
+            WinStage.showAndWait();
+            
+            
+           //Stage stage = (Stage) .getScene().getWindow();
+            //stage.initStyle(StageStyle.DECORATED);
+            //stage.close();
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+               stage.close();
+            
+               } catch (IOException ex) {
+                   Logger.getLogger(Win_interfaceController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+               }
+                    
+                }
+                
+                
                 
             } else {
                 event.setDropCompleted(false);
