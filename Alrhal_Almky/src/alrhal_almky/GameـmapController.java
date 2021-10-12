@@ -5,6 +5,12 @@
  */
 package alrhal_almky;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,7 +34,8 @@ public class GameـmapController implements Initializable {
      private Parent root;
      private Scene scene;
      private Stage stage;
-     private static String userLevel;
+     public static String userLevel;
+     public static String currentLevel;
      
      @FXML
     private Text WarningText;
@@ -36,10 +43,17 @@ public class GameـmapController implements Initializable {
      //Receive data from start scene
     public void userData(String userData) {
         userLevel = userData;
+        
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("UserLevel.txt"))) {
+                    bufferedWriter.write(userLevel);
+                } catch (IOException e) {
+                    // Exception handling
+                }
     }
     
     @FXML
     private void handleAlharamButton(ActionEvent event) throws IOException {
+        currentLevel = "haram";
         root = FXMLLoader.load(getClass().getResource("Alharam.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -51,9 +65,10 @@ public class GameـmapController implements Initializable {
     
     @FXML
     private void handleMenaButton(ActionEvent event) throws IOException {
-        //if(userLevel.equalsIgnoreCase("0")){
-        //WarningText.setText("عذرًا يجب عليك اولًا الانتهاء من مرحلة الحرم المكي حتى تستطيع إكمال الطريق إلى منى");
-        //} else {
+        currentLevel = "mena";
+        if(userLevel.equalsIgnoreCase("1")){
+        WarningText.setText("عذرًا يجب عليك اولًا الانتهاء من مرحلة الحرم المكي حتى تستطيع إكمال الطريق إلى منى");
+        } else {
         root = FXMLLoader.load(getClass().getResource("Mena.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -61,7 +76,7 @@ public class GameـmapController implements Initializable {
         mena.setScene(scene);
         stage.setScene(scene);
         stage.show();
-       // }
+        }
     }
 
     /**
@@ -69,7 +84,67 @@ public class GameـmapController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        // Create file for user level
+        File userLevelFile = new File("UserLevel.txt");
+
+        try {
+
+            // If the user is new
+            if (userLevelFile.createNewFile()) {
+
+                // Initialize the new user's level in the UserLevel file
+                try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("UserLevel.txt"))) {
+                    String fileContent = "1";
+                    userLevel = fileContent;
+                    bufferedWriter.write(fileContent);
+                } catch (IOException e) {
+                    // Exception handling
+                }
+
+                // If the user already has a file
+            } else {
+
+                // Read the stored level of the user
+                try (BufferedReader bufferedReader = new BufferedReader(new FileReader("UserLevel.txt"))) {
+                    String line = bufferedReader.readLine();
+                    while (line != null) {
+                        userLevel = line;
+                        line = bufferedReader.readLine();
+                    }
+                } catch (FileNotFoundException e) {
+                    // Exception handling
+                } catch (IOException e) {
+                    // Exception handling
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        
+        // Create file for user level
+        File userPointFile = new File("UserPoints.txt");
+
+        try {
+
+            // If the user is new
+            if (userLevelFile.createNewFile()) {
+
+                // Initialize the new user's level in the UserLevel file
+                try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("UserPoints.txt"))) {
+                    String fileContent = "0";
+                    bufferedWriter.write(fileContent);
+                } catch (IOException e) {
+                    // Exception handling
+                }
+
+              
+            } 
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }    
     
 }

@@ -45,11 +45,6 @@ public class StartController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("gameـmap.fxml"));
         root = loader.load();
 
-        //Get controller of game map scene
-        GameـmapController mapController = loader.getController();
-        //Pass the user data
-        mapController.userData(userLevel);
-
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -62,66 +57,6 @@ public class StartController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        // Create file for user level
-        File userLevelFile = new File("UserLevel.txt");
-
-        try {
-
-            // If the user is new
-            if (userLevelFile.createNewFile()) {
-
-                // Initialize the new user's level in the UserLevel file
-                try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("UserLevel.txt"))) {
-                    String fileContent = "0";
-                    userLevel = fileContent;
-                    bufferedWriter.write(fileContent);
-                } catch (IOException e) {
-                    // Exception handling
-                }
-
-                // If the user already has a file
-            } else {
-
-                // Read the stored level of the user
-                try (BufferedReader bufferedReader = new BufferedReader(new FileReader("UserLevel.txt"))) {
-                    String line = bufferedReader.readLine();
-                    while (line != null) {
-                        userLevel = line;
-                        line = bufferedReader.readLine();
-                    }
-                } catch (FileNotFoundException e) {
-                    // Exception handling
-                } catch (IOException e) {
-                    // Exception handling
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-        
-        // Create file for user level
-        File userPointFile = new File("UserPoints.txt");
-
-        try {
-
-            // If the user is new
-            if (userLevelFile.createNewFile()) {
-
-                // Initialize the new user's level in the UserLevel file
-                try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("UserPoints.txt"))) {
-                    String fileContent = "0";
-                    bufferedWriter.write(fileContent);
-                } catch (IOException e) {
-                    // Exception handling
-                }
-
-              
-            } 
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
 
     }
 

@@ -5,6 +5,7 @@
  */
 package alrhal_almky;
 
+import static alrhal_almky.GameـmapController.currentLevel;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -32,7 +33,7 @@ import javafx.stage.StageStyle;
  * @author argha
  */
 public class DragDropHandler {
-    
+
     ImageView source = new ImageView();
     ImageView target = new ImageView();
 
@@ -43,21 +44,21 @@ public class DragDropHandler {
     private double anchorY;
     private double mouseOffsetFromNodeZeroX;
     private double mouseOffsetFromNodeZeroY;
-    
+
     AlharamController ac = new AlharamController();
     MenaController mc = new MenaController();
-    
-    
-        final EventHandler<MouseEvent> myHandlerDetected = new EventHandler<MouseEvent>() {
+
+    GameـmapController mapController = new GameـmapController();
+
+    final EventHandler<MouseEvent> myHandlerDetected = new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent event) {
-        ////    System.out.println("DETECTED");
+            ////    System.out.println("DETECTED");
             source = (ImageView) event.getSource();
-   
+
             System.out.println("img1 drag detected");
 
             //System.out.println(source.getId());
-            
             Dragboard db = source.startDragAndDrop(TransferMode.ANY);
 
             ClipboardContent content = new ClipboardContent();
@@ -67,45 +68,41 @@ public class DragDropHandler {
         }
 
     };
-        
-        
-        
-          final EventHandler<MouseEvent> myHandlerDragged = new EventHandler<MouseEvent>() {
+
+    final EventHandler<MouseEvent> myHandlerDragged = new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent event) {
             System.out.println("img 2 dragged");
             event.setDragDetect(true);
         }
     };
-        
-        
+
     final EventHandler<DragEvent> myHandlerOver = new EventHandler<DragEvent>() {
         @Override
         public void handle(DragEvent event) {
             target = (ImageView) event.getSource();
-             //System.out.println("img1 drag over");
-   
-            
+            //System.out.println("img1 drag over");
+
             System.out.println("img2.setOnDragOver");
-                if (event.getGestureSource() != target && event.getDragboard().hasImage()) {
-                    event.acceptTransferModes(TransferMode.ANY);
-                }
-                event.consume();
+            if (event.getGestureSource() != target && event.getDragboard().hasImage()) {
+                event.acceptTransferModes(TransferMode.ANY);
+            }
+            event.consume();
 
         }
     };
-    
+
     ArrayList<String> arr = new ArrayList<String>();
-         final EventHandler<DragEvent> myHandlerDropped = new EventHandler<DragEvent>() {
-        
+    final EventHandler<DragEvent> myHandlerDropped = new EventHandler<DragEvent>() {
+
         @Override
         public void handle(DragEvent event) {
             System.out.println("In drag dropped, before if");
-            
+
             String source_id = source.getId().split("_")[0];
-            
+
             String target_id = target.getId().split("_")[0];
-            
+
             Dragboard db = event.getDragboard();
             if (source_id.equalsIgnoreCase(target_id)) {
                 System.out.println("Dropped: " + db.getString());
@@ -113,43 +110,40 @@ public class DragDropHandler {
                 target.setImage(source.getImage());
                 target.setOpacity(1);
                 source.setImage(null);
-                
-                ac.pointsUpdater(3);
-                mc.pointsUpdater(3);
-                //counter ++
-                ac.helpHashMap.replace(source.getId(), true);
-                mc.helpHashMap.replace(source.getId(), true);
-                
-                System.out.println("Win interface" +source_id);
-                
-               
+
+                if (mapController.currentLevel.equalsIgnoreCase("haram")) {
+                    ac.pointsUpdater(3);
+                    ac.helpHashMap.replace(source.getId(), true);
+
+                } else if (mapController.currentLevel.equalsIgnoreCase("mena")) {
+                    mc.pointsUpdater(3);
+                    mc.helpHashMap.replace(source.getId(), true);
+                }
+
+                System.out.println("Win interface" + source_id);
                 arr.add(source_id);
-               
                 System.out.println(arr.size());
-                
-                
-                
-                
+
             } else {
                 event.setDropCompleted(false);
-                
-                ac.pointsUpdater(-3);
-                ac.hearts += 1; 
-                
-                mc.pointsUpdater(-3);
-                mc.hearts += 1; 
-                // heart.isheddin == false
-                
 
-                // call loss interface(interface name)
+                if (mapController.currentLevel.equalsIgnoreCase("haram")) {
+                    ac.pointsUpdater(-3);
+                    ac.hearts += 1;
+
+                } else if (mapController.currentLevel.equalsIgnoreCase("mena")) {
+                    mc.pointsUpdater(-3);
+                    mc.hearts += 1;
+                }
+
             }
-           // }
+            // }
             event.consume();
-            
-             if(ac.hearts == 3){ 
-             //  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-              // stage.close();
-            /*    System.out.println("Call loss function");
+
+            if (ac.hearts == 3) {
+                //  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                // stage.close();
+                /*    System.out.println("Call loss function");
                 
                 System.out.println("You loss :(!");
             
@@ -182,135 +176,131 @@ public class DragDropHandler {
                    Logger.getLogger(Loss_interfaceController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
                }
                  */
-                 }
+            }
         }
 
     };
-         
-          final EventHandler<DragEvent> myHandlerDone = new EventHandler<DragEvent>() {
-        
+
+    final EventHandler<DragEvent> myHandlerDone = new EventHandler<DragEvent>() {
+
         @Override
         public void handle(DragEvent event) {
             event.consume();
-            
+
             try {
                 if (source.getId() != null && target.getId() != null) {
-            String source_id = source.getId().split("_")[0];
-            
-            String target_id = target.getId().split("_")[0];
-                
-            Dragboard db = event.getDragboard();
-                System.out.println("img 2 drag exited");
-             //  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-              // stage.close();
-                if(ac.hearts == 3){ 
-                System.out.println("Call loss function");
-                
-                System.out.println("You loss :(!");
-            
-            Stage lossStage = null; 
-            Parent lossRoot = null;
-            Scene sceneLoss = null;
-               
-            lossStage = new Stage();
-            FXMLLoader lossLoader = new FXMLLoader();
-            lossLoader.setLocation(getClass().getResource("Loss_interface.fxml"));
-            lossRoot = lossLoader.load();
-            sceneLoss = new Scene(lossRoot);
-            sceneLoss.setFill(Color.TRANSPARENT);
-            
-            lossStage.setScene(sceneLoss);
-            lossStage.initStyle(StageStyle.UNDECORATED);
-            lossStage.initStyle(StageStyle.TRANSPARENT);
-            lossStage.initModality(Modality.APPLICATION_MODAL);
-            lossStage.setResizable(false);
-            lossStage.showAndWait();
-            
-            
-           //Stage stage = (Stage) .getScene().getWindow();
-            //stage.initStyle(StageStyle.DECORATED);
-            //stage.close();
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-               stage.close();
+                    String source_id = source.getId().split("_")[0];
+
+                    String target_id = target.getId().split("_")[0];
+
+                    Dragboard db = event.getDragboard();
+                    System.out.println("img 2 drag exited");
+                    //  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    // stage.close();
+                    if (ac.hearts == 3) {
+                        
+                        System.out.println("Call loss function");
+
+                        System.out.println("You loss :(!");
+
+                        Stage lossStage = null;
+                        Parent lossRoot = null;
+                        Scene sceneLoss = null;
+
+                        lossStage = new Stage();
+                        FXMLLoader lossLoader = new FXMLLoader();
+                        lossLoader.setLocation(getClass().getResource("Loss_interface.fxml"));
+                        lossRoot = lossLoader.load();
+                        sceneLoss = new Scene(lossRoot);
+                        sceneLoss.setFill(Color.TRANSPARENT);
+
+                        lossStage.setScene(sceneLoss);
+                        lossStage.initStyle(StageStyle.UNDECORATED);
+                        lossStage.initStyle(StageStyle.TRANSPARENT);
+                        lossStage.initModality(Modality.APPLICATION_MODAL);
+                        lossStage.setResizable(false);
+                        lossStage.showAndWait();
+
+                        //Stage stage = (Stage) .getScene().getWindow();
+                        //stage.initStyle(StageStyle.DECORATED);
+                        //stage.close();
+                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        stage.close();
+                    }
                 }
+            } catch (IOException ex) {
+                Logger.getLogger(Loss_interfaceController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+
+            if (arr.size() >= 6) {
+                mapController.userData("2");
+                System.out.println("CAAAAAAL Win interface");
+                System.out.println("You win :D!");
+
+                Stage WinStage = null;
+                Parent WinRoot = null;
+                Scene sceneLoss = null;
+                try {
+                    WinStage = new Stage();
+                    FXMLLoader Winloader = new FXMLLoader();
+                    Winloader.setLocation(getClass().getResource("Win_interface.fxml"));
+                    WinRoot = Winloader.load();
+                    sceneLoss = new Scene(WinRoot);
+                    sceneLoss.setFill(Color.TRANSPARENT);
+
+                    WinStage.setScene(sceneLoss);
+                    WinStage.initStyle(StageStyle.UNDECORATED);
+                    WinStage.initStyle(StageStyle.TRANSPARENT);
+                    WinStage.initModality(Modality.APPLICATION_MODAL);
+                    WinStage.setResizable(false);
+                    WinStage.showAndWait();
+
+                    //Stage stage = (Stage) .getScene().getWindow();
+                    //stage.initStyle(StageStyle.DECORATED);
+                    //stage.close();
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.close();
+
+                } catch (IOException ex) {
+                    Logger.getLogger(Win_interfaceController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
                 }
-               } catch (IOException ex) {
-                   Logger.getLogger(Loss_interfaceController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-               }
-            
-            
-                if(arr.size()>=6){
-                    System.out.println("CAAAAAAL Win interface");
-                    System.out.println("You win :D!");
-            
-            Stage WinStage = null; 
-            Parent WinRoot = null;
-            Scene sceneLoss = null;
-               try {
-            WinStage = new Stage();
-            FXMLLoader Winloader = new FXMLLoader();
-            Winloader.setLocation(getClass().getResource("Win_interface.fxml"));
-            WinRoot = Winloader.load();
-            sceneLoss = new Scene(WinRoot);
-            sceneLoss.setFill(Color.TRANSPARENT);
-            
-            WinStage.setScene(sceneLoss);
-            WinStage.initStyle(StageStyle.UNDECORATED);
-            WinStage.initStyle(StageStyle.TRANSPARENT);
-            WinStage.initModality(Modality.APPLICATION_MODAL);
-            WinStage.setResizable(false);
-            WinStage.showAndWait();
-            
-            
-           //Stage stage = (Stage) .getScene().getWindow();
-            //stage.initStyle(StageStyle.DECORATED);
-            //stage.close();
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-               stage.close();
-            
-               } catch (IOException ex) {
-                   Logger.getLogger(Win_interfaceController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-               }
-                    
-                }
-                }
-               
-                
-            
-        
-          };
-    
-          final EventHandler<MouseEvent> circleOnMousePressedEventHandler = 
-        new EventHandler<MouseEvent>() {
+
+            }
+        }
+
+    };
+
+    final EventHandler<MouseEvent> circleOnMousePressedEventHandler
+            = new EventHandler<MouseEvent>() {
 
         @Override
         public void handle(MouseEvent t) {
-                
+
             orgSceneX = t.getSceneX();
             orgSceneY = t.getSceneY();
-            orgTranslateX = ((ImageView)(t.getSource())).getTranslateX();
-            orgTranslateY = ((ImageView)(t.getSource())).getTranslateY();
+            orgTranslateX = ((ImageView) (t.getSource())).getTranslateX();
+            orgTranslateY = ((ImageView) (t.getSource())).getTranslateY();
         }
     };
-    
-    final EventHandler<MouseEvent> circleOnMouseDraggedEventHandler = 
-        new EventHandler<MouseEvent>() {
+
+    final EventHandler<MouseEvent> circleOnMouseDraggedEventHandler
+            = new EventHandler<MouseEvent>() {
 
         @Override
         public void handle(MouseEvent t) {
             t.setDragDetect(true);
-            
+
             double offsetX = t.getSceneX() - orgSceneX;
             double offsetY = t.getSceneY() - orgSceneY;
             double newTranslateX = orgTranslateX + offsetX;
             double newTranslateY = orgTranslateY + offsetY;
-            
-            ((ImageView)(t.getSource())).setTranslateX(newTranslateX);
-            ((ImageView)(t.getSource())).setTranslateY(newTranslateY);
+
+            ((ImageView) (t.getSource())).setTranslateX(newTranslateX);
+            ((ImageView) (t.getSource())).setTranslateY(newTranslateY);
         }
     };
-   
-    public void won(){
+
+    public void won() {
         //hgyjfyhfv
     }
 }

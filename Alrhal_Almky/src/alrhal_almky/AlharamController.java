@@ -320,6 +320,7 @@ public class AlharamController implements Initializable {
 
     @FXML
     private void handleHelpButton(ActionEvent event) throws IOException {
+        System.out.println("uuusseerrpooinnt in heellpp"+userPoints);
 
         Timer timer = new Timer();
         Polyline ployline = new Polyline();
@@ -328,8 +329,10 @@ public class AlharamController implements Initializable {
         for (Map.Entry<String, Boolean> i : helpHashMap.entrySet()) {
 
             if (i.getValue() == false) {
-                if ((userPoints - 5) >= 0) {
+                if (( userPoints - 5) >= 0) {
+                    System.out.println("uuusseerrpooinnt in heellpp bbbeee"+userPoints);
                     pointsUpdater(-5);
+                    System.out.println("uuusseerrpooinnt in heellpp aaffff"+userPoints);
 
                     helpPoints.setVisible(true);
 
@@ -495,7 +498,7 @@ public class AlharamController implements Initializable {
                             timer.schedule(cursortask_taef, 4000);
                             break;
                     }
-                    
+                 break;   
                 }
 
             }

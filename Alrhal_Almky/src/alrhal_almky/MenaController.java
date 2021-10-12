@@ -469,6 +469,7 @@ public class MenaController implements Initializable {
                             timer.schedule(cursortask_rami, 4000);
                             break;
                     }
+                    break;
 
                 }
 
