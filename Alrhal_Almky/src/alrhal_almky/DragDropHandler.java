@@ -117,6 +117,7 @@ public class DragDropHandler {
                 mc.pointsUpdater(3);
                 //counter ++
                 ac.helpHashMap.replace(source.getId(), true);
+                mc.helpHashMap.replace(source.getId(), true);
                 
             } else {
                 event.setDropCompleted(false);

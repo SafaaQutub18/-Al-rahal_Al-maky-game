@@ -150,7 +150,7 @@ public class AlharamController implements Initializable {
         helpHashMap.put("taef_1", false);
 
         hearts = 0;
-        
+
         // Read the user points from the userpints file
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("UserPoints.txt"))) {
             String line = bufferedReader.readLine();
@@ -308,7 +308,6 @@ public class AlharamController implements Initializable {
 
     }
 
-    
     @FXML
     private void handleHelpButton(ActionEvent event) throws IOException {
 
@@ -316,33 +315,31 @@ public class AlharamController implements Initializable {
         Polyline ployline = new Polyline();
         PathTransition pathTransition = new PathTransition();
 
-        if ((userPoints - 5) >= 0) {
-            pointsUpdater(-5);
+        for (Map.Entry<String, Boolean> i : helpHashMap.entrySet()) {
 
-            helpPoints.setVisible(true);
+            if (i.getValue() == false) {
+                if ((userPoints - 5) >= 0) {
+                    pointsUpdater(-5);
 
-            TranslateTransition Transition_helpPoints = new TranslateTransition();
-            Transition_helpPoints.setNode(helpPoints);
-            Transition_helpPoints.setDuration(Duration.seconds(1.2));
-            Transition_helpPoints.setToY(-70);
-            Transition_helpPoints.setCycleCount(1);
-            Transition_helpPoints.setAutoReverse(false);
-            Transition_helpPoints.play();
+                    helpPoints.setVisible(true);
 
-            TimerTask minusPoints = new TimerTask() {
-                @Override
-                public void run() {
-                    helpPoints.setVisible(false);
-                    Transition_helpPoints.setToY(20);
+                    TranslateTransition Transition_helpPoints = new TranslateTransition();
+                    Transition_helpPoints.setNode(helpPoints);
+                    Transition_helpPoints.setDuration(Duration.seconds(1.2));
+                    Transition_helpPoints.setToY(-70);
+                    Transition_helpPoints.setCycleCount(1);
+                    Transition_helpPoints.setAutoReverse(false);
                     Transition_helpPoints.play();
-                }
-            };
-            timer.schedule(minusPoints, 1500);
 
-            for (Map.Entry<String, Boolean> i : helpHashMap.entrySet()) {
-
-                if (i.getValue() == false) {
-
+                    TimerTask minusPoints = new TimerTask() {
+                        @Override
+                        public void run() {
+                            helpPoints.setVisible(false);
+                            Transition_helpPoints.setToY(20);
+                            Transition_helpPoints.play();
+                        }
+                    };
+                    timer.schedule(minusPoints, 1500);
                     switch (i.getKey()) {
                         case "kaaba_1":
                             ployline = new Polyline();
@@ -488,7 +485,7 @@ public class AlharamController implements Initializable {
                             timer.schedule(cursortask_taef, 4000);
                             break;
                     }
-                    break;
+                    
                 }
 
             }

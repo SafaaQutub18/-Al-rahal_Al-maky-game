@@ -6,6 +6,7 @@
 package alrhal_almky;
 
 import static alrhal_almky.AlharamController.hearts;
+import static alrhal_almky.AlharamController.helpHashMap;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -13,6 +14,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -30,6 +33,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
+import javafx.scene.shape.Polyline;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -45,12 +49,58 @@ public class MenaController implements Initializable {
     private Scene scene;
     private Stage stage;
     private Scene menaScene;
-    
+    @FXML
+    private ImageView rami_1;
+
+    @FXML
+    private ImageView hajar_1;
+
+    @FXML
+    private ImageView haj_1;
+
+    @FXML
+    private ImageView soghra_1;
+
+    @FXML
+    private ImageView wosta_1;
+
+    @FXML
+    private ImageView khema_1;
+
+    @FXML
+    private ImageView kobra_1;
+
+    @FXML
+    private ImageView khema_2;
+
+    @FXML
+    private ImageView soghra_2;
+
+    @FXML
+    private ImageView haj_2;
+
+    @FXML
+    private ImageView kobra_2;
+
+    @FXML
+    private ImageView rami_2;
+
+    @FXML
+    private ImageView wosta_2;
+    @FXML
+    private ImageView hajar_2;
+
+    @FXML
+    private Text helpPoints;
+
+    @FXML
+    private ImageView cursor;
+
     @FXML
     private ImageView shootingStar;
-        @FXML
+    @FXML
     private ImageView normal_boy;
-        @FXML
+    @FXML
     private ImageView heart3;
 
     @FXML
@@ -70,6 +120,8 @@ public class MenaController implements Initializable {
 
     private static int userPoints = 0;
 
+    public static HashMap<String, Boolean> helpHashMap = new HashMap<String, Boolean>();
+
     @FXML
     private void handleMaptButton(ActionEvent event) throws IOException {
 
@@ -85,7 +137,16 @@ public class MenaController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         userPoints = 0;
+
+        // This HashMap for help button to keep track of images not used
+        helpHashMap.put("khema_1", false);
+        helpHashMap.put("kobra_1", false);
+        helpHashMap.put("wosta_1", false);
+        helpHashMap.put("soghra_1", false);
+        helpHashMap.put("haj_1", false);
+        helpHashMap.put("hajar_1", false);
+        helpHashMap.put("rami_1", false);
+
         hearts = 0;
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("UserPoints.txt"))) {
@@ -117,7 +178,7 @@ public class MenaController implements Initializable {
                 }
             }
         }, 0, 1000);
-        
+
         Timer timer = new Timer();
 
         TimerTask boytask = new TimerTask() {
@@ -133,67 +194,63 @@ public class MenaController implements Initializable {
         };
         timer.schedule(boytask, 1000l);
         // حركة الشهاب
-         TimerTask shotingStarTask = new TimerTask() {
+        TimerTask shotingStarTask = new TimerTask() {
             @Override
-        public void run() {
-         shootingStar.setVisible(true);
-               
-        Path path = new Path();
-        MoveTo moveTo = new MoveTo(100,10);
-       // LineTo line1 = new LineTo(490, 791);
-         LineTo line1 = new LineTo(-490, 200);
-        // path.setRotate( 30);
-        path.getElements().add(moveTo);
-        path.getElements().addAll( line1);
-        PathTransition pathTransition = new PathTransition();
-        pathTransition.setDuration(Duration.millis(1000));
-        pathTransition.setNode(shootingStar);
-        pathTransition.setPath(path);
-        pathTransition.setOrientation(PathTransition.OrientationType.NONE);
-        pathTransition.setCycleCount(1);
-        pathTransition.setAutoReverse(false);
-        pathTransition.play();
+            public void run() {
+                shootingStar.setVisible(true);
+
+                Path path = new Path();
+                MoveTo moveTo = new MoveTo(100, 10);
+                // LineTo line1 = new LineTo(490, 791);
+                LineTo line1 = new LineTo(-490, 200);
+                // path.setRotate( 30);
+                path.getElements().add(moveTo);
+                path.getElements().addAll(line1);
+                PathTransition pathTransition = new PathTransition();
+                pathTransition.setDuration(Duration.millis(1000));
+                pathTransition.setNode(shootingStar);
+                pathTransition.setPath(path);
+                pathTransition.setOrientation(PathTransition.OrientationType.NONE);
+                pathTransition.setCycleCount(1);
+                pathTransition.setAutoReverse(false);
+                pathTransition.play();
             }
         };
         timer.schedule(shotingStarTask, 10011);
 
         // اختفاء الشهاب
-         TimerTask shotingStarHidden = new TimerTask() {
+        TimerTask shotingStarHidden = new TimerTask() {
             @Override
-        public void run() {
-         shootingStar.setVisible(false);
+            public void run() {
+                shootingStar.setVisible(false);
             }
         };
         timer.schedule(shotingStarHidden, 11001);
     }
 
-    
     public void setScene(Scene scene) {
-        
+
         this.menaScene = scene;
 
-                
         String[] imgs = {"#khema_1", "#kobra_1", "#wosta_1", "#soghra_1", "#haj_1", "#hajar_1", "#rami_1"};
-        
+
         DragDropHandler dragDropHandler = new DragDropHandler();
-        
-        
-        for(String i : imgs) {
-          ImageView img1 = (ImageView) scene.lookup(i);
-          img1.setCursor(Cursor.HAND);
-          img1.setOnDragDetected(dragDropHandler.myHandlerDetected);
-          //img1.setOnMousePressed(dragDropHandler.circleOnMousePressedEventHandler);
-          //img1.setOnMouseDragged(dragDropHandler.circleOnMouseDraggedEventHandler);
-          
-          ImageView img2 = (ImageView) scene.lookup(i.replace("_1", "_2"));
-          img2.setOnMouseDragged(dragDropHandler.myHandlerDragged);
-          img2.setOnDragOver(dragDropHandler.myHandlerOver);
-          img2.setOnDragDropped(dragDropHandler.myHandlerDropped);
+
+        for (String i : imgs) {
+            ImageView img1 = (ImageView) scene.lookup(i);
+            img1.setCursor(Cursor.HAND);
+            img1.setOnDragDetected(dragDropHandler.myHandlerDetected);
+            //img1.setOnMousePressed(dragDropHandler.circleOnMousePressedEventHandler);
+            //img1.setOnMouseDragged(dragDropHandler.circleOnMouseDraggedEventHandler);
+
+            ImageView img2 = (ImageView) scene.lookup(i.replace("_1", "_2"));
+            img2.setOnMouseDragged(dragDropHandler.myHandlerDragged);
+            img2.setOnDragOver(dragDropHandler.myHandlerOver);
+            img2.setOnDragDropped(dragDropHandler.myHandlerDropped);
         }
-        
-  
+
     }
-    
+
     void pointsUpdater(int newPoints) {
 
         userPoints += newPoints;
@@ -208,5 +265,215 @@ public class MenaController implements Initializable {
         }
 
     }
-    
+
+    @FXML
+    private void handleHelpButton(ActionEvent event) throws IOException {
+
+        Timer timer = new Timer();
+        Polyline ployline = new Polyline();
+        PathTransition pathTransition = new PathTransition();
+
+        for (Map.Entry<String, Boolean> i : helpHashMap.entrySet()) {
+
+            if (i.getValue() == false) {
+                if ((userPoints - 5) >= 0) {
+                    pointsUpdater(-5);
+
+                    helpPoints.setVisible(true);
+
+                    TranslateTransition Transition_helpPoints = new TranslateTransition();
+                    Transition_helpPoints.setNode(helpPoints);
+                    Transition_helpPoints.setDuration(Duration.seconds(1.2));
+                    Transition_helpPoints.setToY(-70);
+                    Transition_helpPoints.setCycleCount(1);
+                    Transition_helpPoints.setAutoReverse(false);
+                    Transition_helpPoints.play();
+
+                    TimerTask minusPoints = new TimerTask() {
+                        @Override
+                        public void run() {
+                            helpPoints.setVisible(false);
+                            Transition_helpPoints.setToY(20);
+                            Transition_helpPoints.play();
+                        }
+                    };
+                    timer.schedule(minusPoints, 1500);
+
+                    switch (i.getKey()) {
+                        case "khema_1":
+                            ployline = new Polyline();
+                            ployline.getPoints().addAll(new Double[]{
+                                khema_1.getLayoutX() + 50, khema_1.getLayoutY() + 80,
+                                khema_2.getLayoutX() + 60, khema_2.getLayoutY() + 100,});
+
+                            pathTransition = new PathTransition();
+                            pathTransition.setDuration(Duration.seconds(2));
+                            pathTransition.setNode(cursor);
+                            pathTransition.setPath(ployline);
+                            pathTransition.setCycleCount(-1);
+                            pathTransition.setAutoReverse(false);
+                            pathTransition.play();
+                            cursor.setVisible(true);
+
+                            TimerTask cursortask_khema = new TimerTask() {
+                                @Override
+                                public void run() {
+                                    cursor.setVisible(false);
+                                }
+                            };
+                            timer.schedule(cursortask_khema, 4000);
+                            break;
+                        case "kobra_1":
+                            ployline = new Polyline();
+                            ployline.getPoints().addAll(new Double[]{
+                                kobra_1.getLayoutX() + 50, kobra_1.getLayoutY() + 80,
+                                kobra_2.getLayoutX() + 80, kobra_2.getLayoutY() + 100,});
+
+                            pathTransition = new PathTransition();
+                            pathTransition.setDuration(Duration.seconds(2));
+                            pathTransition.setNode(cursor);
+                            pathTransition.setPath(ployline);
+                            pathTransition.setCycleCount(-1);
+                            pathTransition.setAutoReverse(false);
+                            pathTransition.play();
+                            cursor.setVisible(true);
+
+                            TimerTask cursortask_kobra = new TimerTask() {
+                                @Override
+                                public void run() {
+                                    cursor.setVisible(false);
+                                }
+                            };
+                            timer.schedule(cursortask_kobra, 4000);
+                            break;
+                        case "wosta_1":
+
+                            ployline = new Polyline();
+                            ployline.getPoints().addAll(new Double[]{
+                                wosta_1.getLayoutX() + 50, wosta_1.getLayoutY() + 80,
+                                wosta_2.getLayoutX() + 80, wosta_2.getLayoutY() + 100,});
+
+                            pathTransition = new PathTransition();
+                            pathTransition.setDuration(Duration.seconds(2));
+                            pathTransition.setNode(cursor);
+                            pathTransition.setPath(ployline);
+                            pathTransition.setCycleCount(2);
+                            pathTransition.setAutoReverse(false);
+                            pathTransition.play();
+                            cursor.setVisible(true);
+
+                            TimerTask cursortask_wosta = new TimerTask() {
+                                @Override
+                                public void run() {
+                                    cursor.setVisible(false);
+                                }
+                            };
+                            timer.schedule(cursortask_wosta, 4000);
+
+                            break;
+                        case "soghra_1":
+                            ployline = new Polyline();
+                            ployline.getPoints().addAll(new Double[]{
+                                soghra_1.getLayoutX() + 50, soghra_1.getLayoutY() + 80,
+                                soghra_2.getLayoutX() + 80, soghra_2.getLayoutY() + 100,});
+
+                            pathTransition = new PathTransition();
+                            pathTransition.setDuration(Duration.seconds(2));
+                            pathTransition.setNode(cursor);
+                            pathTransition.setPath(ployline);
+                            pathTransition.setCycleCount(-1);
+                            pathTransition.setAutoReverse(false);
+                            pathTransition.play();
+                            cursor.setVisible(true);
+
+                            TimerTask cursortask_soghra = new TimerTask() {
+                                @Override
+                                public void run() {
+                                    cursor.setVisible(false);
+
+                                }
+                            };
+                            timer.schedule(cursortask_soghra, 4000);
+
+                            break;
+                        case "haj_1":
+                            ployline = new Polyline();
+                            ployline.getPoints().addAll(new Double[]{
+                                haj_1.getLayoutX() + 50, haj_1.getLayoutY() + 80,
+                                haj_2.getLayoutX() + 60, haj_2.getLayoutY() + 80,});
+
+                            pathTransition = new PathTransition();
+                            pathTransition.setDuration(Duration.seconds(2));
+                            pathTransition.setNode(cursor);
+                            pathTransition.setPath(ployline);
+                            pathTransition.setCycleCount(-1);
+                            pathTransition.setAutoReverse(false);
+                            pathTransition.play();
+                            cursor.setVisible(true);
+
+                            TimerTask cursortask_haj = new TimerTask() {
+                                @Override
+                                public void run() {
+                                    cursor.setVisible(false);
+                                }
+                            };
+                            timer.schedule(cursortask_haj, 4000);
+                            break;
+                        case "hajar_1":
+
+                            ployline = new Polyline();
+                            ployline.getPoints().addAll(new Double[]{
+                                hajar_1.getLayoutX() + 50, hajar_1.getLayoutY() + 80,
+                                hajar_2.getLayoutX() + 10, hajar_2.getLayoutY() + 30,});
+
+                            pathTransition = new PathTransition();
+                            pathTransition.setDuration(Duration.seconds(2));
+                            pathTransition.setNode(cursor);
+                            pathTransition.setPath(ployline);
+                            pathTransition.setCycleCount(-1);
+                            pathTransition.setAutoReverse(false);
+                            pathTransition.play();
+                            cursor.setVisible(true);
+
+                            TimerTask cursortask_hajar = new TimerTask() {
+                                @Override
+                                public void run() {
+                                    cursor.setVisible(false);
+                                }
+                            };
+                            timer.schedule(cursortask_hajar, 4000);
+                            break;
+                        case "rami_1":
+
+                            ployline = new Polyline();
+                            ployline.getPoints().addAll(new Double[]{
+                                rami_1.getLayoutX() + 50, rami_1.getLayoutY() + 80,
+                                rami_2.getLayoutX() + 60, rami_2.getLayoutY() + 100,});
+
+                            pathTransition = new PathTransition();
+                            pathTransition.setDuration(Duration.seconds(2));
+                            pathTransition.setNode(cursor);
+                            pathTransition.setPath(ployline);
+                            pathTransition.setCycleCount(-1);
+                            pathTransition.setAutoReverse(false);
+                            pathTransition.play();
+                            cursor.setVisible(true);
+
+                            TimerTask cursortask_rami = new TimerTask() {
+                                @Override
+                                public void run() {
+                                    cursor.setVisible(false);
+                                }
+                            };
+                            timer.schedule(cursortask_rami, 4000);
+                            break;
+                    }
+
+                }
+
+            }
+        }
+
+    }
+
 }
