@@ -34,7 +34,7 @@ public class StartController implements Initializable {
     private Scene scene;
     private Stage stage;
     private String userLevel = "0";
-    private String userPoints = "0";
+    
 
     /**
      * Navigate to the map
@@ -111,28 +111,13 @@ public class StartController implements Initializable {
                 // Initialize the new user's level in the UserLevel file
                 try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("UserPoints.txt"))) {
                     String fileContent = "0";
-                    userPoints = fileContent;
                     bufferedWriter.write(fileContent);
                 } catch (IOException e) {
                     // Exception handling
                 }
 
-                // If the user already has a file
-            } else {
-
-                // Read the stored level of the user
-                try (BufferedReader bufferedReader = new BufferedReader(new FileReader("UserPoints.txt"))) {
-                    String line = bufferedReader.readLine();
-                    while (line != null) {
-                        userPoints = line;
-                        line = bufferedReader.readLine();
-                    }
-                } catch (FileNotFoundException e) {
-                    // Exception handling
-                } catch (IOException e) {
-                    // Exception handling
-                }
-            }
+              
+            } 
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();

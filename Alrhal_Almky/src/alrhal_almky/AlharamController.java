@@ -14,10 +14,13 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Logger;
+import javafx.animation.PathTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,6 +35,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Polyline;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -49,9 +53,46 @@ public class AlharamController implements Initializable {
     private Scene scene;
     private Stage stage;
     private Scene alharamScene;
-    int test; 
+    int test;
 
     ///////////////////////////////////
+    @FXML
+    private ImageView kaaba_1;
+
+    @FXML
+    private ImageView makam_1;
+
+    @FXML
+    private ImageView sahn_1;
+
+    @FXML
+    private ImageView zamzam_1;
+
+    @FXML
+    private ImageView methna_1;
+
+    @FXML
+    private ImageView taef_1;
+
+    @FXML
+    private ImageView kaaba_2;
+
+    @FXML
+    private ImageView sahn_2;
+
+    @FXML
+    private ImageView zamzam_2;
+
+    @FXML
+    private ImageView makam_2;
+
+    @FXML
+    private ImageView taef_2;
+
+    @FXML
+    private ImageView methna_2;
+    @FXML
+    private ImageView cursor;
     @FXML
     private ImageView normal_boy;
     @FXML
@@ -77,12 +118,14 @@ public class AlharamController implements Initializable {
     private ImageView sad_boy2;
     @FXML
     private ImageView tears;
+    @FXML
+    private Text helpPoints;
 
     public static int hearts = 0;
 
     private static int userPoints = 0;
-    
-    
+
+    public static HashMap<String, Boolean> helpHashMap = new HashMap<String, Boolean>();
 
     ///////////////////////////////////
     @FXML
@@ -97,9 +140,18 @@ public class AlharamController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        userPoints = 0;
-        hearts = 0;
 
+        // This HashMap for help button to keep track of images not used
+        helpHashMap.put("kaaba_1", false);
+        helpHashMap.put("makam_1", false);
+        helpHashMap.put("sahn_1", false);
+        helpHashMap.put("zamzam_1", false);
+        helpHashMap.put("methna_1", false);
+        helpHashMap.put("taef_1", false);
+
+        hearts = 0;
+        
+        // Read the user points from the userpints file
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("UserPoints.txt"))) {
             String line = bufferedReader.readLine();
             while (line != null) {
@@ -111,6 +163,8 @@ public class AlharamController implements Initializable {
         } catch (IOException e) {
             // Exception handling
         }
+
+        // This timer to keep updating the user points and hearts int the interface continuously
         Timer timer2 = new Timer();
         timer2.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -123,41 +177,28 @@ public class AlharamController implements Initializable {
                     sad_boy2.setVisible(true);
                     heart2.setVisible(false);
                 } else if (hearts == 3) {
-                    test= 1;
+                    test = 1;
                     heart3.setVisible(false);
                     sad_boy2.setVisible(false);
                     sad_boy.setVisible(true);
                     // الدمعة
                     tears.setVisible(true);
-                    
-                    
-                    
-                  
-                    
-                    
-                TranslateTransition Transition_tears = new TranslateTransition();
-                Transition_tears.setNode(tears);
-                Transition_tears.setDuration(Duration.seconds(1.5));
-                Transition_tears.setToY(200);
-                Transition_tears.setToX(0);
-                Transition_tears.setCycleCount(-1);
-               //Transition_tears.setAutoReverse(true);
-                Transition_tears.play();
-                //System.out.println("Loss Interface");         
-                
-                    
-                    
+
+                    TranslateTransition Transition_tears = new TranslateTransition();
+                    Transition_tears.setNode(tears);
+                    Transition_tears.setDuration(Duration.seconds(1.5));
+                    Transition_tears.setToY(200);
+                    Transition_tears.setToX(0);
+                    Transition_tears.setCycleCount(-1);
+                    //Transition_tears.setAutoReverse(true);
+                    Transition_tears.play();
+                    //System.out.println("Loss Interface");         
+
                 }
-                
-                
+
             }
-        }, 0, 1000); System.out.println("Loss Interface"); 
-        
- 
-        
-        
-        
-        
+        }, 0, 10);
+        System.out.println("Loss Interface");
 
         Timer timer = new Timer();
 
@@ -194,15 +235,8 @@ public class AlharamController implements Initializable {
             }
         };
         timer.schedule(birdtask, 10490);
-        
-        
-        }
 
-    
-    
-    
-    
-
+    }
 
     public void setScene(Scene scene) {
 
@@ -225,7 +259,7 @@ public class AlharamController implements Initializable {
             img2.setOnMouseDragged(dragDropHandler.myHandlerDragged);
             img2.setOnDragOver(dragDropHandler.myHandlerOver);
             img2.setOnDragDropped(dragDropHandler.myHandlerDropped);
-            
+
             // System.out.println("Hello there,.,.,.");
         }
 
@@ -258,6 +292,7 @@ public class AlharamController implements Initializable {
         img3.setOnMouseDragged(dragDropHandler.circleOnMouseDraggedEventHandler);*/
     }
 
+    // Each time the user earn points or loss points we call this function
     void pointsUpdater(int newPoints) {
 
         userPoints += newPoints;
@@ -268,13 +303,197 @@ public class AlharamController implements Initializable {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("UserPoints.txt"))) {
             bufferedWriter.write(String.valueOf(userPoints));
         } catch (IOException e) {
-            // Exception handling
+
         }
 
     }
+
     
-    
-     
-  
+    @FXML
+    private void handleHelpButton(ActionEvent event) throws IOException {
+
+        Timer timer = new Timer();
+        Polyline ployline = new Polyline();
+        PathTransition pathTransition = new PathTransition();
+
+        if ((userPoints - 5) >= 0) {
+            pointsUpdater(-5);
+
+            helpPoints.setVisible(true);
+
+            TranslateTransition Transition_helpPoints = new TranslateTransition();
+            Transition_helpPoints.setNode(helpPoints);
+            Transition_helpPoints.setDuration(Duration.seconds(1.2));
+            Transition_helpPoints.setToY(-70);
+            Transition_helpPoints.setCycleCount(1);
+            Transition_helpPoints.setAutoReverse(false);
+            Transition_helpPoints.play();
+
+            TimerTask minusPoints = new TimerTask() {
+                @Override
+                public void run() {
+                    helpPoints.setVisible(false);
+                    Transition_helpPoints.setToY(20);
+                    Transition_helpPoints.play();
+                }
+            };
+            timer.schedule(minusPoints, 1500);
+
+            for (Map.Entry<String, Boolean> i : helpHashMap.entrySet()) {
+
+                if (i.getValue() == false) {
+
+                    switch (i.getKey()) {
+                        case "kaaba_1":
+                            ployline = new Polyline();
+                            ployline.getPoints().addAll(new Double[]{
+                                kaaba_1.getLayoutX() + 50, kaaba_1.getLayoutY() + 80,
+                                kaaba_2.getLayoutX() + 60, kaaba_2.getLayoutY() + 100,});
+
+                            pathTransition = new PathTransition();
+                            pathTransition.setDuration(Duration.seconds(2));
+                            pathTransition.setNode(cursor);
+                            pathTransition.setPath(ployline);
+                            pathTransition.setCycleCount(-1);
+                            pathTransition.setAutoReverse(false);
+                            pathTransition.play();
+                            cursor.setVisible(true);
+
+                            TimerTask cursortask_kaaba = new TimerTask() {
+                                @Override
+                                public void run() {
+                                    cursor.setVisible(false);
+                                }
+                            };
+                            timer.schedule(cursortask_kaaba, 4000);
+                            break;
+                        case "makam_1":
+                            ployline = new Polyline();
+                            ployline.getPoints().addAll(new Double[]{
+                                makam_1.getLayoutX() + 50, makam_1.getLayoutY() + 80,
+                                makam_2.getLayoutX() + 60, makam_2.getLayoutY() + 100,});
+
+                            pathTransition = new PathTransition();
+                            pathTransition.setDuration(Duration.seconds(2));
+                            pathTransition.setNode(cursor);
+                            pathTransition.setPath(ployline);
+                            pathTransition.setCycleCount(-1);
+                            pathTransition.setAutoReverse(false);
+                            pathTransition.play();
+                            cursor.setVisible(true);
+
+                            TimerTask cursortask_makam = new TimerTask() {
+                                @Override
+                                public void run() {
+                                    cursor.setVisible(false);
+                                }
+                            };
+                            timer.schedule(cursortask_makam, 4000);
+                            break;
+                        case "sahn_1":
+
+                            ployline = new Polyline();
+                            ployline.getPoints().addAll(new Double[]{
+                                sahn_1.getLayoutX() + 50, sahn_1.getLayoutY() + 80,
+                                sahn_2.getLayoutX() + 60, sahn_2.getLayoutY() + 100,});
+
+                            pathTransition = new PathTransition();
+                            pathTransition.setDuration(Duration.seconds(2));
+                            pathTransition.setNode(cursor);
+                            pathTransition.setPath(ployline);
+                            pathTransition.setCycleCount(2);
+                            pathTransition.setAutoReverse(false);
+                            pathTransition.play();
+                            cursor.setVisible(true);
+
+                            TimerTask cursortask_maqam = new TimerTask() {
+                                @Override
+                                public void run() {
+                                    cursor.setVisible(false);
+                                }
+                            };
+                            timer.schedule(cursortask_maqam, 4000);
+
+                            break;
+                        case "zamzam_1":
+                            ployline = new Polyline();
+                            ployline.getPoints().addAll(new Double[]{
+                                zamzam_1.getLayoutX() + 50, zamzam_1.getLayoutY() + 80,
+                                zamzam_2.getLayoutX() + 60, zamzam_2.getLayoutY() + 100,});
+
+                            pathTransition = new PathTransition();
+                            pathTransition.setDuration(Duration.seconds(2));
+                            pathTransition.setNode(cursor);
+                            pathTransition.setPath(ployline);
+                            pathTransition.setCycleCount(-1);
+                            pathTransition.setAutoReverse(false);
+                            pathTransition.play();
+                            cursor.setVisible(true);
+
+                            TimerTask cursortask_zamzam = new TimerTask() {
+                                @Override
+                                public void run() {
+                                    cursor.setVisible(false);
+
+                                }
+                            };
+                            timer.schedule(cursortask_zamzam, 4000);
+
+                            break;
+                        case "methna_1":
+                            ployline = new Polyline();
+                            ployline.getPoints().addAll(new Double[]{
+                                methna_1.getLayoutX() + 50, methna_1.getLayoutY() + 80,
+                                methna_2.getLayoutX() + 60, methna_2.getLayoutY() + 100,});
+
+                            pathTransition = new PathTransition();
+                            pathTransition.setDuration(Duration.seconds(2));
+                            pathTransition.setNode(cursor);
+                            pathTransition.setPath(ployline);
+                            pathTransition.setCycleCount(-1);
+                            pathTransition.setAutoReverse(false);
+                            pathTransition.play();
+                            cursor.setVisible(true);
+
+                            TimerTask cursortask_methna = new TimerTask() {
+                                @Override
+                                public void run() {
+                                    cursor.setVisible(false);
+                                }
+                            };
+                            timer.schedule(cursortask_methna, 4000);
+                            break;
+                        case "taef_1":
+
+                            ployline = new Polyline();
+                            ployline.getPoints().addAll(new Double[]{
+                                taef_1.getLayoutX() + 50, taef_1.getLayoutY() + 80,
+                                taef_2.getLayoutX() + 60, taef_2.getLayoutY() + 100,});
+
+                            pathTransition = new PathTransition();
+                            pathTransition.setDuration(Duration.seconds(2));
+                            pathTransition.setNode(cursor);
+                            pathTransition.setPath(ployline);
+                            pathTransition.setCycleCount(-1);
+                            pathTransition.setAutoReverse(false);
+                            pathTransition.play();
+                            cursor.setVisible(true);
+
+                            TimerTask cursortask_taef = new TimerTask() {
+                                @Override
+                                public void run() {
+                                    cursor.setVisible(false);
+                                }
+                            };
+                            timer.schedule(cursortask_taef, 4000);
+                            break;
+                    }
+                    break;
+                }
+
+            }
+        }
+
+    }
 
 }

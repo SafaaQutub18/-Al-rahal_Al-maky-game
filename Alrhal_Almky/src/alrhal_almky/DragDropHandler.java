@@ -113,17 +113,18 @@ public class DragDropHandler {
                 target.setOpacity(1);
                 source.setImage(null);
                 
-                ac.pointsUpdater(5);
-                mc.pointsUpdater(5);
+                ac.pointsUpdater(3);
+                mc.pointsUpdater(3);
                 //counter ++
+                ac.helpHashMap.replace(source.getId(), true);
                 
             } else {
                 event.setDropCompleted(false);
                 
-                ac.pointsUpdater(-5);
+                ac.pointsUpdater(-3);
                 ac.hearts += 1; 
                 
-                mc.pointsUpdater(-5);
+                mc.pointsUpdater(-3);
                 mc.hearts += 1; 
                 // heart.isheddin == false
                 
