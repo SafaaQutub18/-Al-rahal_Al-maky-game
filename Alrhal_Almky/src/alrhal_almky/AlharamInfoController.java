@@ -7,6 +7,7 @@ package alrhal_almky;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
@@ -41,19 +42,25 @@ public class AlharamInfoController implements Initializable {
         source = (ImageView) event.getSource();
         stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = stage.getScene();
-        scene.setCursor(Cursor.HAND); //Change cursor to hand
+        //scene.setCursor(Cursor.HAND); //Change cursor to hand
         target = (ImageView)scene.lookup("#infoRectAlharam");
+        //ImageView temp = (ImageView)scene.lookup("#kaaba");
+        //temp.setImage(null);
         System.out.println(source.getId()+".png");
-        Image image = new Image(new File("/images/info/"+source.getId()+".png").toURI().toString(),
-                149, 149, false, false);
-        //target.setPreserveRatio(true);
-        //target.setFitWidth(149);
-        //target.setFitHeight(149);
-        System.out.println(image.heightProperty());
-        System.out.println(image.widthProperty());
-        target.setImage(image);    
-        System.out.println(target.getImage().heightProperty());
-        System.out.println(target.getImage().widthProperty());
+        InputStream stream = getClass().getResourceAsStream("images/info/"+source.getId()+".png");
+        //"images/" is the a local directory where all my images are located
+        Image newImage = new Image(stream); 
+        target.setImage(newImage);
+//        Image image = new Image(new File("/images/info/"+source.getId()+".png").toURI().toString(),
+//                149, 149, true, true);
+//        //target.setPreserveRatio(true);
+//        //target.setFitWidth(149);
+//        //target.setFitHeight(149);
+//        System.out.println(image.heightProperty());
+//        System.out.println(image.widthProperty());
+//        target.setImage(image);    
+//        System.out.println(target.getImage().heightProperty());
+//        System.out.println(target.getImage().widthProperty());
 
     }
     

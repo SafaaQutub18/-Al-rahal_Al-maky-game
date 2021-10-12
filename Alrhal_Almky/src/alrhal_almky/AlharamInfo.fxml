@@ -36,6 +36,6 @@
             <Image url="@الصور/واجهة%20معلومات%20المسجد%20الحرام/واجهة%20المعلومات-%20المسجد%20الحرام_زر%20الكعبة.png" />
          </image>
       </ImageView>
-      <ImageView id="infoRectAlharam" fitHeight="149.0" fitWidth="149.0" layoutX="332.0" layoutY="434.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView id="infoRectAlharam" fitHeight="179.0" fitWidth="292.0" layoutX="306.0" layoutY="418.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
