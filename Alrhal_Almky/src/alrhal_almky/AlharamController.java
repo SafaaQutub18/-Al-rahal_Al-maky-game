@@ -254,11 +254,13 @@ public class AlharamController implements Initializable {
             img1.setOnDragDetected(dragDropHandler.myHandlerDetected);
             //img1.setOnMousePressed(dragDropHandler.circleOnMousePressedEventHandler);
             //img1.setOnMouseDragged(dragDropHandler.circleOnMouseDraggedEventHandler);
+            img1.setOnDragDone(dragDropHandler.myHandlerDone);
 
             ImageView img2 = (ImageView) scene.lookup(i.replace("_1", "_2"));
             img2.setOnMouseDragged(dragDropHandler.myHandlerDragged);
             img2.setOnDragOver(dragDropHandler.myHandlerOver);
             img2.setOnDragDropped(dragDropHandler.myHandlerDropped);
+            
 
             // System.out.println("Hello there,.,.,.");
         }
@@ -306,6 +308,14 @@ public class AlharamController implements Initializable {
 
         }
 
+    }
+    
+    public void tempToInfo(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("AlharamInfo.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

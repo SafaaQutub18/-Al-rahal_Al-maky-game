@@ -4,8 +4,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="alrhal_almky.AlharamInfoController">
+<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="900.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.AlharamInfoController">
    <children>
       <ImageView fitHeight="681.0" fitWidth="908.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -17,26 +16,26 @@
             <Image url="@الصور/واجهة%20معلومات%20المسجد%20الحرام/الشخصية.png" />
          </image>
       </ImageView>
-      <ImageView id="zamzam" fitHeight="182.0" fitWidth="181.0" layoutX="599.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="zamzam" fitHeight="182.0" fitWidth="181.0" layoutX="599.0" layoutY="57.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20المسجد%20الحرام/واجهة%20المعلومات-%20المسجد%20الحرام_زر%20البئر.png" />
          </image>
       </ImageView>
-      <ImageView id="sahn" fitHeight="182.0" fitWidth="181.0" layoutX="431.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="sahn" fitHeight="182.0" fitWidth="181.0" layoutX="431.0" layoutY="55.0" onMouseEntered="#chageCurser" onMousePressed="#showInfo" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20المسجد%20الحرام/واجهة%20المعلومات-%20المسجد%20الحرام_زر%20الحجر.png" />
          </image>
       </ImageView>
-      <ImageView id="makam" fitHeight="182.0" fitWidth="181.0" layoutX="268.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="makam" fitHeight="182.0" fitWidth="181.0" layoutX="268.0" layoutY="56.0" onMouseEntered="#chageCurser" onMousePressed="#showInfo" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20المسجد%20الحرام/واجهة%20المعلومات-%20المسجد%20الحرام_زر%20المفام.png" />
          </image>
       </ImageView>
-      <ImageView id="kaaba" fitHeight="182.0" fitWidth="181.0" layoutX="99.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="kaaba" fitHeight="182.0" fitWidth="181.0" layoutX="99.0" layoutY="56.0" onMouseEntered="#chageCurser" onMousePressed="#showInfo" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20المسجد%20الحرام/واجهة%20المعلومات-%20المسجد%20الحرام_زر%20الكعبة.png" />
          </image>
       </ImageView>
-      <ImageView id="infoRectAlharam" fitHeight="108.0" fitWidth="231.0" layoutX="289.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView id="infoRectAlharam" fitHeight="149.0" fitWidth="149.0" layoutX="332.0" layoutY="434.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

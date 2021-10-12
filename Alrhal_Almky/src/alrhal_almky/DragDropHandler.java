@@ -138,7 +138,7 @@ public class DragDropHandler {
              if(ac.hearts == 3){ 
              //  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
               // stage.close();
-                System.out.println("Call loss function");
+            /*    System.out.println("Call loss function");
                 
                 System.out.println("You loss :(!");
             
@@ -170,11 +170,68 @@ public class DragDropHandler {
                } catch (IOException ex) {
                    Logger.getLogger(Loss_interfaceController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
                }
-                 
+                 */
                  }
         }
 
     };
+         
+          final EventHandler<DragEvent> myHandlerDone = new EventHandler<DragEvent>() {
+        
+        @Override
+        public void handle(DragEvent event) {
+            event.consume();
+            
+            try {
+                if (source.getId() != null && target.getId() != null) {
+            String source_id = source.getId().split("_")[0];
+            
+            String target_id = target.getId().split("_")[0];
+                
+            Dragboard db = event.getDragboard();
+                System.out.println("img 2 drag exited");
+             //  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+              // stage.close();
+                if(ac.hearts == 3){ 
+                System.out.println("Call loss function");
+                
+                System.out.println("You loss :(!");
+            
+            Stage lossStage = null; 
+            Parent lossRoot = null;
+            Scene sceneLoss = null;
+               
+            lossStage = new Stage();
+            FXMLLoader lossLoader = new FXMLLoader();
+            lossLoader.setLocation(getClass().getResource("Loss_interface.fxml"));
+            lossRoot = lossLoader.load();
+            sceneLoss = new Scene(lossRoot);
+            sceneLoss.setFill(Color.TRANSPARENT);
+            
+            lossStage.setScene(sceneLoss);
+            lossStage.initStyle(StageStyle.UNDECORATED);
+            lossStage.initStyle(StageStyle.TRANSPARENT);
+            lossStage.initModality(Modality.APPLICATION_MODAL);
+            lossStage.setResizable(false);
+            lossStage.showAndWait();
+            
+            
+           //Stage stage = (Stage) .getScene().getWindow();
+            //stage.initStyle(StageStyle.DECORATED);
+            //stage.close();
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+               stage.close();
+                }
+                }
+               } catch (IOException ex) {
+                   Logger.getLogger(Loss_interfaceController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+               }
+                }
+               
+                
+            
+        
+          };
     
           final EventHandler<MouseEvent> circleOnMousePressedEventHandler = 
         new EventHandler<MouseEvent>() {

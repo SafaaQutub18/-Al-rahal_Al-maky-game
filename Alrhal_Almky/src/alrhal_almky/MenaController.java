@@ -242,6 +242,7 @@ public class MenaController implements Initializable {
             img1.setOnDragDetected(dragDropHandler.myHandlerDetected);
             //img1.setOnMousePressed(dragDropHandler.circleOnMousePressedEventHandler);
             //img1.setOnMouseDragged(dragDropHandler.circleOnMouseDraggedEventHandler);
+            img1.setOnDragDone(dragDropHandler.myHandlerDone);
 
             ImageView img2 = (ImageView) scene.lookup(i.replace("_1", "_2"));
             img2.setOnMouseDragged(dragDropHandler.myHandlerDragged);
