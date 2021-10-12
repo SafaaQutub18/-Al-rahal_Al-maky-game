@@ -39,8 +39,8 @@ public class AlharamInfoController implements Initializable {
     public void showInfo(MouseEvent event) throws IOException{
   
         source = (ImageView) event.getSource();
-        Stage stage =(Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = stage.getScene();
+        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = stage.getScene();
         scene.setCursor(Cursor.HAND); //Change cursor to hand
         target = (ImageView)scene.lookup("#infoRectAlharam");
         System.out.println(source.getId()+".png");

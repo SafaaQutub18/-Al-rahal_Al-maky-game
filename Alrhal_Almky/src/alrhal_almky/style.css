@@ -3,8 +3,8 @@
  */
 
 
-#startButton:hover, #zamzam:hover, #sahn:hover,
-#makam:hover, #kaaba:hover{
+#startButton:hover, #zamzam:hover, #sahn:hover, #makam:hover, #kaaba:hover,
+#khema:hover, #kobra:hover, #wosta:hover, #soghra:hover, #haj:hover, #hajar:hover, #rami:hover{
     -fx-scale-x: 1.15;
     -fx-scale-y: 1.15;
     -fx-scale-z: 1.15;
