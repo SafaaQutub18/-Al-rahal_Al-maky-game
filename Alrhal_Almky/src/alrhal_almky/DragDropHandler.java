@@ -7,9 +7,15 @@ package alrhal_almky;
 
 import static alrhal_almky.GameـmapController.currentLevel;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import static java.nio.file.Files.list;
+import static java.rmi.Naming.list;
 import java.util.ArrayList;
+import static java.util.Collections.list;
+import java.util.List;
+import java.util.Random;
 import java.util.logging.Logger;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +29,8 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -49,6 +57,9 @@ public class DragDropHandler {
     MenaController mc = new MenaController();
 
     GameـmapController mapController = new GameـmapController();
+    List<String> soundslist=new ArrayList<String>();  
+    Random rand = new Random();
+  
 
     final EventHandler<MouseEvent> myHandlerDetected = new EventHandler<MouseEvent>() {
         @Override
@@ -97,6 +108,12 @@ public class DragDropHandler {
 
         @Override
         public void handle(DragEvent event) {
+             
+ soundslist.add("great.mp3");  
+  soundslist.add("amazing.mp3");  
+ soundslist.add("good.mp3");  
+ soundslist.add("excellent.mp3");
+ 
             System.out.println("In drag dropped, before if");
 
             String source_id = source.getId().split("_")[0];
@@ -119,6 +136,12 @@ public class DragDropHandler {
                     mc.pointsUpdater(3);
                     mc.helpHashMap.replace(source.getId(), true);
                 }
+                 
+                int upperbound = 5;
+                int int_random = rand.nextInt(upperbound);
+                Media sound = new Media(new File(soundslist.get(int_random)).toURI().toString());
+                MediaPlayer mediaPlayer = new MediaPlayer(sound);
+                mediaPlayer.play();
 
                 System.out.println("Win interface" + source_id);
                 arr.add(source_id);
@@ -141,6 +164,7 @@ public class DragDropHandler {
             event.consume();
 
             if (ac.hearts == 3) {
+               
                 //  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 // stage.close();
                 /*    System.out.println("Call loss function");
@@ -199,6 +223,17 @@ public class DragDropHandler {
                     // stage.close();
                     if (ac.hearts == 3) {
                         
+                        //To play loss sound
+                         if(mapController.currentLevel.equalsIgnoreCase("haram")){
+                        Media sound = new Media(new File("lossFirstLevel.mp3").toURI().toString());
+                        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+                        mediaPlayer.play();
+                        } else if (mapController.currentLevel.equalsIgnoreCase("mena")){
+                        Media sound = new Media(new File("lossSecondLevel.mp3").toURI().toString());
+                        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+                        mediaPlayer.play();
+                        }
+                        
                         System.out.println("Call loss function");
 
                         System.out.println("You loss :(!");
@@ -226,6 +261,8 @@ public class DragDropHandler {
                         //stage.close();
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.close();
+                        
+                        
                     }
                 }
             } catch (IOException ex) {
@@ -233,7 +270,20 @@ public class DragDropHandler {
             }
 
             if (arr.size() >= 6) {
+                // Update user level
                 mapController.userData("2");
+                //To play win sound
+                if(mapController.currentLevel.equalsIgnoreCase("haram")){
+                        Media sound = new Media(new File("winFirstLevel.mp3").toURI().toString());
+                        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+                        mediaPlayer.play();
+                        } else if (mapController.currentLevel.equalsIgnoreCase("mena")){
+                        Media sound = new Media(new File("winSecondLevel.mp3").toURI().toString());
+                        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+                        mediaPlayer.play();
+                        }
+                
+                
                 System.out.println("CAAAAAAL Win interface");
                 System.out.println("You win :D!");
 

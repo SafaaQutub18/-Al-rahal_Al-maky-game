@@ -21,6 +21,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 /**
@@ -34,14 +36,13 @@ public class StartController implements Initializable {
     private Scene scene;
     private Stage stage;
     private String userLevel = "0";
-    
 
     /**
      * Navigate to the map
      */
     @FXML
     private void handleStartButton(ActionEvent event) throws IOException {
-        
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("gameـmap.fxml"));
         root = loader.load();
 
@@ -56,7 +57,10 @@ public class StartController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        
+        Media sound = new Media(new File("startPage.mp3").toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
 
     }
 
