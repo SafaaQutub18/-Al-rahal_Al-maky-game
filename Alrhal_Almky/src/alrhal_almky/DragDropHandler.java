@@ -164,6 +164,7 @@ public class DragDropHandler {
             event.consume();
 
             if (ac.hearts == 3) {
+                
                
                 //  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 // stage.close();
@@ -222,7 +223,7 @@ public class DragDropHandler {
                     //  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                     // stage.close();
                     if (ac.hearts == 3) {
-                        
+                        //mc.hearts=0;
                         
                         //To play loss sound
                         if(mapController.currentLevel.equalsIgnoreCase("haram")){
@@ -263,7 +264,7 @@ public class DragDropHandler {
                         //stage.close();
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.close();
-                        
+                        ac.hearts = 0;
                         
                     }
                        if (mc.hearts == 3) {
@@ -302,7 +303,7 @@ public class DragDropHandler {
                         //stage.close();
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.close();
-                        
+                        mc.hearts = 0;
                         
                     }
                 }
