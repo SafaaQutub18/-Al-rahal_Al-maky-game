@@ -16,22 +16,22 @@
             <Image url="@الصور/واجهة%20معلومات%20المسجد%20الحرام/الشخصية.png" />
          </image>
       </ImageView>
-      <ImageView id="zamzam" fitHeight="182.0" fitWidth="181.0" layoutX="599.0" layoutY="57.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="zamzam" fitHeight="182.0" fitWidth="181.0" layoutX="108.0" layoutY="57.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20المسجد%20الحرام/واجهة%20المعلومات-%20المسجد%20الحرام_زر%20البئر.png" />
          </image>
       </ImageView>
-      <ImageView id="sahn" fitHeight="182.0" fitWidth="181.0" layoutX="431.0" layoutY="55.0" onMouseEntered="#chageCurser" onMousePressed="#showInfo" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="sahn" fitHeight="182.0" fitWidth="181.0" layoutX="270.0" layoutY="55.0" onMouseEntered="#chageCurser" onMousePressed="#showInfo" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20المسجد%20الحرام/واجهة%20المعلومات-%20المسجد%20الحرام_زر%20الحجر.png" />
          </image>
       </ImageView>
-      <ImageView id="makam" fitHeight="182.0" fitWidth="181.0" layoutX="268.0" layoutY="56.0" onMouseEntered="#chageCurser" onMousePressed="#showInfo" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="makam" fitHeight="182.0" fitWidth="181.0" layoutX="432.0" layoutY="56.0" onMouseEntered="#chageCurser" onMousePressed="#showInfo" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20المسجد%20الحرام/واجهة%20المعلومات-%20المسجد%20الحرام_زر%20المفام.png" />
          </image>
       </ImageView>
-      <ImageView id="kaaba" fitHeight="182.0" fitWidth="181.0" layoutX="99.0" layoutY="56.0" onMouseEntered="#chageCurser" onMousePressed="#showInfo" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="kaaba" fitHeight="182.0" fitWidth="181.0" layoutX="591.0" layoutY="56.0" onMouseEntered="#chageCurser" onMousePressed="#showInfo" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20المسجد%20الحرام/واجهة%20المعلومات-%20المسجد%20الحرام_زر%20الكعبة.png" />
          </image>

@@ -51,6 +51,6 @@
             <Image url="@الصور/واجهة%20معلومات%20مشعر%20منى/معلومات%20مشعر%20منى-01.png" />
          </image>
       </ImageView>
-      <ImageView id="infoRectMena" fitHeight="108.0" fitWidth="231.0" layoutX="299.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView id="infoRectAlharam" fitHeight="179.0" fitWidth="292.0" layoutX="316.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
