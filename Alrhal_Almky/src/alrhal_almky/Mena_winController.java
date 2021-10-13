@@ -15,11 +15,9 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -33,7 +31,7 @@ import javafx.stage.Stage;
  *
  * @author HP
  */
-public class Win_interfaceController implements Initializable {
+public class Mena_winController implements Initializable {
     
      private Parent root;
      private Scene scene;
@@ -65,7 +63,7 @@ public class Win_interfaceController implements Initializable {
     
             public void handleMaptButton(MouseEvent event) throws IOException {
             if(event.getButton()== MouseButton.PRIMARY){
-((Stage)(((ImageView)event.getSource()).getScene().getWindow())).close(); 
+          ((Stage)(((ImageView)event.getSource()).getScene().getWindow())).close(); 
         root = FXMLLoader.load(getClass().getResource("gameـmap.fxml"));
         //((Stage)(((ImageView)event.getSource()).getScene().getWindow())).close();
        // stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -75,10 +73,10 @@ public class Win_interfaceController implements Initializable {
         stage.show();
     }
         }
-        public void tempToInfo(MouseEvent event) throws IOException {
+                    public void tempToInfo(MouseEvent event) throws IOException {
             if(event.getButton()== MouseButton.PRIMARY){
                 ((Stage)(((ImageView)event.getSource()).getScene().getWindow())).close(); 
-        root = FXMLLoader.load(getClass().getResource("AlharamInfo.fxml"));
+        root = FXMLLoader.load(getClass().getResource("MenaInfo.fxml"));
        // stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
        Stage stage = new Stage();
         scene = new Scene(root);
@@ -86,6 +84,7 @@ public class Win_interfaceController implements Initializable {
         stage.show();
             }
     }  
+            
             
 
     

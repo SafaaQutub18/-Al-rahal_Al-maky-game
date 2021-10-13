@@ -6,15 +6,11 @@
 package alrhal_almky;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,8 +29,7 @@ import javafx.stage.Stage;
  *
  * @author HP
  */
-public class Win_interfaceController implements Initializable {
-    
+public class Mena_lossController implements Initializable {
      private Parent root;
      private Scene scene;
      private Stage stage;
@@ -42,17 +37,17 @@ public class Win_interfaceController implements Initializable {
     /**
      * Initializes the controller class.
      */
+     
     @FXML
-    private Label win_point;
+    private Label loss_point;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
- 
-         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("UserPoints.txt"))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("UserPoints.txt"))) {
             String line = bufferedReader.readLine();
             while (line != null) {
                 int userPoints = Integer.parseInt(line);
                 System.out.println(userPoints);
-                win_point.setText(Integer.toString(userPoints));
+                loss_point.setText(Integer.toString(userPoints));
                 line = bufferedReader.readLine();
             }
         } catch (FileNotFoundException e) {
@@ -60,10 +55,44 @@ public class Win_interfaceController implements Initializable {
         } catch (IOException e) {
             // Exception handling
         };
+    }   
     
+      public void back2(MouseEvent event) throws IOException{ 
+      if(event.getButton()== MouseButton.PRIMARY){
+    FXMLLoader loader2 = new FXMLLoader();
+     ((Stage)(((ImageView)event.getSource()).getScene().getWindow())).close();
+     //
+        root = FXMLLoader.load(getClass().getResource("Mena.fxml"));
+        //stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = new Stage();
+        scene = new Scene(root);
+        MenaController mena = new MenaController();
+        mena.setScene(scene);
+        stage.setScene(scene);
+        stage.show();
+     //
+        //root = FXMLLoader.load(getClass().getResource("Alharam.fxml"));
+        
+       // stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+       // Stage stage = new Stage();
+       // stage.close(); //colce the old window
+        
+        
+       // scene = new Scene(root);
+        
+      // stage.setScene(scene);
+       
+        
+        //stage.setScene(scene);
+       // stage.show();
+
+        }
+      //*/
+    //}
     }
-    
-            public void handleMaptButton(MouseEvent event) throws IOException {
+         
+        public void handleMaptButton(MouseEvent event) throws IOException {
             if(event.getButton()== MouseButton.PRIMARY){
 ((Stage)(((ImageView)event.getSource()).getScene().getWindow())).close(); 
         root = FXMLLoader.load(getClass().getResource("gameـmap.fxml"));
@@ -75,18 +104,4 @@ public class Win_interfaceController implements Initializable {
         stage.show();
     }
         }
-        public void tempToInfo(MouseEvent event) throws IOException {
-            if(event.getButton()== MouseButton.PRIMARY){
-                ((Stage)(((ImageView)event.getSource()).getScene().getWindow())).close(); 
-        root = FXMLLoader.load(getClass().getResource("AlharamInfo.fxml"));
-       // stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-       Stage stage = new Stage();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-            }
-    }  
-            
-
-    
 }

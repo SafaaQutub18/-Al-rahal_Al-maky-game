@@ -38,6 +38,7 @@ public class GameـmapController implements Initializable {
      private Stage stage;
      public static String userLevel;
      public static String currentLevel;
+     private Scene homeScene;
      
      @FXML
     private Text WarningText;
@@ -153,6 +154,10 @@ public class GameـmapController implements Initializable {
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
         }
-    }    
+    }
+   public void setScene(Scene scene) {
+
+        this.homeScene = scene;
+   }    
     
 }
