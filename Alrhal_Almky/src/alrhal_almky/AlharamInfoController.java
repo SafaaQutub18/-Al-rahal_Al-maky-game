@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import javafx.animation.FillTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +26,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -52,6 +56,10 @@ public class AlharamInfoController implements Initializable {
 
    // Create initial effects and transforms.
    Glow glow = new Glow(0.5);
+   
+   FillTransition fillTransition = new FillTransition();
+   
+   
     
     
     @FXML
@@ -64,6 +72,9 @@ public class AlharamInfoController implements Initializable {
         stage.show();
     }
     public void showInfo(MouseEvent event) throws IOException{
+        fillTransition.setDuration(Duration.seconds(100));
+        
+        
           source = (ImageView) event.getSource();
           //source = (ImageView) event.getSource();
         stage =(Stage)((Node)event.getSource()).getScene().getWindow();
@@ -94,6 +105,17 @@ public class AlharamInfoController implements Initializable {
         
         source.setEffect(glow);
         //target.setEffect(glow);
+        
+        /*
+        fillTransition.setDuration(Duration.seconds(10));
+        fillTransition.setShape();
+        fillTransition.setFromValue(Color.GREENYELLOW);
+        fillTransition.setToValue(Color.DARKOLIVEGREEN);
+        fillTransition.setCycleCount(-1);
+        fillTransition.setAutoReverse(true);
+        fillTransition.play();
+        */
+        
 //        Image image = new Image(new File("/images/info/"+source.getId()+".png").toURI().toString(),
 //                149, 149, true, true);
 //        //target.setPreserveRatio(true);
