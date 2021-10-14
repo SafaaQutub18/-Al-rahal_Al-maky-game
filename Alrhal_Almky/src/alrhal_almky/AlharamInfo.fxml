@@ -13,10 +13,11 @@
             <Image url="@الصور/واجهة%20معلومات%20المسجد%20الحرام/خلفية-معلومات-المسجد-الحرام.png" />
          </image>
       </ImageView>
-      <Rectangle id="kaaba_rect" arcHeight="5.0" arcWidth="5.0" fill="#21ffda00" height="131.0" layoutX="601.0" layoutY="80.0" stroke="TRANSPARENT" strokeType="INSIDE" width="156.0" />
-      <Rectangle id="makam_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="131.0" layoutX="442.0" layoutY="75.0" stroke="TRANSPARENT" strokeType="INSIDE" width="156.0" />
-      <Rectangle id="sahn_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="131.0" layoutX="283.0" layoutY="83.0" stroke="TRANSPARENT" strokeType="INSIDE" width="156.0" />
+      <Rectangle id="kaaba_rect" arcHeight="5.0" arcWidth="5.0" fill="#21ffda00" height="125.0" layoutX="604.0" layoutY="86.0" stroke="TRANSPARENT" strokeType="INSIDE" width="146.0" />
+      <Rectangle id="makam_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="125.0" layoutX="442.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="156.0" />
+      <Rectangle id="sahn_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="125.0" layoutX="283.0" layoutY="83.0" stroke="TRANSPARENT" strokeType="INSIDE" width="146.0" />
       <Rectangle id="zamzam_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="131.0" layoutX="119.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="156.0" />
+      <Rectangle id="infoRect_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="125.0" layoutX="276.0" layoutY="442.0" stroke="TRANSPARENT" strokeType="INSIDE" width="261.0" />
       <ImageView fitHeight="346.0" fitWidth="356.0" layoutX="281.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20المسجد%20الحرام/الشخصية.png" />

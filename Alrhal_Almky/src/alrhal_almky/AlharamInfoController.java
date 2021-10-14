@@ -59,7 +59,7 @@ public class AlharamInfoController implements Initializable {
    Glow glow = new Glow(0.5);
    
    
-   
+   Rectangle shape = new Rectangle();
     
     
     @FXML
@@ -72,10 +72,13 @@ public class AlharamInfoController implements Initializable {
         stage.show();
     }
     public void showInfo(MouseEvent event) throws IOException{
+        
+        shape.setOpacity(0);
         //fillTransition.setDuration(Duration.seconds(100));
         
         FillTransition fillTransition = new FillTransition();
 
+        
         
         //fillTransition.stop();
         //fillTransition.
@@ -88,9 +91,12 @@ public class AlharamInfoController implements Initializable {
         scene = stage.getScene();
         
         
-        Rectangle shape = (Rectangle)scene.lookup("#"+source.getId()+"_rect");
+        shape = (Rectangle)scene.lookup("#"+source.getId()+"_rect");
         
         shape.setOpacity(0.2);
+        
+        
+        
         
         fillTransition.setDuration(Duration.seconds(2));
         fillTransition.setShape(shape);
@@ -99,6 +105,20 @@ public class AlharamInfoController implements Initializable {
         //fillTransition.setCycleCount(-1);
         fillTransition.setAutoReverse(true);
         fillTransition.play();
+        
+        
+        FillTransition fillTransition_2 = new FillTransition();
+        
+        Rectangle shape_2 = (Rectangle)scene.lookup("#infoRect_rect");
+        
+        shape_2.setOpacity(0.2);
+        fillTransition_2.setDuration(Duration.seconds(2));
+        fillTransition_2.setShape(shape_2);
+        fillTransition_2.setFromValue(Color.GREENYELLOW);
+        fillTransition_2.setToValue(Color.DARKOLIVEGREEN);
+        //fillTransition.setCycleCount(-1);
+        fillTransition_2.setAutoReverse(true);
+        fillTransition_2.play();
           
         for (int i = 0; i < imgs.length; i++) {
             if(!(imgs[i].equalsIgnoreCase(source.getId()))) {
