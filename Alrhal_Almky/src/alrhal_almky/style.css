@@ -3,11 +3,17 @@
  */
 
 
-#startButton:hover,
 #zamzam:hover, #sahn:hover, #makam:hover, #kaaba:hover,
 #khema:hover, #kobra:hover, #wosta:hover, #soghra:hover, #haj:hover, #hajar:hover, #rami:hover
 {
     -fx-scale-x: 1.15;
     -fx-scale-y: 1.15;
     -fx-scale-z: 1.15;
+}
+
+#kaaba_1:hover, #makam_1:hover, #sahn_1:hover, #zamzam_1:hover, #methna_1:hover, #taef_1:hover,
+#rami_1:hover, #hajar_1:hover, #haj_1:hover, #soghra_1:hover, #wosta_1:hover, #kobra_1:hover, #khema_1:hover{
+    -fx-scale-x: 1.3;
+    -fx-scale-y: 1.3;
+    -fx-scale-z: 1.3;
 }

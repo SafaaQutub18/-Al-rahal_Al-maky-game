@@ -27,6 +27,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -57,7 +58,6 @@ public class AlharamInfoController implements Initializable {
    // Create initial effects and transforms.
    Glow glow = new Glow(0.5);
    
-   FillTransition fillTransition = new FillTransition();
    
    
     
@@ -72,13 +72,33 @@ public class AlharamInfoController implements Initializable {
         stage.show();
     }
     public void showInfo(MouseEvent event) throws IOException{
-        fillTransition.setDuration(Duration.seconds(100));
+        //fillTransition.setDuration(Duration.seconds(100));
+        
+        FillTransition fillTransition = new FillTransition();
+
+        
+        //fillTransition.stop();
+        //fillTransition.
         
         
-          source = (ImageView) event.getSource();
+        source = (ImageView) event.getSource();
+        
           //source = (ImageView) event.getSource();
         stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = stage.getScene();
+        
+        
+        Rectangle shape = (Rectangle)scene.lookup("#"+source.getId()+"_rect");
+        
+        shape.setOpacity(0.2);
+        
+        fillTransition.setDuration(Duration.seconds(2));
+        fillTransition.setShape(shape);
+        fillTransition.setFromValue(Color.GREENYELLOW);
+        fillTransition.setToValue(Color.DARKOLIVEGREEN);
+        //fillTransition.setCycleCount(-1);
+        fillTransition.setAutoReverse(true);
+        fillTransition.play();
           
         for (int i = 0; i < imgs.length; i++) {
             if(!(imgs[i].equalsIgnoreCase(source.getId()))) {
@@ -106,15 +126,10 @@ public class AlharamInfoController implements Initializable {
         source.setEffect(glow);
         //target.setEffect(glow);
         
-        /*
-        fillTransition.setDuration(Duration.seconds(10));
-        fillTransition.setShape();
-        fillTransition.setFromValue(Color.GREENYELLOW);
-        fillTransition.setToValue(Color.DARKOLIVEGREEN);
-        fillTransition.setCycleCount(-1);
-        fillTransition.setAutoReverse(true);
-        fillTransition.play();
-        */
+        //Rectangle shape = new Rectangle();
+        
+        
+        
         
 //        Image image = new Image(new File("/images/info/"+source.getId()+".png").toURI().toString(),
 //                149, 149, true, true);
