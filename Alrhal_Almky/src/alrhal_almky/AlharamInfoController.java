@@ -19,6 +19,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -42,6 +43,17 @@ public class AlharamInfoController implements Initializable {
     private Stage stage;
     private static MediaPlayer mediaPlayer;
     
+    
+    String[] imgs = new String[]{"kaaba", "makam", "sahn", "zamzam"};
+    
+    
+        
+    double glowVal = 0.5;
+
+   // Create initial effects and transforms.
+   Glow glow = new Glow(0.5);
+    
+    
     @FXML
     private void handleMaptButton(ActionEvent event) throws IOException {
 
@@ -52,10 +64,19 @@ public class AlharamInfoController implements Initializable {
         stage.show();
     }
     public void showInfo(MouseEvent event) throws IOException{
-  
-        source = (ImageView) event.getSource();
+          source = (ImageView) event.getSource();
+          //source = (ImageView) event.getSource();
         stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = stage.getScene();
+          
+        for (int i = 0; i < imgs.length; i++) {
+            if(!(imgs[i].equalsIgnoreCase(source.getId()))) {
+                System.out.println("#"+imgs[i]);
+                ImageView temp = (ImageView)scene.lookup("#"+imgs[i]);
+                temp.setEffect(null);
+            }
+        }
+        
         //scene.setCursor(Cursor.HAND); //Change cursor to hand
         target = (ImageView)scene.lookup("#infoRectAlharam");
         //ImageView temp = (ImageView)scene.lookup("#kaaba");
@@ -70,6 +91,9 @@ public class AlharamInfoController implements Initializable {
         //"images/" is the a local directory where all my images are located
         Image newImage = new Image(stream); 
         target.setImage(newImage);
+        
+        source.setEffect(glow);
+        //target.setEffect(glow);
 //        Image image = new Image(new File("/images/info/"+source.getId()+".png").toURI().toString(),
 //                149, 149, true, true);
 //        //target.setPreserveRatio(true);
@@ -88,6 +112,10 @@ public class AlharamInfoController implements Initializable {
         Stage stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = stage.getScene();
         scene.setCursor(Cursor.HAND); //Change cursor to hand
+    }
+    
+    public void removeGlow(MouseEvent event) throws IOException{
+
     }
     
 

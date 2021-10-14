@@ -19,6 +19,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -43,6 +44,13 @@ public class MenaInfoController implements Initializable {
     private Stage stage;
     private static MediaPlayer mediaPlayer;
     
+    double glowVal = 0.5;
+
+   // Create initial effects and transforms.
+   Glow glow = new Glow(0.5);
+    
+    String[] imgs = new String[]{"khema", "kobra", "wosta", "soghra", "haj", "hajar"};
+    
     @FXML
     private void handleMaptButton(ActionEvent event) throws IOException {
 
@@ -60,6 +68,15 @@ public class MenaInfoController implements Initializable {
         scene = stage.getScene();
         //scene.setCursor(Cursor.HAND); //Change cursor to hand
         target = (ImageView)scene.lookup("#infoRectAlharam");
+        
+                for (int i = 0; i < imgs.length; i++) {
+            if(!(imgs[i].equalsIgnoreCase(source.getId()))) {
+                System.out.println("#"+imgs[i]);
+                ImageView temp = (ImageView)scene.lookup("#"+imgs[i]);
+                temp.setEffect(null);
+            }
+        }
+        
         //ImageView temp = (ImageView)scene.lookup("#kaaba");
         //temp.setImage(null);
         System.out.println(source.getId()+".png");
@@ -72,6 +89,8 @@ public class MenaInfoController implements Initializable {
         //"images/" is the a local directory where all my images are located
         Image newImage = new Image(stream); 
         target.setImage(newImage);
+        source.setEffect(glow);
+        //target.setEffect(glow);
 
     }
     
