@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="900.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.MenaInfoController">
+<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="900.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.MenaInfoController">
    <children>
       <ImageView fitHeight="724.0" fitWidth="965.0" layoutX="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -16,41 +17,42 @@
             <Image url="@الصور/واجهة%20معلومات%20المسجد%20الحرام/الشخصية.png" />
          </image>
       </ImageView>
-      <ImageView id="khema" fitHeight="129.0" fitWidth="133.0" layoutX="767.0" layoutY="90.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="khema" fitHeight="129.0" fitWidth="133.0" layoutX="724.0" layoutY="114.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20مشعر%20منى/معلومات%20مشعر%20منى-07.png" />
          </image>
       </ImageView>
-      <ImageView id="kobra" fitHeight="129.0" fitWidth="133.0" layoutX="647.0" layoutY="89.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="kobra" fitHeight="129.0" fitWidth="133.0" layoutX="604.0" layoutY="113.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20مشعر%20منى/معلومات%20مشعر%20منى-06.png" />
          </image>
       </ImageView>
-      <ImageView id="wosta" fitHeight="129.0" fitWidth="133.0" layoutX="532.0" layoutY="90.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="wosta" fitHeight="129.0" fitWidth="133.0" layoutX="489.0" layoutY="114.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20مشعر%20منى/معلومات%20مشعر%20منى-05.png" />
          </image>
       </ImageView>
-      <ImageView id="soghra" fitHeight="129.0" fitWidth="133.0" layoutX="410.0" layoutY="87.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="soghra" fitHeight="129.0" fitWidth="133.0" layoutX="367.0" layoutY="111.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20مشعر%20منى/معلومات%20مشعر%20منى-04.png" />
          </image>
       </ImageView>
-      <ImageView id="haj" fitHeight="129.0" fitWidth="133.0" layoutX="292.0" layoutY="89.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="haj" fitHeight="129.0" fitWidth="133.0" layoutX="249.0" layoutY="113.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20مشعر%20منى/معلومات%20مشعر%20منى-03.png" />
          </image>
       </ImageView>
-      <ImageView id="hajar" fitHeight="129.0" fitWidth="133.0" layoutX="172.0" layoutY="87.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="hajar" fitHeight="129.0" fitWidth="133.0" layoutX="129.0" layoutY="111.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20مشعر%20منى/معلومات%20مشعر%20منى-02.png" />
          </image>
       </ImageView>
-      <ImageView id="rami" fitHeight="129.0" fitWidth="133.0" layoutX="57.0" layoutY="87.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="infoRectAlharam" fitHeight="230.0" fitWidth="350.0" layoutX="301.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="794.0" layoutY="572.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@الصور/واجهة%20معلومات%20مشعر%20منى/معلومات%20مشعر%20منى-01.png" />
+            <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-06.png" />
          </image>
       </ImageView>
-      <ImageView id="infoRectAlharam" fitHeight="179.0" fitWidth="292.0" layoutX="316.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="810.0" layoutY="589.0" mnemonicParsing="false" onAction="#handleMaptButton" opacity="0.0" prefHeight="65.0" prefWidth="65.0" text="الخريطة" />
    </children>
 </AnchorPane>

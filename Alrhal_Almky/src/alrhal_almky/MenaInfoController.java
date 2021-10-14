@@ -11,6 +11,9 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
@@ -19,6 +22,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 /**
@@ -36,6 +41,17 @@ public class MenaInfoController implements Initializable {
     private Parent root;
     private Scene scene;
     private Stage stage;
+    private static MediaPlayer mediaPlayer;
+    
+    @FXML
+    private void handleMaptButton(ActionEvent event) throws IOException {
+
+        root = FXMLLoader.load(getClass().getResource("gameـmap.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     
     public void showInfo(MouseEvent event) throws IOException{
   
@@ -48,6 +64,11 @@ public class MenaInfoController implements Initializable {
         //temp.setImage(null);
         System.out.println(source.getId()+".png");
         InputStream stream = getClass().getResourceAsStream("images/info/"+source.getId()+".png");
+        
+        Media sound = new Media(new File(source.getId()+".mp3").toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+        
         //"images/" is the a local directory where all my images are located
         Image newImage = new Image(stream); 
         target.setImage(newImage);
@@ -67,7 +88,9 @@ public class MenaInfoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       Media sound = new Media(new File("menaInfo.mp3").toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
     }    
     
 }

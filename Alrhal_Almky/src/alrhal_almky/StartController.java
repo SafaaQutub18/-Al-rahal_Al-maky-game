@@ -5,12 +5,7 @@
  */
 package alrhal_almky;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -35,7 +30,8 @@ public class StartController implements Initializable {
     private Parent root;
     private Scene scene;
     private Stage stage;
-    private String userLevel = "0";
+   
+    private static MediaPlayer mediaPlayer;
 
     /**
      * Navigate to the map
@@ -59,7 +55,7 @@ public class StartController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         Media sound = new Media(new File("startPage.mp3").toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
 
     }

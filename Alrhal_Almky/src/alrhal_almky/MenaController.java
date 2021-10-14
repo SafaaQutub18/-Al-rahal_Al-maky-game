@@ -5,8 +5,7 @@
  */
 package alrhal_almky;
 
-import static alrhal_almky.AlharamController.hearts;
-import static alrhal_almky.AlharamController.helpHashMap;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -118,7 +117,7 @@ public class MenaController implements Initializable {
 
     public static int hearts = 0;
 
-    private static int userPoints = 0;
+    public static int userPoints = 0;
 
     public static HashMap<String, Boolean> helpHashMap = new HashMap<String, Boolean>();
 
@@ -307,22 +306,7 @@ public class MenaController implements Initializable {
                                 khema_1.getLayoutX() + 50, khema_1.getLayoutY() + 80,
                                 khema_2.getLayoutX() + 60, khema_2.getLayoutY() + 100,});
 
-                            pathTransition = new PathTransition();
-                            pathTransition.setDuration(Duration.seconds(2));
-                            pathTransition.setNode(cursor);
-                            pathTransition.setPath(ployline);
-                            pathTransition.setCycleCount(-1);
-                            pathTransition.setAutoReverse(false);
-                            pathTransition.play();
-                            cursor.setVisible(true);
-
-                            TimerTask cursortask_khema = new TimerTask() {
-                                @Override
-                                public void run() {
-                                    cursor.setVisible(false);
-                                }
-                            };
-                            timer.schedule(cursortask_khema, 4000);
+                            moveCursor(ployline);
                             break;
                         case "kobra_1":
                             ployline = new Polyline();
@@ -330,22 +314,7 @@ public class MenaController implements Initializable {
                                 kobra_1.getLayoutX() + 50, kobra_1.getLayoutY() + 80,
                                 kobra_2.getLayoutX() + 80, kobra_2.getLayoutY() + 100,});
 
-                            pathTransition = new PathTransition();
-                            pathTransition.setDuration(Duration.seconds(2));
-                            pathTransition.setNode(cursor);
-                            pathTransition.setPath(ployline);
-                            pathTransition.setCycleCount(-1);
-                            pathTransition.setAutoReverse(false);
-                            pathTransition.play();
-                            cursor.setVisible(true);
-
-                            TimerTask cursortask_kobra = new TimerTask() {
-                                @Override
-                                public void run() {
-                                    cursor.setVisible(false);
-                                }
-                            };
-                            timer.schedule(cursortask_kobra, 4000);
+                            moveCursor(ployline);
                             break;
                         case "wosta_1":
 
@@ -354,22 +323,7 @@ public class MenaController implements Initializable {
                                 wosta_1.getLayoutX() + 50, wosta_1.getLayoutY() + 80,
                                 wosta_2.getLayoutX() + 80, wosta_2.getLayoutY() + 100,});
 
-                            pathTransition = new PathTransition();
-                            pathTransition.setDuration(Duration.seconds(2));
-                            pathTransition.setNode(cursor);
-                            pathTransition.setPath(ployline);
-                            pathTransition.setCycleCount(2);
-                            pathTransition.setAutoReverse(false);
-                            pathTransition.play();
-                            cursor.setVisible(true);
-
-                            TimerTask cursortask_wosta = new TimerTask() {
-                                @Override
-                                public void run() {
-                                    cursor.setVisible(false);
-                                }
-                            };
-                            timer.schedule(cursortask_wosta, 4000);
+                            moveCursor(ployline);
 
                             break;
                         case "soghra_1":
@@ -378,23 +332,7 @@ public class MenaController implements Initializable {
                                 soghra_1.getLayoutX() + 50, soghra_1.getLayoutY() + 80,
                                 soghra_2.getLayoutX() + 80, soghra_2.getLayoutY() + 100,});
 
-                            pathTransition = new PathTransition();
-                            pathTransition.setDuration(Duration.seconds(2));
-                            pathTransition.setNode(cursor);
-                            pathTransition.setPath(ployline);
-                            pathTransition.setCycleCount(-1);
-                            pathTransition.setAutoReverse(false);
-                            pathTransition.play();
-                            cursor.setVisible(true);
-
-                            TimerTask cursortask_soghra = new TimerTask() {
-                                @Override
-                                public void run() {
-                                    cursor.setVisible(false);
-
-                                }
-                            };
-                            timer.schedule(cursortask_soghra, 4000);
+                            moveCursor(ployline);
 
                             break;
                         case "haj_1":
@@ -403,22 +341,7 @@ public class MenaController implements Initializable {
                                 haj_1.getLayoutX() + 50, haj_1.getLayoutY() + 80,
                                 haj_2.getLayoutX() + 60, haj_2.getLayoutY() + 80,});
 
-                            pathTransition = new PathTransition();
-                            pathTransition.setDuration(Duration.seconds(2));
-                            pathTransition.setNode(cursor);
-                            pathTransition.setPath(ployline);
-                            pathTransition.setCycleCount(-1);
-                            pathTransition.setAutoReverse(false);
-                            pathTransition.play();
-                            cursor.setVisible(true);
-
-                            TimerTask cursortask_haj = new TimerTask() {
-                                @Override
-                                public void run() {
-                                    cursor.setVisible(false);
-                                }
-                            };
-                            timer.schedule(cursortask_haj, 4000);
+                            moveCursor(ployline);
                             break;
                         case "hajar_1":
 
@@ -427,22 +350,7 @@ public class MenaController implements Initializable {
                                 hajar_1.getLayoutX() + 50, hajar_1.getLayoutY() + 80,
                                 hajar_2.getLayoutX() + 10, hajar_2.getLayoutY() + 30,});
 
-                            pathTransition = new PathTransition();
-                            pathTransition.setDuration(Duration.seconds(2));
-                            pathTransition.setNode(cursor);
-                            pathTransition.setPath(ployline);
-                            pathTransition.setCycleCount(-1);
-                            pathTransition.setAutoReverse(false);
-                            pathTransition.play();
-                            cursor.setVisible(true);
-
-                            TimerTask cursortask_hajar = new TimerTask() {
-                                @Override
-                                public void run() {
-                                    cursor.setVisible(false);
-                                }
-                            };
-                            timer.schedule(cursortask_hajar, 4000);
+                            moveCursor(ployline);
                             break;
                         case "rami_1":
 
@@ -451,22 +359,7 @@ public class MenaController implements Initializable {
                                 rami_1.getLayoutX() + 50, rami_1.getLayoutY() + 80,
                                 rami_2.getLayoutX() + 60, rami_2.getLayoutY() + 100,});
 
-                            pathTransition = new PathTransition();
-                            pathTransition.setDuration(Duration.seconds(2));
-                            pathTransition.setNode(cursor);
-                            pathTransition.setPath(ployline);
-                            pathTransition.setCycleCount(-1);
-                            pathTransition.setAutoReverse(false);
-                            pathTransition.play();
-                            cursor.setVisible(true);
-
-                            TimerTask cursortask_rami = new TimerTask() {
-                                @Override
-                                public void run() {
-                                    cursor.setVisible(false);
-                                }
-                            };
-                            timer.schedule(cursortask_rami, 4000);
+                            moveCursor(ployline);
                             break;
                     }
                     break;
@@ -477,5 +370,25 @@ public class MenaController implements Initializable {
         }
 
     }
+        private void moveCursor(Polyline ployline) {
+         Timer timer = new Timer();
+                PathTransition pathTransition = new PathTransition();
+                pathTransition.setDuration(Duration.seconds(2));
+                pathTransition.setNode(cursor);
+                pathTransition.setPath(ployline);
+                pathTransition.setCycleCount(-1);
+                pathTransition.setAutoReverse(false);
+                pathTransition.play();
+                cursor.setVisible(true);
+
+                TimerTask cursortask = new TimerTask() {
+                    @Override
+                    public void run() {
+                        cursor.setVisible(false);
+
+                    }
+                };
+                timer.schedule(cursortask, 4000);
+            }
 
 }

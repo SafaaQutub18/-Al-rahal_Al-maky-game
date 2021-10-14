@@ -130,6 +130,10 @@ public class AlharamController implements Initializable {
     public static int userPoints = 0;
 
     public static HashMap<String, Boolean> helpHashMap = new HashMap<String, Boolean>();
+    
+    private static MediaPlayer mediaPlayer;
+    
+    GameـmapController mapController = new GameـmapController();
 
     ///////////////////////////////////
     @FXML
@@ -210,9 +214,9 @@ public class AlharamController implements Initializable {
             @Override
             public void run() {
                 
-if(userPoints == 0){
+if(mapController.userLevel.equalsIgnoreCase("1")){
                 Media sound = new Media(new File("instructionInAlharam.mp3").toURI().toString());
-                MediaPlayer mediaPlayer = new MediaPlayer(sound);
+                mediaPlayer = new MediaPlayer(sound);
                 mediaPlayer.play();
 }
                 TranslateTransition Transition_science = new TranslateTransition();
@@ -224,7 +228,7 @@ if(userPoints == 0){
         };
         timer.schedule(boytask, 1000l);
 
-        if(userPoints == 0){
+        if(mapController.userLevel.equalsIgnoreCase("1")){
         TimerTask instructionsTask = new TimerTask() {
             @Override
             public void run() {
@@ -480,14 +484,14 @@ if(userPoints == 0){
                 pathTransition.play();
                 cursor.setVisible(true);
 
-                TimerTask cursortask_kaaba = new TimerTask() {
+                TimerTask cursortask = new TimerTask() {
                     @Override
                     public void run() {
                         cursor.setVisible(false);
 
                     }
                 };
-                timer.schedule(cursortask_kaaba, 4000);
+                timer.schedule(cursortask, 4000);
             }
 
 }

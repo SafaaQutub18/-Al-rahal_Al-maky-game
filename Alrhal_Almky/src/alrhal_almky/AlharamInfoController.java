@@ -12,6 +12,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
@@ -38,7 +40,17 @@ public class AlharamInfoController implements Initializable {
     private Parent root;
     private Scene scene;
     private Stage stage;
+    private static MediaPlayer mediaPlayer;
     
+    @FXML
+    private void handleMaptButton(ActionEvent event) throws IOException {
+
+        root = FXMLLoader.load(getClass().getResource("gameـmap.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     public void showInfo(MouseEvent event) throws IOException{
   
         source = (ImageView) event.getSource();
@@ -50,6 +62,11 @@ public class AlharamInfoController implements Initializable {
         //temp.setImage(null);
         System.out.println(source.getId()+".png");
         InputStream stream = getClass().getResourceAsStream("images/info/"+source.getId()+".png");
+        
+        Media sound = new Media(new File(source.getId()+".mp3").toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+        
         //"images/" is the a local directory where all my images are located
         Image newImage = new Image(stream); 
         target.setImage(newImage);
@@ -76,7 +93,9 @@ public class AlharamInfoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        Media sound = new Media(new File("haramInfo.mp3").toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
 
     }    
     

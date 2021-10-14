@@ -5,24 +5,20 @@
  */
 package alrhal_almky;
 
-import static alrhal_almky.GameـmapController.currentLevel;
-import java.io.BufferedWriter;
+
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import static java.nio.file.Files.list;
-import static java.rmi.Naming.list;
 import java.util.ArrayList;
-import static java.util.Collections.list;
 import java.util.List;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Logger;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DragEvent;
@@ -35,6 +31,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
 
 /**
  *
@@ -52,14 +49,14 @@ public class DragDropHandler {
     private double anchorY;
     private double mouseOffsetFromNodeZeroX;
     private double mouseOffsetFromNodeZeroY;
+    private static MediaPlayer mediaPlayer;
 
     AlharamController ac = new AlharamController();
     MenaController mc = new MenaController();
 
     GameـmapController mapController = new GameـmapController();
-    List<String> soundslist=new ArrayList<String>();  
+    List<String> soundslist = new ArrayList<String>();
     Random rand = new Random();
-  
 
     final EventHandler<MouseEvent> myHandlerDetected = new EventHandler<MouseEvent>() {
         @Override
@@ -108,12 +105,12 @@ public class DragDropHandler {
 
         @Override
         public void handle(DragEvent event) {
-             
- soundslist.add("great.mp3");  
-  soundslist.add("amazing.mp3");  
- soundslist.add("good.mp3");  
- soundslist.add("excellent.mp3");
- 
+
+            soundslist.add("great.mp3");
+            soundslist.add("amazing.mp3");
+            soundslist.add("good.mp3");
+            soundslist.add("excellent.mp3");
+
             System.out.println("In drag dropped, before if");
 
             String source_id = source.getId().split("_")[0];
@@ -136,17 +133,18 @@ public class DragDropHandler {
                     mc.pointsUpdater(3);
                     mc.helpHashMap.replace(source.getId(), true);
                 }
-                 
-                int upperbound = 5;
-                int int_random = rand.nextInt(upperbound);
-                Media sound = new Media(new File(soundslist.get(int_random)).toURI().toString());
-                MediaPlayer mediaPlayer = new MediaPlayer(sound);
-                mediaPlayer.play();
 
                 System.out.println("Win interface" + source_id);
                 arr.add(source_id);
                 System.out.println(arr.size());
 
+                if (ac.userPoints > 3 || mc.userPoints > 3) {
+                    int upperbound = 5;
+                    int int_random = rand.nextInt(upperbound);
+                    Media sound = new Media(new File(soundslist.get(int_random)).toURI().toString());
+                    mediaPlayer = new MediaPlayer(sound);
+                    mediaPlayer.play();
+                }
             } else {
                 event.setDropCompleted(false);
 
@@ -164,8 +162,7 @@ public class DragDropHandler {
             event.consume();
 
             if (ac.hearts == 3) {
-                
-               
+
                 //  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 // stage.close();
                 /*    System.out.println("Call loss function");
@@ -224,19 +221,19 @@ public class DragDropHandler {
                     // stage.close();
                     if (ac.hearts == 3) {
                         //mc.hearts=0;
-                        
+
                         //To play loss sound
-                        if(mapController.currentLevel.equalsIgnoreCase("haram")){
-                        Media sound = new Media(new File("lossFirstLevel.mp3").toURI().toString());
-                        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-                        mediaPlayer.play();
-                        } 
+                        if (mapController.currentLevel.equalsIgnoreCase("haram")) {
+                            Media sound = new Media(new File("lossFirstLevel.mp3").toURI().toString());
+                            mediaPlayer = new MediaPlayer(sound);
+                            mediaPlayer.play();
+                        }
                         //else if (mapController.currentLevel.equalsIgnoreCase("mena")){
                         //Media sound = new Media(new File("lossSecondLevel.mp3").toURI().toString());
                         //MediaPlayer mediaPlayer = new MediaPlayer(sound);
                         //mediaPlayer.play();
                         //}
-                        
+
                         System.out.println("Call loss function");
 
                         System.out.println("You loss :(!");
@@ -265,17 +262,16 @@ public class DragDropHandler {
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.close();
                         ac.hearts = 0;
-                        
+
                     }
-                       if (mc.hearts == 3) {
-                        
-                        
-                        if (mapController.currentLevel.equalsIgnoreCase("mena")){
-                        Media sound = new Media(new File("lossSecondLevel.mp3").toURI().toString());
-                        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-                        mediaPlayer.play();
+                    if (mc.hearts == 3) {
+
+                        if (mapController.currentLevel.equalsIgnoreCase("mena")) {
+                            Media sound = new Media(new File("lossSecondLevel.mp3").toURI().toString());
+                            mediaPlayer = new MediaPlayer(sound);
+                            mediaPlayer.play();
                         }
-                        
+
                         System.out.println("Call Mena loss function");
 
                         System.out.println("You loss :(!");
@@ -304,98 +300,112 @@ public class DragDropHandler {
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.close();
                         mc.hearts = 0;
-                        
+
                     }
                 }
             } catch (IOException ex) {
                 Logger.getLogger(Mena_lossController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
 
-           if (arr.size() == 6) {
+            if (arr.size() == 6) {
                 // Update user level
                 mapController.userData("2");
                 //To play win sound
-                if(mapController.currentLevel.equalsIgnoreCase("haram")){
-                        Media sound = new Media(new File("winFirstLevel.mp3").toURI().toString());
-                        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-                        mediaPlayer.play();
-                        
-                                        
-                System.out.println("CAAAAAAL Win interface");
-                System.out.println("You win :D!");
+                if (mapController.currentLevel.equalsIgnoreCase("haram")) {
 
-                Stage WinStage = null;
-                Parent WinRoot = null;
-                Scene sceneLoss = null;
-                try {
-                    WinStage = new Stage();
-                    FXMLLoader Winloader = new FXMLLoader();
-                    Winloader.setLocation(getClass().getResource("Win_interface.fxml"));
-                    WinRoot = Winloader.load();
-                    sceneLoss = new Scene(WinRoot);
-                    sceneLoss.setFill(Color.TRANSPARENT);
-
-                    WinStage.setScene(sceneLoss);
-                    WinStage.initStyle(StageStyle.UNDECORATED);
-                    WinStage.initStyle(StageStyle.TRANSPARENT);
-                    WinStage.initModality(Modality.APPLICATION_MODAL);
-                    WinStage.setResizable(false);
-                    WinStage.showAndWait();
-
-                    //Stage stage = (Stage) .getScene().getWindow();
-                    //stage.initStyle(StageStyle.DECORATED);
-                    //stage.close();
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.close();
-
-                } catch (IOException ex) {
-                    Logger.getLogger(Win_interfaceController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-                }
-                }  
-           }
-           if (arr.size() == 7) {
-                        if (mapController.currentLevel.equalsIgnoreCase("mena")){
-                        Media sound = new Media(new File("winSecondLevel.mp3").toURI().toString());
-                        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-                        mediaPlayer.play();
-                        
-                                                
-                System.out.println("CAAAAAAL Mena Win interface");
-                System.out.println("You win :D!");
-
-                Stage WinStage = null;
-                Parent WinRoot = null;
-                Scene sceneLoss = null;
-                try {
-                    WinStage = new Stage();
-                    FXMLLoader Winloader = new FXMLLoader();
-                    Winloader.setLocation(getClass().getResource("Mena_win.fxml"));
-                    WinRoot = Winloader.load();
-                    sceneLoss = new Scene(WinRoot);
-                    sceneLoss.setFill(Color.TRANSPARENT);
-
-                    WinStage.setScene(sceneLoss);
-                    WinStage.initStyle(StageStyle.UNDECORATED);
-                    WinStage.initStyle(StageStyle.TRANSPARENT);
-                    WinStage.initModality(Modality.APPLICATION_MODAL);
-                    WinStage.setResizable(false);
-                    WinStage.showAndWait();
-
-                    //Stage stage = (Stage) .getScene().getWindow();
-                    //stage.initStyle(StageStyle.DECORATED);
-                    //stage.close();
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.close();
-
-                } catch (IOException ex) {
-                    Logger.getLogger(Mena_winController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-                }
+                    Timer timer = new Timer();
+                    TimerTask winSoundTask = new TimerTask() {
+                        @Override
+                        public void run() {
+                            Media sound = new Media(new File("winFirstLevel.mp3").toURI().toString());
+                            mediaPlayer = new MediaPlayer(sound);
+                            mediaPlayer.play();
                         }
-                
+                    };
+                    timer.schedule(winSoundTask, 2000);
 
+                    System.out.println("CAAAAAAL Win interface");
+                    System.out.println("You win :D!");
+
+                    Stage WinStage = null;
+                    Parent WinRoot = null;
+                    Scene sceneLoss = null;
+                    try {
+                        WinStage = new Stage();
+                        FXMLLoader Winloader = new FXMLLoader();
+                        Winloader.setLocation(getClass().getResource("Win_interface.fxml"));
+                        WinRoot = Winloader.load();
+                        sceneLoss = new Scene(WinRoot);
+                        sceneLoss.setFill(Color.TRANSPARENT);
+
+                        WinStage.setScene(sceneLoss);
+                        WinStage.initStyle(StageStyle.UNDECORATED);
+                        WinStage.initStyle(StageStyle.TRANSPARENT);
+                        WinStage.initModality(Modality.APPLICATION_MODAL);
+                        WinStage.setResizable(false);
+                        WinStage.showAndWait();
+
+                        //Stage stage = (Stage) .getScene().getWindow();
+                        //stage.initStyle(StageStyle.DECORATED);
+                        //stage.close();
+                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        stage.close();
+
+                    } catch (IOException ex) {
+                        Logger.getLogger(Win_interfaceController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                    }
+                }
+            }
+            if (arr.size() == 7) {
+                // Update user level
+                mapController.userData("3");
+                // To play win sound
+                if (mapController.currentLevel.equalsIgnoreCase("mena")) {
+                    Timer timer = new Timer();
+                    TimerTask winSoundTask = new TimerTask() {
+                        @Override
+                        public void run() {
+                            Media sound = new Media(new File("winSecondLevel.mp3").toURI().toString());
+                            mediaPlayer = new MediaPlayer(sound);
+                            mediaPlayer.play();
+                        }
+                    };
+                    timer.schedule(winSoundTask, 2000);
+
+                    System.out.println("CAAAAAAL Mena Win interface");
+                    System.out.println("You win :D!");
+
+                    Stage WinStage = null;
+                    Parent WinRoot = null;
+                    Scene sceneLoss = null;
+                    try {
+                        WinStage = new Stage();
+                        FXMLLoader Winloader = new FXMLLoader();
+                        Winloader.setLocation(getClass().getResource("Mena_win.fxml"));
+                        WinRoot = Winloader.load();
+                        sceneLoss = new Scene(WinRoot);
+                        sceneLoss.setFill(Color.TRANSPARENT);
+
+                        WinStage.setScene(sceneLoss);
+                        WinStage.initStyle(StageStyle.UNDECORATED);
+                        WinStage.initStyle(StageStyle.TRANSPARENT);
+                        WinStage.initModality(Modality.APPLICATION_MODAL);
+                        WinStage.setResizable(false);
+                        WinStage.showAndWait();
+
+                        //Stage stage = (Stage) .getScene().getWindow();
+                        //stage.initStyle(StageStyle.DECORATED);
+                        //stage.close();
+                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        stage.close();
+
+                    } catch (IOException ex) {
+                        Logger.getLogger(Mena_winController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                    }
+                }
 
             }
-        } 
+        }
 
     };
 
@@ -429,7 +439,5 @@ public class DragDropHandler {
         }
     };
 
-    public void won() {
-        //hgyjfyhfv
-    }
+   
 }
