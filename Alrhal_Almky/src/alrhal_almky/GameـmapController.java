@@ -153,6 +153,8 @@ public class GameـmapController implements Initializable {
         mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
         }
+        
+        
     }
    public void setScene(Scene scene) {
 

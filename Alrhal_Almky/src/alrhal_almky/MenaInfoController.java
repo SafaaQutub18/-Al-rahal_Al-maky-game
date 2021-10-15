@@ -46,7 +46,7 @@ public class MenaInfoController implements Initializable {
     @FXML
     private void handleMaptButton(ActionEvent event) throws IOException {
 
-        root = FXMLLoader.load(getClass().getResource("gameـmap.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Alrhal_Almaky.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
