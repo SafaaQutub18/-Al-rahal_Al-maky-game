@@ -20,6 +20,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 /**
@@ -71,14 +73,10 @@ public class AlharamInfoController implements Initializable {
         scene.setCursor(Cursor.HAND); //Change cursor to hand
     }
     
-    /**
-     * Initializes the controller class.
-     * 
-     * 
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
 
     }    
     

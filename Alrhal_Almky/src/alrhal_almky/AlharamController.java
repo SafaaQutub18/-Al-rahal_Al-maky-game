@@ -7,6 +7,7 @@ package alrhal_almky;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -32,8 +33,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polyline;
 import javafx.scene.text.Text;
@@ -123,7 +127,7 @@ public class AlharamController implements Initializable {
 
     public static int hearts = 0;
 
-    private static int userPoints = 0;
+    public static int userPoints = 0;
 
     public static HashMap<String, Boolean> helpHashMap = new HashMap<String, Boolean>();
 
@@ -198,14 +202,19 @@ public class AlharamController implements Initializable {
 
             }
         }, 0, 10);
-        System.out.println("Loss Interface");
+        
 
         Timer timer = new Timer();
 
         TimerTask boytask = new TimerTask() {
             @Override
             public void run() {
-
+                
+if(userPoints == 0){
+                Media sound = new Media(new File("instructionInAlharam.mp3").toURI().toString());
+                MediaPlayer mediaPlayer = new MediaPlayer(sound);
+                mediaPlayer.play();
+}
                 TranslateTransition Transition_science = new TranslateTransition();
                 Transition_science.setNode(normal_boy);
                 Transition_science.setDuration(Duration.seconds(1.2));
@@ -215,6 +224,55 @@ public class AlharamController implements Initializable {
         };
         timer.schedule(boytask, 1000l);
 
+        if(userPoints == 0){
+        TimerTask instructionsTask = new TimerTask() {
+            @Override
+            public void run() {
+                Polyline ployline = new Polyline();
+                ployline.getPoints().addAll(new Double[]{
+                    kaaba_1.getLayoutX() + 50, kaaba_1.getLayoutY() + 80,
+                    kaaba_2.getLayoutX() + 60, kaaba_2.getLayoutY() + 100,});
+
+                moveCursor(ployline);
+
+            }   
+        };
+        timer.schedule(instructionsTask, 9500);
+
+        TimerTask instructionsTask2 = new TimerTask() {
+            @Override
+            public void run() {
+                int depth = 70;
+                DropShadow borderGlow = new DropShadow();
+                borderGlow.setOffsetY(0f);
+                borderGlow.setOffsetX(0f);
+                borderGlow.setColor(Color.RED);
+                borderGlow.setWidth(depth);
+                borderGlow.setHeight(depth);
+
+                kaaba_2.setEffect(borderGlow);
+
+                TimerTask disableGlowEffect = new TimerTask() {
+                    @Override
+                    public void run() {
+                        int depth = 0;
+                        DropShadow borderGlow = new DropShadow();
+                        borderGlow.setOffsetY(0f);
+                        borderGlow.setOffsetX(0f);
+                        borderGlow.setColor(Color.TRANSPARENT);
+                        borderGlow.setWidth(depth);
+                        borderGlow.setHeight(depth);
+
+                        kaaba_2.setEffect(borderGlow);
+
+                    }
+                };
+                timer.schedule(disableGlowEffect, 9000);
+
+            }
+        };
+        timer.schedule(instructionsTask2, 16000);
+        }
         TimerTask birdtask = new TimerTask() {
             @Override
             public void run() {
@@ -260,7 +318,6 @@ public class AlharamController implements Initializable {
             img2.setOnMouseDragged(dragDropHandler.myHandlerDragged);
             img2.setOnDragOver(dragDropHandler.myHandlerOver);
             img2.setOnDragDropped(dragDropHandler.myHandlerDropped);
-            
 
             // System.out.println("Hello there,.,.,.");
         }
@@ -309,10 +366,10 @@ public class AlharamController implements Initializable {
         }
 
     }
-    
+
     public void tempToInfo(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("AlharamInfo.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -320,7 +377,6 @@ public class AlharamController implements Initializable {
 
     @FXML
     private void handleHelpButton(ActionEvent event) throws IOException {
-        System.out.println("uuusseerrpooinnt in heellpp"+userPoints);
 
         Timer timer = new Timer();
         Polyline ployline = new Polyline();
@@ -329,10 +385,8 @@ public class AlharamController implements Initializable {
         for (Map.Entry<String, Boolean> i : helpHashMap.entrySet()) {
 
             if (i.getValue() == false) {
-                if (( userPoints - 5) >= 0) {
-                    System.out.println("uuusseerrpooinnt in heellpp bbbeee"+userPoints);
+                if ((userPoints - 5) >= 0) {
                     pointsUpdater(-5);
-                    System.out.println("uuusseerrpooinnt in heellpp aaffff"+userPoints);
 
                     helpPoints.setVisible(true);
 
@@ -360,22 +414,7 @@ public class AlharamController implements Initializable {
                                 kaaba_1.getLayoutX() + 50, kaaba_1.getLayoutY() + 80,
                                 kaaba_2.getLayoutX() + 60, kaaba_2.getLayoutY() + 100,});
 
-                            pathTransition = new PathTransition();
-                            pathTransition.setDuration(Duration.seconds(2));
-                            pathTransition.setNode(cursor);
-                            pathTransition.setPath(ployline);
-                            pathTransition.setCycleCount(-1);
-                            pathTransition.setAutoReverse(false);
-                            pathTransition.play();
-                            cursor.setVisible(true);
-
-                            TimerTask cursortask_kaaba = new TimerTask() {
-                                @Override
-                                public void run() {
-                                    cursor.setVisible(false);
-                                }
-                            };
-                            timer.schedule(cursortask_kaaba, 4000);
+                             moveCursor(ployline);
                             break;
                         case "makam_1":
                             ployline = new Polyline();
@@ -383,22 +422,7 @@ public class AlharamController implements Initializable {
                                 makam_1.getLayoutX() + 50, makam_1.getLayoutY() + 80,
                                 makam_2.getLayoutX() + 60, makam_2.getLayoutY() + 100,});
 
-                            pathTransition = new PathTransition();
-                            pathTransition.setDuration(Duration.seconds(2));
-                            pathTransition.setNode(cursor);
-                            pathTransition.setPath(ployline);
-                            pathTransition.setCycleCount(-1);
-                            pathTransition.setAutoReverse(false);
-                            pathTransition.play();
-                            cursor.setVisible(true);
-
-                            TimerTask cursortask_makam = new TimerTask() {
-                                @Override
-                                public void run() {
-                                    cursor.setVisible(false);
-                                }
-                            };
-                            timer.schedule(cursortask_makam, 4000);
+                              moveCursor(ployline);
                             break;
                         case "sahn_1":
 
@@ -407,22 +431,7 @@ public class AlharamController implements Initializable {
                                 sahn_1.getLayoutX() + 50, sahn_1.getLayoutY() + 80,
                                 sahn_2.getLayoutX() + 60, sahn_2.getLayoutY() + 100,});
 
-                            pathTransition = new PathTransition();
-                            pathTransition.setDuration(Duration.seconds(2));
-                            pathTransition.setNode(cursor);
-                            pathTransition.setPath(ployline);
-                            pathTransition.setCycleCount(2);
-                            pathTransition.setAutoReverse(false);
-                            pathTransition.play();
-                            cursor.setVisible(true);
-
-                            TimerTask cursortask_maqam = new TimerTask() {
-                                @Override
-                                public void run() {
-                                    cursor.setVisible(false);
-                                }
-                            };
-                            timer.schedule(cursortask_maqam, 4000);
+                              moveCursor(ployline);
 
                             break;
                         case "zamzam_1":
@@ -431,23 +440,7 @@ public class AlharamController implements Initializable {
                                 zamzam_1.getLayoutX() + 50, zamzam_1.getLayoutY() + 80,
                                 zamzam_2.getLayoutX() + 60, zamzam_2.getLayoutY() + 100,});
 
-                            pathTransition = new PathTransition();
-                            pathTransition.setDuration(Duration.seconds(2));
-                            pathTransition.setNode(cursor);
-                            pathTransition.setPath(ployline);
-                            pathTransition.setCycleCount(-1);
-                            pathTransition.setAutoReverse(false);
-                            pathTransition.play();
-                            cursor.setVisible(true);
-
-                            TimerTask cursortask_zamzam = new TimerTask() {
-                                @Override
-                                public void run() {
-                                    cursor.setVisible(false);
-
-                                }
-                            };
-                            timer.schedule(cursortask_zamzam, 4000);
+                              moveCursor(ployline);
 
                             break;
                         case "methna_1":
@@ -456,22 +449,7 @@ public class AlharamController implements Initializable {
                                 methna_1.getLayoutX() + 50, methna_1.getLayoutY() + 80,
                                 methna_2.getLayoutX() + 60, methna_2.getLayoutY() + 100,});
 
-                            pathTransition = new PathTransition();
-                            pathTransition.setDuration(Duration.seconds(2));
-                            pathTransition.setNode(cursor);
-                            pathTransition.setPath(ployline);
-                            pathTransition.setCycleCount(-1);
-                            pathTransition.setAutoReverse(false);
-                            pathTransition.play();
-                            cursor.setVisible(true);
-
-                            TimerTask cursortask_methna = new TimerTask() {
-                                @Override
-                                public void run() {
-                                    cursor.setVisible(false);
-                                }
-                            };
-                            timer.schedule(cursortask_methna, 4000);
+                             moveCursor(ployline);
                             break;
                         case "taef_1":
 
@@ -480,30 +458,36 @@ public class AlharamController implements Initializable {
                                 taef_1.getLayoutX() + 50, taef_1.getLayoutY() + 80,
                                 taef_2.getLayoutX() + 60, taef_2.getLayoutY() + 100,});
 
-                            pathTransition = new PathTransition();
-                            pathTransition.setDuration(Duration.seconds(2));
-                            pathTransition.setNode(cursor);
-                            pathTransition.setPath(ployline);
-                            pathTransition.setCycleCount(-1);
-                            pathTransition.setAutoReverse(false);
-                            pathTransition.play();
-                            cursor.setVisible(true);
-
-                            TimerTask cursortask_taef = new TimerTask() {
-                                @Override
-                                public void run() {
-                                    cursor.setVisible(false);
-                                }
-                            };
-                            timer.schedule(cursortask_taef, 4000);
+                              moveCursor(ployline);
                             break;
                     }
-                 break;   
+                    break;
                 }
 
             }
         }
 
     }
+    
+    private void moveCursor(Polyline ployline) {
+         Timer timer = new Timer();
+                PathTransition pathTransition = new PathTransition();
+                pathTransition.setDuration(Duration.seconds(2));
+                pathTransition.setNode(cursor);
+                pathTransition.setPath(ployline);
+                pathTransition.setCycleCount(-1);
+                pathTransition.setAutoReverse(false);
+                pathTransition.play();
+                cursor.setVisible(true);
+
+                TimerTask cursortask_kaaba = new TimerTask() {
+                    @Override
+                    public void run() {
+                        cursor.setVisible(false);
+
+                    }
+                };
+                timer.schedule(cursortask_kaaba, 4000);
+            }
 
 }
