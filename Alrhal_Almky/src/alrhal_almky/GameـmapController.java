@@ -195,7 +195,7 @@ public class GameـmapController implements Initializable {
                 
                 TranslateTransition Transition_Harm2Cloud = new TranslateTransition();
                 Transition_Harm2Cloud.setNode(cloud_Harm2);
-                Transition_Harm2Cloud.setDuration(Duration.seconds(6.2));
+                Transition_Harm2Cloud.setDuration(Duration.seconds(4.2));
                 Transition_Harm2Cloud.setToX(-680);
                 Transition_Harm2Cloud.play();
 
@@ -203,13 +203,13 @@ public class GameـmapController implements Initializable {
                 if(levelNum > 1){
                 TranslateTransition Transition_Mena1Cloud = new TranslateTransition();
                 Transition_Mena1Cloud.setNode(cloud_Mena1);
-                Transition_Mena1Cloud.setDuration(Duration.seconds(6.2));
+                Transition_Mena1Cloud.setDuration(Duration.seconds(4.2));
                 Transition_Mena1Cloud.setToX(680);
                 Transition_Mena1Cloud.play();
                 
                 TranslateTransition Transition_Mena2Cloud = new TranslateTransition();
                 Transition_Mena2Cloud.setNode(cloud_Mena2);
-                Transition_Mena2Cloud.setDuration(Duration.seconds(6.2));
+                Transition_Mena2Cloud.setDuration(Duration.seconds(3.2));
                 Transition_Mena2Cloud.setToX(-680);
                 Transition_Mena2Cloud.play();
                 closed_lock.setVisible(false);

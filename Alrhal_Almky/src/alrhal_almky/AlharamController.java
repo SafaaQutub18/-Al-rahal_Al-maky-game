@@ -60,8 +60,6 @@ public class AlharamController implements Initializable {
     int test;
 
     ///////////////////////////////////
-    
-
     @FXML
     private ImageView kaaba_1;
 
@@ -126,15 +124,17 @@ public class AlharamController implements Initializable {
     private ImageView tears;
     @FXML
     private Text helpPoints;
+    
+    public DragDropHandler dragObject = new DragDropHandler() ;
 
     public static int hearts = 0;
 
     public static int userPoints = 0;
 
     public static HashMap<String, Boolean> helpHashMap = new HashMap<String, Boolean>();
-    
+
     private static MediaPlayer mediaPlayer;
-    
+
     GameـmapController mapController = new GameـmapController();
 
     ///////////////////////////////////
@@ -192,35 +192,25 @@ public class AlharamController implements Initializable {
                     sad_boy2.setVisible(false);
                     sad_boy.setVisible(true);
                     // الدمعة
+
                     tears.setVisible(true);
-
-                    TranslateTransition Transition_tears = new TranslateTransition();
-                    Transition_tears.setNode(tears);
-                    Transition_tears.setDuration(Duration.seconds(1.5));
-                    Transition_tears.setToY(100);
-                    Transition_tears.setCycleCount(-1);
-                    Transition_tears.setAutoReverse(false);
-                    Transition_tears.play();
-                    //System.out.println("Loss Interface");         
-
                 }
                 
-/// if happy 
+                
             }
         }, 0, 10);
-        
 
         Timer timer = new Timer();
 
         TimerTask boytask = new TimerTask() {
             @Override
             public void run() {
-                
-if(mapController.userLevel.equalsIgnoreCase("1")){
-                Media sound = new Media(new File("instructionInAlharam.mp3").toURI().toString());
-                mediaPlayer = new MediaPlayer(sound);
-                mediaPlayer.play();
-}
+
+                if (mapController.userLevel.equalsIgnoreCase("1")) {
+                    Media sound = new Media(new File("instructionInAlharam.mp3").toURI().toString());
+                    mediaPlayer = new MediaPlayer(sound);
+                    mediaPlayer.play();
+                }
                 TranslateTransition Transition_science = new TranslateTransition();
                 Transition_science.setNode(normal_boy);
                 Transition_science.setDuration(Duration.seconds(1.2));
@@ -230,54 +220,54 @@ if(mapController.userLevel.equalsIgnoreCase("1")){
         };
         timer.schedule(boytask, 1000l);
 
-        if(mapController.userLevel.equalsIgnoreCase("1")){
-        TimerTask instructionsTask = new TimerTask() {
-            @Override
-            public void run() {
-                Polyline ployline = new Polyline();
-                ployline.getPoints().addAll(new Double[]{
-                    kaaba_1.getLayoutX() + 50, kaaba_1.getLayoutY() + 80,
-                    kaaba_2.getLayoutX() + 60, kaaba_2.getLayoutY() + 100,});
+        if (mapController.userLevel.equalsIgnoreCase("1")) {
+            TimerTask instructionsTask = new TimerTask() {
+                @Override
+                public void run() {
+                    Polyline ployline = new Polyline();
+                    ployline.getPoints().addAll(new Double[]{
+                        kaaba_1.getLayoutX() + 50, kaaba_1.getLayoutY() + 80,
+                        kaaba_2.getLayoutX() + 60, kaaba_2.getLayoutY() + 100,});
 
-                moveCursor(ployline);
+                    moveCursor(ployline);
 
-            }   
-        };
-        timer.schedule(instructionsTask, 9500);
+                }
+            };
+            timer.schedule(instructionsTask, 9500);
 
-        TimerTask instructionsTask2 = new TimerTask() {
-            @Override
-            public void run() {
-                int depth = 70;
-                DropShadow borderGlow = new DropShadow();
-                borderGlow.setOffsetY(0f);
-                borderGlow.setOffsetX(0f);
-                borderGlow.setColor(Color.RED);
-                borderGlow.setWidth(depth);
-                borderGlow.setHeight(depth);
+            TimerTask instructionsTask2 = new TimerTask() {
+                @Override
+                public void run() {
+                    int depth = 70;
+                    DropShadow borderGlow = new DropShadow();
+                    borderGlow.setOffsetY(0f);
+                    borderGlow.setOffsetX(0f);
+                    borderGlow.setColor(Color.RED);
+                    borderGlow.setWidth(depth);
+                    borderGlow.setHeight(depth);
 
-                kaaba_2.setEffect(borderGlow);
+                    kaaba_2.setEffect(borderGlow);
 
-                TimerTask disableGlowEffect = new TimerTask() {
-                    @Override
-                    public void run() {
-                        int depth = 0;
-                        DropShadow borderGlow = new DropShadow();
-                        borderGlow.setOffsetY(0f);
-                        borderGlow.setOffsetX(0f);
-                        borderGlow.setColor(Color.TRANSPARENT);
-                        borderGlow.setWidth(depth);
-                        borderGlow.setHeight(depth);
+                    TimerTask disableGlowEffect = new TimerTask() {
+                        @Override
+                        public void run() {
+                            int depth = 0;
+                            DropShadow borderGlow = new DropShadow();
+                            borderGlow.setOffsetY(0f);
+                            borderGlow.setOffsetX(0f);
+                            borderGlow.setColor(Color.TRANSPARENT);
+                            borderGlow.setWidth(depth);
+                            borderGlow.setHeight(depth);
 
-                        kaaba_2.setEffect(borderGlow);
+                            kaaba_2.setEffect(borderGlow);
 
-                    }
-                };
-                timer.schedule(disableGlowEffect, 9000);
+                        }
+                    };
+                    timer.schedule(disableGlowEffect, 9000);
 
-            }
-        };
-        timer.schedule(instructionsTask2, 16000);
+                }
+            };
+            timer.schedule(instructionsTask2, 16000);
         }
         TimerTask birdtask = new TimerTask() {
             @Override
@@ -420,7 +410,7 @@ if(mapController.userLevel.equalsIgnoreCase("1")){
                                 kaaba_1.getLayoutX() + 50, kaaba_1.getLayoutY() + 80,
                                 kaaba_2.getLayoutX() + 60, kaaba_2.getLayoutY() + 100,});
 
-                             moveCursor(ployline);
+                            moveCursor(ployline);
                             break;
                         case "makam_1":
                             ployline = new Polyline();
@@ -428,7 +418,7 @@ if(mapController.userLevel.equalsIgnoreCase("1")){
                                 makam_1.getLayoutX() + 50, makam_1.getLayoutY() + 80,
                                 makam_2.getLayoutX() + 60, makam_2.getLayoutY() + 100,});
 
-                              moveCursor(ployline);
+                            moveCursor(ployline);
                             break;
                         case "sahn_1":
 
@@ -437,7 +427,7 @@ if(mapController.userLevel.equalsIgnoreCase("1")){
                                 sahn_1.getLayoutX() + 50, sahn_1.getLayoutY() + 80,
                                 sahn_2.getLayoutX() + 60, sahn_2.getLayoutY() + 100,});
 
-                              moveCursor(ployline);
+                            moveCursor(ployline);
 
                             break;
                         case "zamzam_1":
@@ -446,7 +436,7 @@ if(mapController.userLevel.equalsIgnoreCase("1")){
                                 zamzam_1.getLayoutX() + 50, zamzam_1.getLayoutY() + 80,
                                 zamzam_2.getLayoutX() + 60, zamzam_2.getLayoutY() + 100,});
 
-                              moveCursor(ployline);
+                            moveCursor(ployline);
 
                             break;
                         case "methna_1":
@@ -455,7 +445,7 @@ if(mapController.userLevel.equalsIgnoreCase("1")){
                                 methna_1.getLayoutX() + 50, methna_1.getLayoutY() + 80,
                                 methna_2.getLayoutX() + 60, methna_2.getLayoutY() + 100,});
 
-                             moveCursor(ployline);
+                            moveCursor(ployline);
                             break;
                         case "taef_1":
 
@@ -464,7 +454,7 @@ if(mapController.userLevel.equalsIgnoreCase("1")){
                                 taef_1.getLayoutX() + 50, taef_1.getLayoutY() + 80,
                                 taef_2.getLayoutX() + 60, taef_2.getLayoutY() + 100,});
 
-                              moveCursor(ployline);
+                            moveCursor(ployline);
                             break;
                     }
                     break;
@@ -474,26 +464,47 @@ if(mapController.userLevel.equalsIgnoreCase("1")){
         }
 
     }
-    
+
     private void moveCursor(Polyline ployline) {
-         Timer timer = new Timer();
-                PathTransition pathTransition = new PathTransition();
-                pathTransition.setDuration(Duration.seconds(2));
-                pathTransition.setNode(cursor);
-                pathTransition.setPath(ployline);
-                pathTransition.setCycleCount(-1);
-                pathTransition.setAutoReverse(false);
-                pathTransition.play();
-                cursor.setVisible(true);
+        Timer timer = new Timer();
+        PathTransition pathTransition = new PathTransition();
+        pathTransition.setDuration(Duration.seconds(2));
+        pathTransition.setNode(cursor);
+        pathTransition.setPath(ployline);
+        pathTransition.setCycleCount(-1);
+        pathTransition.setAutoReverse(false);
+        pathTransition.play();
+        cursor.setVisible(true);
 
-                TimerTask cursortask = new TimerTask() {
-                    @Override
-                    public void run() {
-                        cursor.setVisible(false);
+        TimerTask cursortask = new TimerTask() {
+            @Override
+            public void run() {
+                cursor.setVisible(false);
 
-                    }
-                };
-                timer.schedule(cursortask, 4000);
             }
+        };
+        timer.schedule(cursortask, 4000);
+    }
+
+    private void moveTears(Polyline ployline) {
+        Timer timer = new Timer();
+        PathTransition pathTransition = new PathTransition();
+        pathTransition.setDuration(Duration.seconds(2));
+        pathTransition.setNode(tears);
+        pathTransition.setPath(ployline);
+        pathTransition.setCycleCount(-1);
+        pathTransition.setAutoReverse(false);
+        pathTransition.play();
+        tears.setVisible(true);
+
+        TimerTask cursortask = new TimerTask() {
+            @Override
+            public void run() {
+                cursor.setVisible(false);
+
+            }
+        };
+        timer.schedule(cursortask, 4000);
+    }
 
 }

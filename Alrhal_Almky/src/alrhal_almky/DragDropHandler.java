@@ -355,6 +355,8 @@ public class DragDropHandler {
                         Logger.getLogger(Win_interfaceController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
                     }
                 }
+                
+                
             }
             if (arr.size() == 7) {
                 // Update user level

@@ -41,7 +41,7 @@
         <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪╕┘ä%20╪º┘ä┘â╪╣╪¿╪⌐.png" />
       </image>
     </ImageView>
-    <ImageView fx:id="sahn_2" fitHeight="126.0" fitWidth="169.0" layoutX="411.0" layoutY="432.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+    <ImageView fx:id="sahn_2" fitHeight="130.0" fitWidth="174.0" layoutX="394.0" layoutY="427.0" opacity="0.37" pickOnBounds="true" preserveRatio="true">
       <image>
         <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪╕┘ä%20╪¡╪¼╪▒%20╪º╪│┘à╪º╪╣┘è┘ä.png" />
       </image>
@@ -189,11 +189,6 @@
         <Image url="@الصور/boy-bad2.png" />
       </image>
     </ImageView>
-    <ImageView fx:id="tears" fitHeight="14.0" fitWidth="10.0" layoutX="146.0" layoutY="447.0" visible="false">
-      <image>
-        <Image url="@الصور/مكونات%20المرحلة%20الاولى/دمعة.png" />
-      </image>
-    </ImageView>
     <ImageView fx:id="cursor" fitHeight="32.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" visible="false">
       <image>
         <Image url="@الصور/1200px-Mano_cursor.svg.png" />
@@ -201,5 +196,20 @@
     </ImageView>
     <Button layoutX="174.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleHelpButton" opacity="0.0" prefHeight="45.0" prefWidth="116.0" text="Button" />
     <Text fx:id="helpPoints" fill="WHITE" font="$x1" layoutX="94.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-5" visible="false" />
+      <ImageView fx:id="tears" fitHeight="45.0" fitWidth="14.0" layoutX="150.0" layoutY="448.0" visible="false">
+         <image>
+            <Image url="@الصور/مكونات%20المرحلة%20الاولى/giphy.gif" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="happyBoy1" fitHeight="338.0" fitWidth="206.0" layoutX="29.0" layoutY="324.0" visible="false">
+         <image>
+            <Image url="@الصور/boy-good.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="happyBoy2" fitHeight="344.0" fitWidth="206.0" layoutX="18.0" layoutY="318.0" visible="false">
+         <image>
+            <Image url="@الصور/boy-good2.png" />
+         </image>
+      </ImageView>
   </children>
 </AnchorPane>
