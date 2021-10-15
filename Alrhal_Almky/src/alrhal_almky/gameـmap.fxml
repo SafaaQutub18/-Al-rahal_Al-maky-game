@@ -2,13 +2,16 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="900.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.GameـmapController">
+<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="900.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.GameـmapController">
    <children>
       <ImageView fitHeight="675.0" fitWidth="900.0">
          <image>
@@ -44,11 +47,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <ImageView fitHeight="355.0" fitWidth="212.0" layoutX="14.0" layoutY="275.0">
-         <image>
-            <Image url="@الصور/hello%20boy.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="58.0" fitWidth="63.0" layoutX="122.0" layoutY="156.0">
          <image>
             <Image url="@الصور/giphy.gif" />
@@ -57,6 +55,84 @@
       <ImageView fitHeight="80.0" fitWidth="95.0" layoutX="673.0" layoutY="344.0">
          <image>
             <Image url="@الصور/3Amc.gif" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud_Harm2" fitHeight="179.0" fitWidth="179.0" layoutX="264.0" layoutY="253.0">
+         <image>
+            <Image url="@الصور/اشياء%20الخريطة_غيمة٢.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud_Harm1" fitHeight="166.0" fitWidth="166.0" layoutX="368.0" layoutY="217.0">
+         <image>
+            <Image url="@الصور/اشياء%20الخريطة_غيمة١.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud_Mena2" disable="true" fitHeight="146.0" fitWidth="143.0" layoutX="418.0" layoutY="369.0">
+         <image>
+            <Image url="@الصور/اشياء%20الخريطة_غيمة١.png" />
+         </image>
+         <effect>
+            <Reflection bottomOpacity="0.24" fraction="0.72" topOffset="-10.0" topOpacity="0.13" />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="cloud_Mena1" disable="true" fitHeight="179.0" fitWidth="179.0" layoutX="454.0" layoutY="310.0">
+         <image>
+            <Image url="@الصور/اشياء%20الخريطة_غيمة٢.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.02" contrast="0.27" hue="-0.46" saturation="0.03" />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="cloud_Harm211" fitHeight="134.0" fitWidth="142.0" layoutX="291.0" layoutY="458.0">
+         <image>
+            <Image url="@الصور/اشياء%20الخريطة_غيمة٢.png" />
+         </image>
+         <effect>
+            <DropShadow color="#000000a2" />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="cloud_Harm2111" fitHeight="109.0" fitWidth="114.0" layoutX="396.0" layoutY="123.0">
+         <image>
+            <Image url="@الصور/اشياء%20الخريطة_غيمة٢.png" />
+         </image>
+         <effect>
+            <DropShadow color="#000000a2" />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="cloud_Harm2112" fitHeight="109.0" fitWidth="114.0" layoutX="494.0" layoutY="162.0">
+         <image>
+            <Image url="@الصور/اشياء%20الخريطة_غيمة٢.png" />
+         </image>
+         <effect>
+            <DropShadow color="#000000a2" />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="cloud_Harm2113" fitHeight="109.0" fitWidth="114.0" layoutX="159.0" layoutY="201.0">
+         <image>
+            <Image url="@الصور/اشياء%20الخريطة_غيمة٢.png" />
+         </image>
+         <effect>
+            <DropShadow color="#000000a2" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="355.0" fitWidth="212.0" layoutX="14.0" layoutY="275.0">
+         <image>
+            <Image url="@الصور/hello%20boy.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="closed_lock" fitHeight="33.0" fitWidth="35.0" layoutX="494.0" layoutY="407.0">
+         <image>
+            <Image url="@الصور/اشياء%20الخريطة_قفل.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="open_lock" fitHeight="33.0" fitWidth="35.0" layoutX="495.0" layoutY="407.0" visible="false">
+         <image>
+            <Image url="@الصور/اشياء%20الخريطة_قفل%20مفتوح.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="open_lock1" fitHeight="33.0" fitWidth="35.0" layoutX="505.0" layoutY="417.0" visible="false">
+         <image>
+            <Image url="@الصور/اشياء%20الخريطة_قفل%20مفتوح.png" />
          </image>
       </ImageView>
    </children>

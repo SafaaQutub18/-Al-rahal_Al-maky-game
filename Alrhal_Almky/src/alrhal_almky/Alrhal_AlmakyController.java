@@ -40,8 +40,8 @@ private MediaView mv;
 private ImageView homeButton;
 
 private Parent root;
-    private Scene scene;
-    private Stage stage;
+private Scene scene;
+private Stage stage;
 private static MediaPlayer mediaPlayer;
 private MediaPlayer mp;
 private Media me;
@@ -77,7 +77,6 @@ private Media me;
             @Override
             public void run() {
                 homeButton.setVisible(true);
-
             }
         };
         timer.schedule(homeButtonTask, 15000);

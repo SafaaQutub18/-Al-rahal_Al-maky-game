@@ -14,6 +14,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,10 +24,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -32,6 +37,24 @@ import javafx.stage.Stage;
  * @author hudaalandijani
  */
 public class GameـmapController implements Initializable {
+    @FXML
+    private ImageView cloud_Harm2;
+    
+    @FXML
+    private ImageView cloud_Harm1;
+        @FXML
+    private ImageView cloud_Mena1;
+
+    @FXML
+    private ImageView cloud_Mena2;
+    
+    @FXML
+    private ImageView closed_lock;
+
+    @FXML
+    private ImageView open_lock;
+
+    
      private Parent root;
      private Scene scene;
      private Stage stage;
@@ -90,6 +113,7 @@ public class GameـmapController implements Initializable {
         // Create file for user level
         File userLevelFile = new File("UserLevel.txt");
 
+        
         try {
 
             // If the user is new
@@ -153,6 +177,61 @@ public class GameـmapController implements Initializable {
         mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
         }
+        
+         Timer timer = new Timer();
+// اخذ رقم المستوى من الملف وتخزينه ك انتجر
+        int levelNum = Integer.parseInt(userLevel);
+        TimerTask level1CloudTask = new TimerTask() {
+            
+            @Override
+            public void run() {
+                
+ 
+               TranslateTransition Transition_Harm1Cloud = new TranslateTransition();
+                Transition_Harm1Cloud.setNode(cloud_Harm1);
+                Transition_Harm1Cloud.setDuration(Duration.seconds(6.2));
+                Transition_Harm1Cloud.setToX(680);
+                Transition_Harm1Cloud.play();
+                
+                TranslateTransition Transition_Harm2Cloud = new TranslateTransition();
+                Transition_Harm2Cloud.setNode(cloud_Harm2);
+                Transition_Harm2Cloud.setDuration(Duration.seconds(6.2));
+                Transition_Harm2Cloud.setToX(-680);
+                Transition_Harm2Cloud.play();
+
+                
+                if(levelNum > 1){
+                TranslateTransition Transition_Mena1Cloud = new TranslateTransition();
+                Transition_Mena1Cloud.setNode(cloud_Mena1);
+                Transition_Mena1Cloud.setDuration(Duration.seconds(6.2));
+                Transition_Mena1Cloud.setToX(680);
+                Transition_Mena1Cloud.play();
+                
+                TranslateTransition Transition_Mena2Cloud = new TranslateTransition();
+                Transition_Mena2Cloud.setNode(cloud_Mena2);
+                Transition_Mena2Cloud.setDuration(Duration.seconds(6.2));
+                Transition_Mena2Cloud.setToX(-680);
+                Transition_Mena2Cloud.play();
+                closed_lock.setVisible(false);
+                open_lock.setVisible(true);
+                }
+
+            }
+        };
+         if(levelNum == 1)
+        timer.schedule(level1CloudTask, 10101);
+         else if(levelNum >1) 
+        timer.schedule(level1CloudTask, 1000);
+       
+         //////// اختفاء القفل
+           TimerTask lockerTask = new TimerTask() {
+            
+            @Override
+            public void run() {
+            open_lock.setVisible(false);
+            }
+          };    
+        timer.schedule(lockerTask, 4800);
         
         
     }

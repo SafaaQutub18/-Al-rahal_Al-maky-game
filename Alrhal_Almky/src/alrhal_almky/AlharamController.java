@@ -60,6 +60,8 @@ public class AlharamController implements Initializable {
     int test;
 
     ///////////////////////////////////
+    
+
     @FXML
     private ImageView kaaba_1;
 
@@ -195,15 +197,15 @@ public class AlharamController implements Initializable {
                     TranslateTransition Transition_tears = new TranslateTransition();
                     Transition_tears.setNode(tears);
                     Transition_tears.setDuration(Duration.seconds(1.5));
-                    Transition_tears.setToY(200);
-                    Transition_tears.setToX(0);
+                    Transition_tears.setToY(100);
                     Transition_tears.setCycleCount(-1);
-                    //Transition_tears.setAutoReverse(true);
+                    Transition_tears.setAutoReverse(false);
                     Transition_tears.play();
                     //System.out.println("Loss Interface");         
 
                 }
-
+                
+/// if happy 
             }
         }, 0, 10);
         

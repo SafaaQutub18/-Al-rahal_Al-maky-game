@@ -100,7 +100,7 @@ public class DragDropHandler {
         }
     };
 
-    ArrayList<String> arr = new ArrayList<String>();
+    public ArrayList<String> arr = new ArrayList<String>();
     final EventHandler<DragEvent> myHandlerDropped = new EventHandler<DragEvent>() {
 
         @Override
