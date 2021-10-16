@@ -5,6 +5,7 @@
  */
 package alrhal_almky;
 
+import static alrhal_almky.DragDropHandler.arr;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -209,8 +210,9 @@ public class AlharamController implements Initializable {
                 }
                 
                 DragDropHandler happyObject = new DragDropHandler();
-                if (happyObject.arr.size() == 6)
+                if (happyObject.arr.size() == 6  )
                     happyBoyWon();
+                
                 
             }
         }, 0, 10);
