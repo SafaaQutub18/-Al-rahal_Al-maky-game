@@ -51,7 +51,7 @@ import javafx.util.Duration;
  *
  * @author Nuha
  */
-public class AlharamController implements Initializable {
+public class AlharamController implements Initializable , happyBoyDelegate{
 
     private Parent root;
     private Scene scene;
@@ -204,33 +204,7 @@ public class AlharamController implements Initializable {
                     tears.setVisible(true);
                 }
                 
-                DragDropHandler dragObject = new DragDropHandler() ;
-                
-                if (dragObject.arr.size() == 6) {
-                    System.out.println("ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
-                    sad_boy.setVisible(false);
-                    normal_boy.setVisible(false);
-                    Timer timer = new Timer();
-                    
-                    TimerTask happyBoy1Task = new TimerTask() {
-                        @Override
-                        public void run() {
-                            happyBoy1.setVisible(true);
-                        }
-                    };
-                    timer.schedule(happyBoy1Task, 1000);
-                    
-                    TimerTask happyBoy2Task = new TimerTask() {
-                        @Override
-                        public void run() {
-                            happyBoy1.setVisible(false);
-                            happyBoy2.setVisible(true);
-
-                        }
-                    };
-                    timer.schedule(happyBoy2Task, 1500);
-       
-            }}
+            }
         }, 0, 10);
 
         Timer timer = new Timer();
@@ -538,4 +512,31 @@ public class AlharamController implements Initializable {
         timer.schedule(cursortask, 4000);
     }
 
-}
+    @Override
+    public void won() {
+        System.out.println("ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
+                   /* sad_boy.setVisible(false);
+                    normal_boy.setVisible(false);
+                    Timer timer = new Timer();
+                    
+                    TimerTask happyBoy1Task = new TimerTask() {
+                        @Override
+                        public void run() {
+                            happyBoy1.setVisible(true);
+                        }
+                    };
+                    timer.schedule(happyBoy1Task, 1000);
+                    
+                    TimerTask happyBoy2Task = new TimerTask() {
+                        @Override
+                        public void run() {
+                            happyBoy1.setVisible(false);
+                            happyBoy2.setVisible(true);
+                        }
+                    };
+                    timer.schedule(happyBoy2Task, 1500);
+       */
+            }
+    }
+
+

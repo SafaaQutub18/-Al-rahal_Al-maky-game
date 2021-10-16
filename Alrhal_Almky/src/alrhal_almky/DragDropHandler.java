@@ -39,6 +39,7 @@ import javafx.stage.StageStyle;
  */
 public class DragDropHandler {
 
+    happyBoyDelegate delegate ;
     ImageView source = new ImageView();
     ImageView target = new ImageView();
 
@@ -305,13 +306,14 @@ public class DragDropHandler {
             }
 
             if (arr.size() == 6) {
+                delegate.won();
+                
                 // Update user level
                 mapController.userData("2");
                 //To play win sound
                 if (mapController.currentLevel.equalsIgnoreCase("haram")) {
 
                             soundPlayer.playSound("winFirstLevel");
-
 
                     System.out.println("CAAAAAAL Win interface");
                     System.out.println("You win :D!");
@@ -343,9 +345,10 @@ public class DragDropHandler {
                     } catch (IOException ex) {
                         Logger.getLogger(Win_interfaceController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
                     }
+                    
                 }
                 
-                
+ 
             }
             if (arr.size() == 7) {
                 // Update user level
@@ -425,3 +428,5 @@ public class DragDropHandler {
 
    
 }
+
+
