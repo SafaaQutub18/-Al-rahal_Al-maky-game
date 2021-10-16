@@ -51,7 +51,7 @@ import javafx.util.Duration;
  *
  * @author Nuha
  */
-public class AlharamController implements Initializable , happyBoyDelegate{
+public class AlharamController implements Initializable {
 
     private Parent root;
     private Scene scene;
@@ -132,7 +132,7 @@ public class AlharamController implements Initializable , happyBoyDelegate{
     private ImageView happyBoy2;
     
 
-
+    int happyCondtion = 0;
     public static int hearts = 0;
 
     public static int userPoints = 0;
@@ -203,6 +203,10 @@ public class AlharamController implements Initializable , happyBoyDelegate{
 
                     tears.setVisible(true);
                 }
+                
+                DragDropHandler happyObject = new DragDropHandler();
+                if (happyObject.arr.size() == 6)
+                    happyBoyWon();
                 
             }
         }, 0, 10);
@@ -512,10 +516,11 @@ public class AlharamController implements Initializable , happyBoyDelegate{
         timer.schedule(cursortask, 4000);
     }
 
-    @Override
-    public void won() {
+    
+    public void happyBoyWon() {
+        if (happyCondtion == 0){
         System.out.println("ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
-                   /* sad_boy.setVisible(false);
+                    sad_boy.setVisible(false);
                     normal_boy.setVisible(false);
                     Timer timer = new Timer();
                     
@@ -525,7 +530,7 @@ public class AlharamController implements Initializable , happyBoyDelegate{
                             happyBoy1.setVisible(true);
                         }
                     };
-                    timer.schedule(happyBoy1Task, 1000);
+                    timer.schedule(happyBoy1Task, 0);
                     
                     TimerTask happyBoy2Task = new TimerTask() {
                         @Override
@@ -535,8 +540,9 @@ public class AlharamController implements Initializable , happyBoyDelegate{
                         }
                     };
                     timer.schedule(happyBoy2Task, 1500);
-       */
+                    happyCondtion ++;
             }
+    }
     }
 
 

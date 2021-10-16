@@ -39,7 +39,7 @@ import javafx.stage.StageStyle;
  */
 public class DragDropHandler {
 
-    happyBoyDelegate delegate ;
+    //happyBoyDelegate delegate ;
     ImageView source = new ImageView();
     ImageView target = new ImageView();
 
@@ -104,7 +104,7 @@ public class DragDropHandler {
         }
     };
 
-    public ArrayList<String> arr = new ArrayList<String>();
+    public static ArrayList<String> arr = new ArrayList<String>();
     final EventHandler<DragEvent> myHandlerDropped = new EventHandler<DragEvent>() {
 
         @Override
@@ -306,7 +306,6 @@ public class DragDropHandler {
             }
 
             if (arr.size() == 6) {
-                delegate.won();
                 
                 // Update user level
                 mapController.userData("2");
