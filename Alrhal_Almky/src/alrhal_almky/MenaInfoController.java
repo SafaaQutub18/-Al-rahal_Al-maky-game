@@ -38,25 +38,24 @@ import javafx.util.Duration;
  */
 public class MenaInfoController implements Initializable {
 
-    
     HashMap<String, Image> alharamInfoImages = new HashMap<>();
     ImageView source = new ImageView();
     ImageView target = new ImageView();
-    
+
     private Parent root;
     private Scene scene;
     private Stage stage;
-    private static MediaPlayer mediaPlayer;
-    
+    SoundHandler soundPlayer = new SoundHandler();
+
     double glowVal = 0.5;
 
-   // Create initial effects and transforms.
-   Glow glow = new Glow(0.5);
-    
-      Rectangle shape = new Rectangle();
+    // Create initial effects and transforms.
+    Glow glow = new Glow(0.5);
+
+    Rectangle shape = new Rectangle();
 
     String[] imgs = new String[]{"khema", "kobra", "wosta", "soghra", "haj", "hajar"};
-    
+
     @FXML
     private void handleMaptButton(ActionEvent event) throws IOException {
 
@@ -66,22 +65,21 @@ public class MenaInfoController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    
-    public void showInfo(MouseEvent event) throws IOException{
-  
-        
+
+    public void showInfo(MouseEvent event) throws IOException {
+
         shape.setOpacity(0);
         //fillTransition.setDuration(Duration.seconds(100));
-        
+
         FillTransition fillTransition = new FillTransition();
         source = (ImageView) event.getSource();
-        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = stage.getScene();
-        
-        shape = (Rectangle)scene.lookup("#"+source.getId()+"_rect");
-        
+
+        shape = (Rectangle) scene.lookup("#" + source.getId() + "_rect");
+
         shape.setOpacity(0.2);
-        
+
         fillTransition.setDuration(Duration.seconds(2));
         fillTransition.setShape(shape);
         fillTransition.setFromValue(Color.GREENYELLOW);
@@ -89,12 +87,11 @@ public class MenaInfoController implements Initializable {
         //fillTransition.setCycleCount(-1);
         fillTransition.setAutoReverse(true);
         fillTransition.play();
-        
-        
+
         FillTransition fillTransition_2 = new FillTransition();
-        
-        Rectangle shape_2 = (Rectangle)scene.lookup("#infoRect_rect");
-        
+
+        Rectangle shape_2 = (Rectangle) scene.lookup("#infoRect_rect");
+
         shape_2.setOpacity(0.2);
         fillTransition_2.setDuration(Duration.seconds(2));
         fillTransition_2.setShape(shape_2);
@@ -103,51 +100,46 @@ public class MenaInfoController implements Initializable {
         //fillTransition.setCycleCount(-1);
         fillTransition_2.setAutoReverse(true);
         fillTransition_2.play();
-        
+
         //scene.setCursor(Cursor.HAND); //Change cursor to hand
-        target = (ImageView)scene.lookup("#infoRectAlharam");
-        
-                for (int i = 0; i < imgs.length; i++) {
-            if(!(imgs[i].equalsIgnoreCase(source.getId()))) {
-                System.out.println("#"+imgs[i]);
-                ImageView temp = (ImageView)scene.lookup("#"+imgs[i]);
+        target = (ImageView) scene.lookup("#infoRectAlharam");
+
+        for (int i = 0; i < imgs.length; i++) {
+            if (!(imgs[i].equalsIgnoreCase(source.getId()))) {
+                System.out.println("#" + imgs[i]);
+                ImageView temp = (ImageView) scene.lookup("#" + imgs[i]);
                 temp.setEffect(null);
             }
         }
-        
+
         //ImageView temp = (ImageView)scene.lookup("#kaaba");
         //temp.setImage(null);
-        System.out.println(source.getId()+".png");
-        InputStream stream = getClass().getResourceAsStream("images/info/"+source.getId()+".png");
-        
-        Media sound = new Media(new File(source.getId()+".mp3").toURI().toString());
-        mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
-        
+        System.out.println(source.getId() + ".png");
+        InputStream stream = getClass().getResourceAsStream("images/info/" + source.getId() + ".png");
+
+        soundPlayer.playSound(source.getId());
+
         //"images/" is the a local directory where all my images are located
-        Image newImage = new Image(stream); 
+        Image newImage = new Image(stream);
         target.setImage(newImage);
         source.setEffect(glow);
         //target.setEffect(glow);
 
     }
-    
-    
-    public void chageCurser(MouseEvent event) throws IOException{
-        Stage stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+
+    public void chageCurser(MouseEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = stage.getScene();
         scene.setCursor(Cursor.HAND); //Change cursor to hand
     }
-    
-    
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       Media sound = new Media(new File("menaInfo.mp3").toURI().toString());
-        mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
-    }    
-    
+
+        soundPlayer.playSound("menaInfo");
+    }
+
 }

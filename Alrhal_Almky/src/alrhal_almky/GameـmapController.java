@@ -25,8 +25,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -61,7 +59,7 @@ public class GameـmapController implements Initializable {
      public static String userLevel;
      public static String currentLevel;
      private Scene homeScene;
-     private static MediaPlayer mediaPlayer;
+     SoundHandler soundPlayer = new SoundHandler();
      @FXML
     private Text WarningText;
      
@@ -173,9 +171,8 @@ public class GameـmapController implements Initializable {
         }
         
         if(userLevel.equalsIgnoreCase("1")){
-        Media sound = new Media(new File("instructionInMap.mp3").toURI().toString());
-        mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
+
+    soundPlayer.playSound("instructionInMap");
         }
         
          Timer timer = new Timer();

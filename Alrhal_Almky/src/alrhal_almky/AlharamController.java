@@ -125,7 +125,7 @@ public class AlharamController implements Initializable {
     @FXML
     private Text helpPoints;
     
-    public DragDropHandler dragObject = new DragDropHandler() ;
+//    public DragDropHandler dragObject = new DragDropHandler() ;
 
     public static int hearts = 0;
 
@@ -133,7 +133,7 @@ public class AlharamController implements Initializable {
 
     public static HashMap<String, Boolean> helpHashMap = new HashMap<String, Boolean>();
 
-    private static MediaPlayer mediaPlayer;
+    SoundHandler soundPlayer = new SoundHandler();
 
     GameـmapController mapController = new GameـmapController();
 
@@ -206,10 +206,8 @@ public class AlharamController implements Initializable {
             @Override
             public void run() {
 
-                if (mapController.userLevel.equalsIgnoreCase("1")) {
-                    Media sound = new Media(new File("instructionInAlharam.mp3").toURI().toString());
-                    mediaPlayer = new MediaPlayer(sound);
-                    mediaPlayer.play();
+                if (mapController.userLevel.equalsIgnoreCase("1")) { 
+                soundPlayer.playSound("instructionInAlharam");
                 }
                 TranslateTransition Transition_science = new TranslateTransition();
                 Transition_science.setNode(normal_boy);
