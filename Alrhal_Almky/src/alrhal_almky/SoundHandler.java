@@ -9,7 +9,7 @@ import javafx.scene.media.MediaPlayer.Status;
 
 
 public class SoundHandler {
-   static MediaPlayer player;
+static MediaPlayer player;
 static Media pick;
 
 static Status status = Status.STOPPED;
@@ -34,7 +34,6 @@ static Status status = Status.STOPPED;
      soundsHashMap.put("amazing", "amazing.mp3");
      soundsHashMap.put("good", "good.mp3");
      soundsHashMap.put("excellent", "excellent.mp3");
-     
      soundsHashMap.put("menaInfo", "menaInfo.mp3");
      soundsHashMap.put("wosta", "wosta.mp3");
      soundsHashMap.put("soghra", "soghra.mp3");
@@ -43,7 +42,8 @@ static Status status = Status.STOPPED;
      soundsHashMap.put("hajar", "hajar.mp3");
      soundsHashMap.put("haj", "haj.mp3");
      soundsHashMap.put("congrats", "congrats.mp3");
- 
+     soundsHashMap.put("silent", "silent.mp3");
+     
  }
 
 public void playSound(String soundName) {

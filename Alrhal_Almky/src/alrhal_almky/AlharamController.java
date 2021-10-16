@@ -125,7 +125,7 @@ public class AlharamController implements Initializable {
     @FXML
     private Text helpPoints;
     
-//    public DragDropHandler dragObject = new DragDropHandler() ;
+    //public DragDropHandler dragObject = new DragDropHandler() ;
 
     public static int hearts = 0;
 

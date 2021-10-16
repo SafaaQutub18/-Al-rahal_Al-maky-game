@@ -171,8 +171,9 @@ public class GameـmapController implements Initializable {
         }
         
         if(userLevel.equalsIgnoreCase("1")){
-
-    soundPlayer.playSound("instructionInMap");
+         soundPlayer.playSound("instructionInMap");
+        }else{
+        soundPlayer.playSound("silent");
         }
         
          Timer timer = new Timer();
