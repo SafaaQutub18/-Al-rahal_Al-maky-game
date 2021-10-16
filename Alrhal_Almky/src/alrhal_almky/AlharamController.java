@@ -125,7 +125,12 @@ public class AlharamController implements Initializable {
     @FXML
     private Text helpPoints;
     
-    public DragDropHandler dragObject = new DragDropHandler() ;
+     @FXML
+    private ImageView happyBoy1;
+     
+    @FXML
+    private ImageView happyBoy2;
+    
 
     public static int hearts = 0;
 
@@ -136,6 +141,8 @@ public class AlharamController implements Initializable {
     private static MediaPlayer mediaPlayer;
 
     GameـmapController mapController = new GameـmapController();
+    
+    
 
     ///////////////////////////////////
     @FXML
@@ -196,8 +203,33 @@ public class AlharamController implements Initializable {
                     tears.setVisible(true);
                 }
                 
+                DragDropHandler dragObject = new DragDropHandler() ;
                 
-            }
+                if (dragObject.arr.size() == 6) {
+                    System.out.println("ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
+                    sad_boy.setVisible(false);
+                    normal_boy.setVisible(false);
+                    Timer timer = new Timer();
+                    
+                    TimerTask happyBoy1Task = new TimerTask() {
+                        @Override
+                        public void run() {
+                            happyBoy1.setVisible(true);
+                        }
+                    };
+                    timer.schedule(happyBoy1Task, 1000);
+                    
+                    TimerTask happyBoy2Task = new TimerTask() {
+                        @Override
+                        public void run() {
+                            happyBoy1.setVisible(false);
+                            happyBoy2.setVisible(true);
+
+                        }
+                    };
+                    timer.schedule(happyBoy2Task, 1500);
+       
+            }}
         }, 0, 10);
 
         Timer timer = new Timer();
