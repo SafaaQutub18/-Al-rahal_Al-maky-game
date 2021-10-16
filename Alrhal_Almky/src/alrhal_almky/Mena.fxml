@@ -199,5 +199,18 @@
             <Image url="@الصور/boy-happy.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="515.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="167.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="254.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="party2" fitHeight="372.0" fitWidth="324.0" layoutX="574.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@الصور/534349_a47b1.gif" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="party1" fitHeight="372.0" fitWidth="324.0" layoutX="5.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@الصور/534320_791f5.gif" />
+         </image>
+      </ImageView>
   </children>
 </AnchorPane>

@@ -201,6 +201,11 @@
             <Image url="@الصور/مكونات%20المرحلة%20الاولى/giphy.gif" />
          </image>
       </ImageView>
+      <ImageView fx:id="party1" fitHeight="569.0" fitWidth="1006.0" layoutX="1.0" layoutY="24.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@الصور/41e74b0f91b7cb7df6b73e34ae8528a4.gif" />
+         </image>
+      </ImageView>
       <ImageView fx:id="happyBoy1" fitHeight="338.0" fitWidth="206.0" layoutX="29.0" layoutY="324.0" visible="false">
          <image>
             <Image url="@الصور/boy-good.png" />
@@ -209,11 +214,6 @@
       <ImageView fx:id="happyBoy2" fitHeight="344.0" fitWidth="206.0" layoutX="18.0" layoutY="318.0" visible="false">
          <image>
             <Image url="@الصور/boy-good2.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="party1" fitHeight="633.0" fitWidth="1018.0" layoutX="-41.0" layoutY="9.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" visible="false">
-         <image>
-            <Image url="@الصور/مكونات%20المرحلة%20الاولى/happy.gif" />
          </image>
       </ImageView>
   </children>
