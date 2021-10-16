@@ -31,7 +31,7 @@ public class StartController implements Initializable {
     private Scene scene;
     private Stage stage;
    
-    private static MediaPlayer mediaPlayer;
+    SoundHandler soundPlayer = new SoundHandler();
 
     /**
      * Navigate to the map
@@ -54,9 +54,7 @@ public class StartController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        Media sound = new Media(new File("startPage.mp3").toURI().toString());
-        mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
+    soundPlayer.playSound("startPage");
 
     }
 

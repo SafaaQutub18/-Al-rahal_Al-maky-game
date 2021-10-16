@@ -46,7 +46,8 @@ public class AlharamInfoController implements Initializable {
     private Parent root;
     private Scene scene;
     private Stage stage;
-    private static MediaPlayer mediaPlayer;
+    SoundHandler soundPlayer = new SoundHandler();
+
     
     
     String[] imgs = new String[]{"kaaba", "makam", "sahn", "zamzam"};
@@ -134,10 +135,8 @@ public class AlharamInfoController implements Initializable {
         //temp.setImage(null);
         System.out.println(source.getId()+".png");
         InputStream stream = getClass().getResourceAsStream("images/info/"+source.getId()+".png");
-        
-        Media sound = new Media(new File(source.getId()+".mp3").toURI().toString());
-        mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
+        soundPlayer.playSound(source.getId());
+
         
         //"images/" is the a local directory where all my images are located
         Image newImage = new Image(stream); 
@@ -178,9 +177,8 @@ public class AlharamInfoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Media sound = new Media(new File("haramInfo.mp3").toURI().toString());
-        mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
+        soundPlayer.playSound("haramInfo");
+
 
     }    
     

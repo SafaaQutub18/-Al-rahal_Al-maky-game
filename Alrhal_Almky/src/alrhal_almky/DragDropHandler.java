@@ -49,7 +49,10 @@ public class DragDropHandler {
     private double anchorY;
     private double mouseOffsetFromNodeZeroX;
     private double mouseOffsetFromNodeZeroY;
+    
     private static MediaPlayer mediaPlayer;
+    
+    SoundHandler soundPlayer = new SoundHandler();
 
     AlharamController ac = new AlharamController();
     MenaController mc = new MenaController();
@@ -106,10 +109,10 @@ public class DragDropHandler {
         @Override
         public void handle(DragEvent event) {
 
-            soundslist.add("great.mp3");
-            soundslist.add("amazing.mp3");
-            soundslist.add("good.mp3");
-            soundslist.add("excellent.mp3");
+            soundslist.add("great");
+            soundslist.add("amazing");
+            soundslist.add("good");
+            soundslist.add("excellent");
 
             System.out.println("In drag dropped, before if");
 
@@ -141,9 +144,7 @@ public class DragDropHandler {
                 if (ac.userPoints > 3 || mc.userPoints > 3) {
                     int upperbound = 5;
                     int int_random = rand.nextInt(upperbound);
-                    Media sound = new Media(new File(soundslist.get(int_random)).toURI().toString());
-                    mediaPlayer = new MediaPlayer(sound);
-                    mediaPlayer.play();
+                    soundPlayer.playSound(soundslist.get(int_random));
                 }
             } else {
                 event.setDropCompleted(false);
@@ -224,9 +225,7 @@ public class DragDropHandler {
 
                         //To play loss sound
                         if (mapController.currentLevel.equalsIgnoreCase("haram")) {
-                            Media sound = new Media(new File("lossFirstLevel.mp3").toURI().toString());
-                            mediaPlayer = new MediaPlayer(sound);
-                            mediaPlayer.play();
+                            soundPlayer.playSound("lossFirstLevel");
                         }
                         //else if (mapController.currentLevel.equalsIgnoreCase("mena")){
                         //Media sound = new Media(new File("lossSecondLevel.mp3").toURI().toString());
@@ -267,9 +266,7 @@ public class DragDropHandler {
                     if (mc.hearts == 3) {
 
                         if (mapController.currentLevel.equalsIgnoreCase("mena")) {
-                            Media sound = new Media(new File("lossSecondLevel.mp3").toURI().toString());
-                            mediaPlayer = new MediaPlayer(sound);
-                            mediaPlayer.play();
+                            soundPlayer.playSound("lossSecondLevel");
                         }
 
                         System.out.println("Call Mena loss function");
@@ -313,16 +310,8 @@ public class DragDropHandler {
                 //To play win sound
                 if (mapController.currentLevel.equalsIgnoreCase("haram")) {
 
-                    Timer timer = new Timer();
-                    TimerTask winSoundTask = new TimerTask() {
-                        @Override
-                        public void run() {
-                            Media sound = new Media(new File("winFirstLevel.mp3").toURI().toString());
-                            mediaPlayer = new MediaPlayer(sound);
-                            mediaPlayer.play();
-                        }
-                    };
-                    timer.schedule(winSoundTask, 2000);
+                            soundPlayer.playSound("winFirstLevel");
+
 
                     System.out.println("CAAAAAAL Win interface");
                     System.out.println("You win :D!");
@@ -363,16 +352,9 @@ public class DragDropHandler {
                 mapController.userData("3");
                 // To play win sound
                 if (mapController.currentLevel.equalsIgnoreCase("mena")) {
-                    Timer timer = new Timer();
-                    TimerTask winSoundTask = new TimerTask() {
-                        @Override
-                        public void run() {
-                            Media sound = new Media(new File("winSecondLevel.mp3").toURI().toString());
-                            mediaPlayer = new MediaPlayer(sound);
-                            mediaPlayer.play();
-                        }
-                    };
-                    timer.schedule(winSoundTask, 2000);
+
+                            soundPlayer.playSound("winSecondLevel");
+
 
                     System.out.println("CAAAAAAL Mena Win interface");
                     System.out.println("You win :D!");
