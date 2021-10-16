@@ -179,7 +179,7 @@ public class MenaController implements Initializable {
                     sad_boy.setVisible(true);
                 }
                 DragDropHandler happyObject = new DragDropHandler();
-                if (happyObject.arr.size() == 6)
+                if (happyObject.arr.size() == 7)
                     happyBoyWon();
             }
         }, 0, 1000);
