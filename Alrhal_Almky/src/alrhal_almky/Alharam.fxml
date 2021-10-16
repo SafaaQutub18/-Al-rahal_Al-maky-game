@@ -115,7 +115,7 @@
         <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪º┘ä┘à┘é╪º┘à.png" />
       </image>
     </ImageView>
-    <ImageView fx:id="sahn_1" fitHeight="102.0" fitWidth="102.0" layoutX="452.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true">
+    <ImageView fx:id="sahn_1" fitHeight="57.0" fitWidth="76.0" layoutX="467.0" layoutY="579.0" pickOnBounds="true" preserveRatio="true">
       <image>
         <Image url="@الصور/مكونات%20المرحلة%20الاولى/┘à┘â┘ê┘å╪º╪¬%20╪º┘ä┘à╪▒╪¡┘ä╪⌐%20╪º┘ä╪º┘ö┘ê┘ä┘ë_╪¡╪¼╪▒%20╪º╪│┘à╪º╪╣┘è┘ä.png" />
       </image>

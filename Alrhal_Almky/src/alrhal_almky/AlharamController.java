@@ -120,6 +120,7 @@ public class AlharamController implements Initializable {
     private ImageView sad_boy;
     @FXML
     private ImageView sad_boy2;
+    
     @FXML
     private ImageView tears;
     @FXML
@@ -205,7 +206,7 @@ public class AlharamController implements Initializable {
                 }
                 
                 DragDropHandler happyObject = new DragDropHandler();
-                if (happyObject.arr.size() == 6)
+                if (happyObject.arr.size() == 7)
                     happyBoyWon();
                 
             }

@@ -312,7 +312,7 @@ public class DragDropHandler {
                 //To play win sound
                 if (mapController.currentLevel.equalsIgnoreCase("haram")) {
 
-                            soundPlayer.playSound("winFirstLevel");
+                    soundPlayer.playSound("winFirstLevel");
 
                     System.out.println("CAAAAAAL Win interface");
                     System.out.println("You win :D!");
@@ -344,10 +344,11 @@ public class DragDropHandler {
                     } catch (IOException ex) {
                         Logger.getLogger(Win_interfaceController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
                     }
-                    
+                arr.clear();
+                System.out.println(arr.size());
                 }
                 
- 
+               
             }
             if (arr.size() == 7) {
                 // Update user level
@@ -388,6 +389,8 @@ public class DragDropHandler {
                     } catch (IOException ex) {
                         Logger.getLogger(Mena_winController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
                     }
+                arr.clear();
+                System.out.println(arr.size());
                 }
 
             }

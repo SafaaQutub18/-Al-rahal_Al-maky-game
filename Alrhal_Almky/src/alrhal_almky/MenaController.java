@@ -114,10 +114,13 @@ public class MenaController implements Initializable {
     private ImageView sad_boy;
     @FXML
     private ImageView sad_boy2;
+    @FXML
+    private ImageView happy_boy1;
 
     public static int hearts = 0;
 
     public static int userPoints = 0;
+    int happyCondtion = 0;
 
     public static HashMap<String, Boolean> helpHashMap = new HashMap<String, Boolean>();
 
@@ -175,6 +178,9 @@ public class MenaController implements Initializable {
                     sad_boy2.setVisible(false);
                     sad_boy.setVisible(true);
                 }
+                DragDropHandler happyObject = new DragDropHandler();
+                if (happyObject.arr.size() == 6)
+                    happyBoyWon();
             }
         }, 0, 1000);
 
@@ -390,5 +396,40 @@ public class MenaController implements Initializable {
                 };
                 timer.schedule(cursortask, 4000);
             }
+        
+            public void happyBoyWon() {
+        if (happyCondtion == 0){
+        System.out.println("ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
+                    sad_boy.setVisible(false);
+                    normal_boy.setVisible(false);
+                    Timer timer = new Timer();
+                    
+                    TimerTask happyBoy1Task = new TimerTask() {
+                        @Override
+                        public void run() {
+                            happy_boy1.setVisible(true);
+                    TranslateTransition transition_happy_boy = new TranslateTransition();       
+                    transition_happy_boy.setNode(happy_boy1);
+                    transition_happy_boy.setDuration(Duration.seconds(0.4));
+                    // translateTransitionAlien.setByY(-50);
+                    transition_happy_boy.setToY(-50);
+                    transition_happy_boy.setFromY(0);
+                    transition_happy_boy.setCycleCount(-1);
+                    transition_happy_boy.setAutoReverse(true);
+                    transition_happy_boy.play();
+                        }
+                    };
+                    timer.schedule(happyBoy1Task, 0);
+                    
+                    TimerTask happyBoy2Task = new TimerTask() {
+                        @Override
+                        public void run() {
+                           
+                        }
+                    };
+                    happyCondtion++ ;
+    
 
+}
+            }
 }
