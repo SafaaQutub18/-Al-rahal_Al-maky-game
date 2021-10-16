@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="900.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.MenaInfoController">
+<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="900.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.MenaInfoController">
    <children>
       <ImageView fitHeight="724.0" fitWidth="965.0" layoutX="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -18,7 +18,7 @@
             <Image url="@الصور/واجهة%20معلومات%20المسجد%20الحرام/الشخصية.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="92.0" layoutX="738.0" layoutY="133.0" stroke="TRANSPARENT" strokeType="INSIDE" width="107.0" />
+      <Rectangle id="khema_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="92.0" layoutX="738.0" layoutY="133.0" stroke="TRANSPARENT" strokeType="INSIDE" width="107.0" />
       <Rectangle id="kobra_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="92.0" layoutX="617.0" layoutY="136.0" stroke="TRANSPARENT" strokeType="INSIDE" width="107.0" />
       <Rectangle id="wosta_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="92.0" layoutX="500.0" layoutY="130.0" stroke="TRANSPARENT" strokeType="INSIDE" width="107.0" />
       <Rectangle id="soghra_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="92.0" layoutX="379.0" layoutY="135.0" stroke="TRANSPARENT" strokeType="INSIDE" width="107.0" />
