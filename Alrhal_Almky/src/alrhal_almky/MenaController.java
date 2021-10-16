@@ -116,6 +116,9 @@ public class MenaController implements Initializable {
     private ImageView sad_boy2;
     @FXML
     private ImageView happy_boy1;
+    @FXML
+    private ImageView party1;
+    
 
     public static int hearts = 0;
 
@@ -400,6 +403,7 @@ public class MenaController implements Initializable {
             public void happyBoyWon() {
         if (happyCondtion == 0){
         System.out.println("ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
+                   party1.setVisible(true);
                     sad_boy.setVisible(false);
                     normal_boy.setVisible(false);
                     Timer timer = new Timer();

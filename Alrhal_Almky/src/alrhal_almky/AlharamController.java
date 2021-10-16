@@ -118,6 +118,7 @@ public class AlharamController implements Initializable {
     private Text points;
     @FXML
     private ImageView sad_boy;
+    
     @FXML
     private ImageView sad_boy2;
     
@@ -131,6 +132,8 @@ public class AlharamController implements Initializable {
      
     @FXML
     private ImageView happyBoy2;
+     @FXML
+    private ImageView party1;
     
 
     int happyCondtion = 0;
@@ -206,7 +209,7 @@ public class AlharamController implements Initializable {
                 }
                 
                 DragDropHandler happyObject = new DragDropHandler();
-                if (happyObject.arr.size() == 7)
+                if (happyObject.arr.size() == 6)
                     happyBoyWon();
                 
             }
@@ -520,7 +523,7 @@ public class AlharamController implements Initializable {
     
     public void happyBoyWon() {
         if (happyCondtion == 0){
-        System.out.println("ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
+                    party1.setVisible(true);
                     sad_boy.setVisible(false);
                     normal_boy.setVisible(false);
                     Timer timer = new Timer();
