@@ -41,6 +41,7 @@ public class Alrhal_AlmakyController implements Initializable {
     private Scene scene;
     private Stage stage;
     SoundHandler soundPlayer = new SoundHandler();
+    static MediaPlayer mediaPlayer;
     private MediaPlayer mp;
     private Media me;
 
@@ -67,6 +68,9 @@ public class Alrhal_AlmakyController implements Initializable {
         mp.setAutoPlay(true);
 
         soundPlayer.playSound("congrats");
+        Media sound = new Media(new File("clapping.mp3").toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
 
         Timer timer = new Timer();
 

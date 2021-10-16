@@ -6,6 +6,7 @@
 package alrhal_almky;
 
 
+import static alrhal_almky.Alrhal_AlmakyController.mediaPlayer;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -227,6 +228,9 @@ public class DragDropHandler {
                         //To play loss sound
                         if (mapController.currentLevel.equalsIgnoreCase("haram")) {
                             soundPlayer.playSound("lossFirstLevel");
+                            Media sound = new Media(new File("loss.mp3").toURI().toString());
+                            mediaPlayer = new MediaPlayer(sound);
+                            mediaPlayer.play();
                         }
                         //else if (mapController.currentLevel.equalsIgnoreCase("mena")){
                         //Media sound = new Media(new File("lossSecondLevel.mp3").toURI().toString());
@@ -268,6 +272,9 @@ public class DragDropHandler {
 
                         if (mapController.currentLevel.equalsIgnoreCase("mena")) {
                             soundPlayer.playSound("lossSecondLevel");
+                            Media sound = new Media(new File("loss.mp3").toURI().toString());
+                            mediaPlayer = new MediaPlayer(sound);
+                            mediaPlayer.play();
                         }
 
                         System.out.println("Call Mena loss function");

@@ -20,5 +20,10 @@
             <Image url="@الصور/boy3.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="678.0" fitWidth="906.0" layoutX="-7.0" layoutY="-6.0">
+         <image>
+            <Image url="@الصور/1db287dce0b7bd05204f819364ee217e.gif" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
