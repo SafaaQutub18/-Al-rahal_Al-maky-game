@@ -125,6 +125,12 @@ public class AlharamController implements Initializable {
     @FXML
     private Text helpPoints;
     
+       @FXML
+    private ImageView happyBoy1;
+     
+    @FXML
+    private ImageView happyBoy2;
+    
 
 
     public static int hearts = 0;
