@@ -8,59 +8,59 @@
 
 <AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="900.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alrhal_almky.MenaInfoController">
    <children>
-      <ImageView fitHeight="724.0" fitWidth="965.0" layoutX="-5.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="675.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20مشعر%20منى/خلفية-معلومات-مشعر-منى.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="346.0" fitWidth="356.0" layoutX="291.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="346.0" fitWidth="356.0" layoutX="283.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20المسجد%20الحرام/الشخصية.png" />
          </image>
       </ImageView>
-      <Rectangle id="khema_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="92.0" layoutX="738.0" layoutY="133.0" stroke="TRANSPARENT" strokeType="INSIDE" width="107.0" />
-      <Rectangle id="kobra_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="92.0" layoutX="617.0" layoutY="136.0" stroke="TRANSPARENT" strokeType="INSIDE" width="107.0" />
-      <Rectangle id="wosta_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="92.0" layoutX="500.0" layoutY="130.0" stroke="TRANSPARENT" strokeType="INSIDE" width="107.0" />
-      <Rectangle id="soghra_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="92.0" layoutX="379.0" layoutY="135.0" stroke="TRANSPARENT" strokeType="INSIDE" width="107.0" />
-      <Rectangle id="haj_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="92.0" layoutX="261.0" layoutY="130.0" stroke="TRANSPARENT" strokeType="INSIDE" width="107.0" />
-      <Rectangle id="hajar_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="92.0" layoutX="143.0" layoutY="131.0" stroke="TRANSPARENT" strokeType="INSIDE" width="107.0" />
-      <Rectangle id="infoRect_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="125.0" layoutX="286.0" layoutY="452.0" stroke="TRANSPARENT" strokeType="INSIDE" width="261.0" />
-      <ImageView id="khema" fitHeight="129.0" fitWidth="133.0" layoutX="724.0" layoutY="114.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
+      <Rectangle id="khema_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="92.0" layoutX="702.0" layoutY="110.0" stroke="TRANSPARENT" strokeType="INSIDE" width="107.0" />
+      <Rectangle id="kobra_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="92.0" layoutX="581.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="107.0" />
+      <Rectangle id="wosta_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="92.0" layoutX="464.0" layoutY="107.0" stroke="TRANSPARENT" strokeType="INSIDE" width="107.0" />
+      <Rectangle id="soghra_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="92.0" layoutX="343.0" layoutY="112.0" stroke="TRANSPARENT" strokeType="INSIDE" width="107.0" />
+      <Rectangle id="haj_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="92.0" layoutX="225.0" layoutY="107.0" stroke="TRANSPARENT" strokeType="INSIDE" width="107.0" />
+      <Rectangle id="hajar_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="92.0" layoutX="107.0" layoutY="108.0" stroke="TRANSPARENT" strokeType="INSIDE" width="107.0" />
+      <Rectangle id="infoRect_rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="125.0" layoutX="278.0" layoutY="444.0" stroke="TRANSPARENT" strokeType="INSIDE" width="261.0" />
+      <ImageView id="khema" fitHeight="129.0" fitWidth="133.0" layoutX="688.0" layoutY="91.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20مشعر%20منى/معلومات%20مشعر%20منى-07.png" />
          </image>
       </ImageView>
-      <ImageView id="kobra" fitHeight="129.0" fitWidth="133.0" layoutX="604.0" layoutY="113.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="kobra" fitHeight="129.0" fitWidth="133.0" layoutX="568.0" layoutY="90.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20مشعر%20منى/معلومات%20مشعر%20منى-06.png" />
          </image>
       </ImageView>
-      <ImageView id="wosta" fitHeight="129.0" fitWidth="133.0" layoutX="489.0" layoutY="114.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="wosta" fitHeight="129.0" fitWidth="133.0" layoutX="453.0" layoutY="91.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20مشعر%20منى/معلومات%20مشعر%20منى-05.png" />
          </image>
       </ImageView>
-      <ImageView id="soghra" fitHeight="129.0" fitWidth="133.0" layoutX="367.0" layoutY="111.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="soghra" fitHeight="129.0" fitWidth="133.0" layoutX="331.0" layoutY="88.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20مشعر%20منى/معلومات%20مشعر%20منى-04.png" />
          </image>
       </ImageView>
-      <ImageView id="haj" fitHeight="129.0" fitWidth="133.0" layoutX="249.0" layoutY="113.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="haj" fitHeight="129.0" fitWidth="133.0" layoutX="213.0" layoutY="90.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20مشعر%20منى/معلومات%20مشعر%20منى-03.png" />
          </image>
       </ImageView>
-      <ImageView id="hajar" fitHeight="129.0" fitWidth="133.0" layoutX="129.0" layoutY="111.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="hajar" fitHeight="129.0" fitWidth="133.0" layoutX="93.0" layoutY="88.0" onMouseClicked="#showInfo" onMouseEntered="#chageCurser" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/واجهة%20معلومات%20مشعر%20منى/معلومات%20مشعر%20منى-02.png" />
          </image>
       </ImageView>
-      <ImageView id="infoRectAlharam" fitHeight="230.0" fitWidth="350.0" layoutX="301.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="794.0" layoutY="572.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="infoRectAlharam" fitHeight="230.0" fitWidth="350.0" layoutX="293.0" layoutY="402.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="739.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@الصور/مكونات%20المراحل%20الاساسية/+à+â+ê+å+º+¬%20+º+ä+à+▌+º+¡+ä%20+º+ä+º+▌+º+▌+è+¬-06.png" />
          </image>
       </ImageView>
-      <Button layoutX="810.0" layoutY="589.0" mnemonicParsing="false" onAction="#handleMaptButton" opacity="0.0" prefHeight="65.0" prefWidth="65.0" text="الخريطة" />
+      <Button layoutX="759.0" layoutY="550.0" mnemonicParsing="false" onAction="#handleMaptButton" opacity="0.0" prefHeight="65.0" prefWidth="65.0" text="الخريطة" />
    </children>
 </AnchorPane>

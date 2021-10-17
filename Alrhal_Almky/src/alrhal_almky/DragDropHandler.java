@@ -266,6 +266,7 @@ public class DragDropHandler {
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.close();
                         ac.hearts = 0;
+                        arr.clear();
 
                     }
                     if (mc.hearts == 3) {
@@ -305,6 +306,7 @@ public class DragDropHandler {
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.close();
                         mc.hearts = 0;
+                        arr.clear();
 
                     }
                 }
