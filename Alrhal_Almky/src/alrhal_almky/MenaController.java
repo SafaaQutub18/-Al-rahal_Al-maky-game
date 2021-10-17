@@ -408,6 +408,7 @@ public class MenaController implements Initializable {
                    party2.setVisible(true);
                    party1.setVisible(true);
                     sad_boy.setVisible(false);
+                    sad_boy2.setVisible(false);
                     normal_boy.setVisible(false);
                     Timer timer = new Timer();
                     
