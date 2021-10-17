@@ -207,6 +207,7 @@ public class AlharamController implements Initializable {
                     // الدمعة
 
                     tears.setVisible(true);
+                    arr.clear();
                 }
                 
                 DragDropHandler happyObject = new DragDropHandler();
