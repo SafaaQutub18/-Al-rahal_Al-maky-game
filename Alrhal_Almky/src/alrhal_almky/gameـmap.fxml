@@ -131,5 +131,16 @@
             <Image url="@الصور/اشياء%20الخريطة_قفل%20مفتوح.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="58.0" fitWidth="52.0" layoutX="842.0" layoutY="621.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@الصور/الفوز%20و%20الخسارة/الفوز%20و%20الخسارة-02.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="713.0" layoutY="652.0" strokeType="OUTSIDE" strokeWidth="0.0" text="إعادة تعيين المستوى والنقاط">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Text>
+      <Button layoutX="842.0" layoutY="625.0" mnemonicParsing="false" onAction="#handleResetButton" opacity="0.0" prefHeight="45.0" prefWidth="52.0" text="Button" />
    </children>
 </AnchorPane>

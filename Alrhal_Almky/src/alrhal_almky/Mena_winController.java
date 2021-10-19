@@ -70,6 +70,7 @@ public class Mena_winController implements Initializable {
        Stage stage = new Stage();
         scene = new Scene(root);
         stage.setScene(scene);
+stage.setResizable(false);
         stage.show();
     }
         }
@@ -81,6 +82,7 @@ public class Mena_winController implements Initializable {
        Stage stage = new Stage();
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
             }
     }  

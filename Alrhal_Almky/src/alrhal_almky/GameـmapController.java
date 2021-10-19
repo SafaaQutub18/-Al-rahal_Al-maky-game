@@ -73,6 +73,32 @@ public class GameـmapController implements Initializable {
                     // Exception handling
                 }
     }
+        @FXML
+    private void handleResetButton(ActionEvent event) throws IOException {
+            // Initialize the new user's level in the UserLevel file
+            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("UserLevel.txt"))) {
+                String fileContent = "1";
+                userLevel = fileContent;
+                bufferedWriter.write(fileContent);
+            } catch (IOException e) {
+                // Exception handling
+            }
+
+            // Initialize the new user's level in the UserLevel file
+            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("UserPoints.txt"))) {
+                String fileContent = "0";
+                bufferedWriter.write(fileContent);
+            } catch (IOException e) {
+                // Exception handling
+            }
+            
+        root = FXMLLoader.load(getClass().getResource("start.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
     
     @FXML
     private void handleAlharamButton(ActionEvent event) throws IOException {
@@ -83,6 +109,7 @@ public class GameـmapController implements Initializable {
         AlharamController alharam = new AlharamController();
         alharam.setScene(scene);
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
     
@@ -98,6 +125,7 @@ public class GameـmapController implements Initializable {
         MenaController mena = new MenaController();
         mena.setScene(scene);
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
         }
     }

@@ -11,7 +11,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,10 +21,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  * FXML Controller class
@@ -69,6 +73,16 @@ public class Mena_lossController implements Initializable {
         MenaController mena = new MenaController();
         mena.setScene(scene);
         stage.setScene(scene);
+stage.setResizable(false);
+            stage.setTitle("الرحـــال المـكــــي");
+            stage.getIcons().add(new Image(Alrhal_Almky.class.getResourceAsStream("images/icon.png")));
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                Platform.exit();
+                System.exit(0);
+            }
+        });
         stage.show();
      //
         //root = FXMLLoader.load(getClass().getResource("Alharam.fxml"));
@@ -101,6 +115,16 @@ public class Mena_lossController implements Initializable {
        Stage stage = new Stage();
         scene = new Scene(root);
         stage.setScene(scene);
+stage.setResizable(false);
+            stage.setTitle("الرحـــال المـكــــي");
+            stage.getIcons().add(new Image(Alrhal_Almky.class.getResourceAsStream("images/icon.png")));
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                Platform.exit();
+                System.exit(0);
+            }
+        });
         stage.show();
     }
         }
