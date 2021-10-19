@@ -61,14 +61,15 @@ public class Alrhal_AlmakyController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        String path = new File("Alrhal_scene.mp4").getAbsolutePath();
-        me = new Media(new File(path).toURI().toString());
+        //String path = new File("Alrhal_scene.mp4").getAbsolutePath();
+        //me = new Media(new File(path).toURI().toString());
+        me = new Media("https://safaaqutub18.github.io/Al-rahal_Al-maky-game/Alrhal_scene.mp4");
         mp = new MediaPlayer(me);
         mv.setMediaPlayer(mp);
         mp.setAutoPlay(true);
 
         soundPlayer.playSound("congrats");
-        Media sound = new Media(new File("clapping.mp3").toURI().toString());
+        Media sound = new Media(new File("https://safaaqutub18.github.io/Al-rahal_Al-maky-game/clapping.mp3").toURI().toString());
         mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
 
