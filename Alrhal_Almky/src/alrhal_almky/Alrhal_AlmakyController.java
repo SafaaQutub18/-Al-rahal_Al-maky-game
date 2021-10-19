@@ -65,19 +65,19 @@ public class Alrhal_AlmakyController implements Initializable {
         //String path = new File("Alrhal_scene.mp4").getAbsolutePath();
         //me = new Media(new File(path).toURI().toString());
         
-        me = new Media("https://safaaqutub18.github.io/Al-rahal_Al-maky-game/Alrhal_scene.mp4");
-        mp = new MediaPlayer(me);
-        mv.setMediaPlayer(mp);
+     //   me = new Media("https://safaaqutub18.github.io/Al-rahal_Al-maky-game/Alrhal_scene.mp4");
+      //  mp = new MediaPlayer(me);
+//        mv.setMediaPlayer(mp);
         //mp.setAutoPlay(true);
-        mp.play();
+      //  mp.play();
         
 
         
 
         soundPlayer.playSound("congrats");
-        Media sound = new Media(new File("https://safaaqutub18.github.io/Al-rahal_Al-maky-game/clapping.mp3").toURI().toString());
+       Media sound = new Media("https://safaaqutub18.github.io/Al-rahal_Al-maky-game/clapping.mp3");
         mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
+      mediaPlayer.play();
 
         Timer timer = new Timer();
 
