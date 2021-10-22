@@ -153,7 +153,7 @@ public class AlharamController implements Initializable {
     ///////////////////////////////////
     @FXML
     private void handleMaptButton(ActionEvent event) throws IOException {
-
+arr.clear();
         root = FXMLLoader.load(getClass().getResource("gameـmap.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -164,7 +164,7 @@ stage.setResizable(false);
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        
         // This HashMap for help button to keep track of images not used
         helpHashMap.put("kaaba_1", false);
         helpHashMap.put("makam_1", false);

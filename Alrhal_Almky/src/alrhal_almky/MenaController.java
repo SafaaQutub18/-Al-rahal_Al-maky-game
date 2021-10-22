@@ -6,6 +6,7 @@
 package alrhal_almky;
 
 
+import static alrhal_almky.DragDropHandler.arr;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -130,7 +131,7 @@ public class MenaController implements Initializable {
 
     @FXML
     private void handleMaptButton(ActionEvent event) throws IOException {
-
+        arr.clear();
         root = FXMLLoader.load(getClass().getResource("gameـmap.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -144,7 +145,7 @@ public class MenaController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+DragDropHandler happyObject = new DragDropHandler();
         // This HashMap for help button to keep track of images not used
         helpHashMap.put("khema_1", false);
         helpHashMap.put("kobra_1", false);
@@ -182,8 +183,9 @@ public class MenaController implements Initializable {
                     heart3.setVisible(false);
                     sad_boy2.setVisible(false);
                     sad_boy.setVisible(true);
+                    arr.clear();
                 }
-                DragDropHandler happyObject = new DragDropHandler();
+                
                 if (happyObject.arr.size() == 7)
                     happyBoyWon();
             }
