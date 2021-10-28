@@ -99,7 +99,7 @@ stage.setResizable(false);
         
         
         
-        
+        /*
         fillTransition.setDuration(Duration.seconds(2));
         fillTransition.setShape(shape);
         fillTransition.setFromValue(Color.GREENYELLOW);
@@ -121,7 +121,7 @@ stage.setResizable(false);
         //fillTransition.setCycleCount(-1);
         fillTransition_2.setAutoReverse(true);
         fillTransition_2.play();
-          
+          */
         for (int i = 0; i < imgs.length; i++) {
             if(!(imgs[i].equalsIgnoreCase(source.getId()))) {
                 System.out.println("#"+imgs[i]);

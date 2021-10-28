@@ -227,29 +227,26 @@ public class DragDropHandler {
 
                         //To play loss sound
                         if (mapController.currentLevel.equalsIgnoreCase("haram")) {
+                            
+                            
                             soundPlayer.playSound("lossFirstLevel");
-                            Media sound = new Media(new File("loss.mp3").toURI().toString());
-                            mediaPlayer = new MediaPlayer(sound);
-                            mediaPlayer.play();
-                        }
-                        //else if (mapController.currentLevel.equalsIgnoreCase("mena")){
-                        //Media sound = new Media(new File("lossSecondLevel.mp3").toURI().toString());
-                        //MediaPlayer mediaPlayer = new MediaPlayer(sound);
-                        //mediaPlayer.play();
-                        //}
-
-                        System.out.println("Call loss function");
+                            //Media sound = new Media(new File("loss.mp3").toURI().toString());
+                           // mediaPlayer = new MediaPlayer(sound);
+                            //mediaPlayer.play();
+                            
+                            
+                             System.out.println("Call loss function");
 
                         System.out.println("You loss :(!");
 
-                        Stage lossStage = null;
-                        Parent lossRoot = null;
-                        Scene sceneLoss = null;
-
+                    Stage lossStage = null;
+                    Parent lossRoot = null;
+                    Scene sceneLoss = null;
+                    try {
                         lossStage = new Stage();
-                        FXMLLoader lossLoader = new FXMLLoader();
-                        lossLoader.setLocation(getClass().getResource("Loss_interface.fxml"));
-                        lossRoot = lossLoader.load();
+                        FXMLLoader Winloader = new FXMLLoader();
+                        Winloader.setLocation(getClass().getResource("Loss_interface.fxml"));
+                        lossRoot = Winloader.load();
                         sceneLoss = new Scene(lossRoot);
                         sceneLoss.setFill(Color.TRANSPARENT);
 
@@ -265,23 +262,32 @@ public class DragDropHandler {
                         //stage.close();
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.close();
-                        ac.hearts = 0;
-                        arr.clear();
 
+                    } catch (IOException ex) {
+                        Logger.getLogger(Loss_interfaceController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                    }
+                arr.clear();
+
+                        }
+                        //else if (mapController.currentLevel.equalsIgnoreCase("mena")){
+                        //Media sound = new Media(new File("lossSecondLevel.mp3").toURI().toString());
+                        //MediaPlayer mediaPlayer = new MediaPlayer(sound);
+                        //mediaPlayer.play();
+                        //}
+
+                       
                     }
                     if (mc.hearts == 3) {
 
                         if (mapController.currentLevel.equalsIgnoreCase("mena")) {
+                            
+                              
                             soundPlayer.playSound("lossSecondLevel");
-                            Media sound = new Media(new File("loss.mp3").toURI().toString());
-                            mediaPlayer = new MediaPlayer(sound);
-                            mediaPlayer.play();
-                        }
-
-                        System.out.println("Call Mena loss function");
-
-                        System.out.println("You loss :(!");
-
+                           // Media sound = new Media(new File("loss.mp3").toURI().toString());
+                            //mediaPlayer = new MediaPlayer(sound);
+                            //mediaPlayer.play();
+                            
+                            
                         Stage lossStage = null;
                         Parent lossRoot = null;
                         Scene sceneLoss = null;
@@ -307,6 +313,14 @@ public class DragDropHandler {
                         stage.close();
                         mc.hearts = 0;
                         arr.clear();
+                            
+                        }
+
+                        //System.out.println("Call Mena loss function");
+
+                        //System.out.println("You loss :(!");
+
+                      
 
                     }
                 }

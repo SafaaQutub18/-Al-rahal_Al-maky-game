@@ -71,7 +71,7 @@ stage.setResizable(false);
 
         shape.setOpacity(0);
         //fillTransition.setDuration(Duration.seconds(100));
-
+/*
         FillTransition fillTransition = new FillTransition();
         source = (ImageView) event.getSource();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -101,7 +101,7 @@ stage.setResizable(false);
         //fillTransition.setCycleCount(-1);
         fillTransition_2.setAutoReverse(true);
         fillTransition_2.play();
-
+*/
         //scene.setCursor(Cursor.HAND); //Change cursor to hand
         target = (ImageView) scene.lookup("#infoRectAlharam");
 
