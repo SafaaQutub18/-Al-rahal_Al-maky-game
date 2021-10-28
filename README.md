@@ -3,4 +3,4 @@
 ## About:
 - An Arabic game thay teaches children about Makkah.
 
-- It is developer using JavaFX.
+- It is developed using JavaFX.
