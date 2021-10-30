@@ -405,6 +405,9 @@ DragDropHandler happyObject = new DragDropHandler();
             }
         
             public void happyBoyWon() {
+        sad_boy.setVisible(false);
+        sad_boy2.setVisible(false);
+        normal_boy.setVisible(false);
         if (happyCondtion == 0){
 
         System.out.println("ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");

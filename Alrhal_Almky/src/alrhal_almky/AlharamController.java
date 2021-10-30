@@ -332,36 +332,9 @@ stage.setResizable(false);
             img2.setOnDragOver(dragDropHandler.myHandlerOver);
             img2.setOnDragDropped(dragDropHandler.myHandlerDropped);
 
-            // System.out.println("Hello there,.,.,.");
         }
 
-        //ImageView img1 = (ImageView) scene.lookup("#kaaba_1");
-        //ImageView img2 = (ImageView) scene.lookup("#kaaba_2");
-        //img1.setCursor(Cursor.HAND);
-        //img1.setOnDragDetected(dragDropHandler.myHandlerDetected);
-        //img2.setOnMouseDragged(dragDropHandler.myHandlerDragged);
-        //img2.setOnDragOver(dragDropHandler.myHandlerOver);
-        //img2.setOnDragDropped(dragDropHandler.myHandlerDropped);
-        //img1.setOnMousePressed(dragDropHandler.circleOnMousePressedEventHandler);
-        //img1.setOnMouseDragged(dragDropHandler.circleOnMouseDraggedEventHandler);
-        /*ImageView img3 = (ImageView) scene.lookup("#makam_1");
-        
-        ImageView img4 = (ImageView) scene.lookup("#makam_2");
-        
-        
-        img3.setCursor(Cursor.HAND);
-        
-        img3.setOnDragDetected(dragDropHandler.myHandlerDetected);
-        
-        img4.setOnMouseDragged(dragDropHandler.myHandlerDragged);
-        
-        img4.setOnDragOver(dragDropHandler.myHandlerOver);
-        
-        img4.setOnDragDropped(dragDropHandler.myHandlerDropped);
-        
-        img3.setOnMousePressed(dragDropHandler.circleOnMousePressedEventHandler);
-        
-        img3.setOnMouseDragged(dragDropHandler.circleOnMouseDraggedEventHandler);*/
+
     }
 
     // Each time the user earn points or loss points we call this function
@@ -527,6 +500,9 @@ stage.setResizable(false);
 
     
     public void happyBoyWon() {
+        sad_boy.setVisible(false);
+        sad_boy2.setVisible(false);
+        normal_boy.setVisible(false);
         if (happyCondtion == 0){
                     party1.setVisible(true);
                     sad_boy.setVisible(false);
